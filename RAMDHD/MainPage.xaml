@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD"
              x:Class="RAMDHD.MainPage">
 
     <ContentPage.Resources>
@@ -20,45 +21,16 @@
 
             <!-- Timer Button with an SVG Image and Text -->
             <!-- Using Frame to make custom Button with reounded corners and Image+Label visual -->
-            <Frame Padding="0"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="Center"
-                BackgroundColor="{StaticResource ButtonNormalColor}"
-                CornerRadius="25"
-                HeightRequest="50"
-                HasShadow="False">
-                <!-- Set to False to remove the default shadow if desired -->
-
-                <Grid Padding="10"
-                      HorizontalOptions="FillAndExpand"
-                      VerticalOptions="Center">
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnTimerClicked" NumberOfTapsRequired="1" />
-                    </Grid.GestureRecognizers>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Image Source="stopwatch.svg"
-                        HeightRequest="30"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center"
-                        Margin="5,0" />
-                    <Label Grid.Column="1"
-                       Text="Timer"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Start"
-                       Margin="10,0,0,0"
-                       TextColor="White" />
-                    <!-- This sets the label text color to white -->
-                </Grid>
-            </Frame>
+            <local:CustomImageButton x:Name="customButton"
+                         ImageSource="stopwatch.svg"
+                         ButtonText="Timer"
+                         Tapped="OnTimerClicked" />
 
 
             <!-- Calendar Button/Label -->
             <Button
                 x:Name="CalendarBtn"
-                Text="Calendar"
+                Textt="Calendar"
                 Style="{StaticResource ChildlikeButtonStyle}" 
                 ContentLayout="Left, 20"
                 Clicked="OnCalendarClicked"
