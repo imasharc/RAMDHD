@@ -1,0 +1,27 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RAMDHD.TimerPage"
+             Title="Timer">
+
+    <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center" HorizontalOptions="Center">
+
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="▲" Clicked="IncreaseHours"/>
+            <Label x:Name="HourLabel" Text="00" WidthRequest="40" HorizontalTextAlignment="Center"/>
+            <Button Text="▼" Clicked="DecreaseHours"/>
+            <Label Text=":"/>
+            <Button Text="▲" Clicked="IncreaseMinutes"/>
+            <Label x:Name="MinuteLabel" Text="00" WidthRequest="40" HorizontalTextAlignment="Center"/>
+            <Button Text="▼" Clicked="DecreaseMinutes"/>
+        </HorizontalStackLayout>
+
+        <Label x:Name="TimeLabel"
+               Text="00:00:00"
+               FontSize="Large"
+               HorizontalOptions="Center" />
+
+        <Button x:Name="StartButton" Text="Start" Clicked="OnStartClicked"/>
+        <Button x:Name="StopButton" Text="Stop" Clicked="OnStopClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>
