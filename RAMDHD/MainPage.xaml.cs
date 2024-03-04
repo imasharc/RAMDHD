@@ -20,5 +20,20 @@ public partial class MainPage : ContentPage
     {
         Console.WriteLine("Calendar clicked");
     }
+
+    private void OnNotesClicked(object sender, EventArgs e)
+    {
+        Console.WriteLine("Notes clicked");
+    }
+
+    private void OnStudyClicked(object sender, EventArgs e)
+    {
+        Console.WriteLine("Study clicked");
+    }
+
+    private void OnHelplineClicked(object sender, EventArgs e)
+    {
+        Console.WriteLine("Helpline clicked");
+    }
 }
 

@@ -19,22 +19,37 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <!-- Timer Button with an SVG Image and Text -->
-            <!-- Using Frame to make custom Button with reounded corners and Image+Label visual -->
-            <local:CustomImageButton x:Name="customButton"
-                         ImageSource="stopwatch.svg"
+            <!-- Using generic CustomImageButton to make generic button elements as Image+Label button with function call -->
+            <!-- Timer Button/Label -->
+            <local:CustomImageButton x:Name="TimerButton"
+                         ImageSource="timer.svg"
                          ButtonText="Timer"
                          Tapped="OnTimerClicked" />
 
 
             <!-- Calendar Button/Label -->
-            <Button
-                x:Name="CalendarBtn"
-                Textt="Calendar"
-                Style="{StaticResource ChildlikeButtonStyle}" 
-                ContentLayout="Left, 20"
-                Clicked="OnCalendarClicked"
-                HorizontalOptions="FillAndExpand" />
+            <local:CustomImageButton x:Name="CalendarButton"
+                         ImageSource="calendar.svg"
+                         ButtonText="Calendar"
+                         Tapped="OnCalendarClicked" />
+
+            <!-- Notes Button/Label -->
+            <local:CustomImageButton x:Name="NotesButton"
+                         ImageSource="notes.svg"
+                         ButtonText="Notes"
+                         Tapped="OnNotesClicked" />
+
+            <!-- Study Button/Label -->
+            <local:CustomImageButton x:Name="StudyButton"
+                         ImageSource="study.svg"
+                         ButtonText="Study"
+                         Tapped="OnStudyClicked" />
+
+            <!-- Helpline Button/Label -->
+            <local:CustomImageButton x:Name="HelplineButton"
+                         ImageSource="helpline.svg"
+                         ButtonText="Helpline"
+                         Tapped="OnHelplineClicked" />
 
         </VerticalStackLayout>
     </ScrollView>
