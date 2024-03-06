@@ -4,7 +4,7 @@
     <Frame Padding="0"
            HorizontalOptions="FillAndExpand"
            VerticalOptions="Center"
-           BackgroundColor="#abdbe3"
+           BackgroundColor="#bddef3"
            CornerRadius="25"
            HeightRequest="50"
            HasShadow="False">
