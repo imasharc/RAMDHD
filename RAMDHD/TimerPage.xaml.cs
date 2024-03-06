@@ -1,78 +1,127 @@
-﻿using Microsoft.Maui.Controls;
-using Microsoft.Maui.Dispatching;
-using System;
+﻿using System;
+using System.Timers;
+using Microsoft.Maui.Controls;
 
 namespace RAMDHD
 {
     public partial class TimerPage : ContentPage
     {
-        private TimeSpan _timeSpan;
-        private IDispatcherTimer _timer;
-        private int _hours = 0;
-        private int _minutes = 0;
+        private System.Timers.Timer _timer;
+        private int _hours;
+        private int _minutes;
+        private int _seconds;
 
         public TimerPage()
         {
             InitializeComponent();
-
-            _timer = Dispatcher.CreateTimer();
-            _timer.Interval = TimeSpan.FromSeconds(1);
-            _timer.Tick += Timer_Tick;
+            InitializePickers();
+            InitializeTimer();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void InitializePickers()
         {
-            _timeSpan = _timeSpan.Subtract(TimeSpan.FromSeconds(1));
-            TimeLabel.Text = _timeSpan.ToString(@"hh\:mm\:ss");
-
-            if (_timeSpan <= TimeSpan.Zero)
+            // Populate HoursPicker
+            for (int i = 0; i < 24; i++)
             {
-                _timer.Stop();
-                TimeLabel.Text = "00:00:00";
-                DisplayAlert("Time's Up!", "The countdown has finished.", "OK");
+                HoursPicker.Items.Add(i.ToString("00"));
+            }
+
+            // Populate MinutesPicker
+            for (int i = 0; i < 60; i++)
+            {
+                MinutesPicker.Items.Add(i.ToString("00"));
             }
         }
 
-        private void IncreaseHours(object sender, EventArgs e)
+        private void InitializeTimer()
         {
-            _hours = (_hours + 1) % 24;
-            UpdateTimeLabels();
+            _timer = new System.Timers.Timer(1000);
+            _timer.Elapsed += OnTimerElapsed;
         }
 
-        private void DecreaseHours(object sender, EventArgs e)
+        // Event handler for HoursPicker
+        private void HoursPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _hours = (_hours - 1 + 24) % 24;
-            UpdateTimeLabels();
+            _hours = HoursPicker.SelectedIndex;
+            UpdateTimeLabel();
         }
 
-        private void IncreaseMinutes(object sender, EventArgs e)
+        // Event handler for MinutesPicker
+        private void MinutesPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _minutes = (_minutes + 1) % 60;
-            UpdateTimeLabels();
+            _minutes = MinutesPicker.SelectedIndex;
+            UpdateTimeLabel();
         }
 
-        private void DecreaseMinutes(object sender, EventArgs e)
-        {
-            _minutes = (_minutes - 1 + 60) % 60;
-            UpdateTimeLabels();
-        }
-
-        private void UpdateTimeLabels()
-        {
-            HourLabel.Text = _hours.ToString("00");
-            MinuteLabel.Text = _minutes.ToString("00");
-        }
-
+        // Event handler for Start button
         private void OnStartClicked(object sender, EventArgs e)
         {
-            _timeSpan = new TimeSpan(_hours, _minutes, 0);
+            _seconds = (_hours * 3600) + (_minutes * 60);
             _timer.Start();
+            StartButton.BackgroundColor = Colors.Gray;
+            StopButton.BackgroundColor = Color.FromArgb("#DF4C20"); // Original color
+            ResetButton.BackgroundColor = Color.FromArgb("#364955"); // Original color
+            StartButton.IsEnabled = false;
+            StopButton.IsEnabled = true;
         }
 
+        // Event handler for Stop button
         private void OnStopClicked(object sender, EventArgs e)
         {
             _timer.Stop();
-            TimeLabel.Text = "00:00:00";
+            StopButton.BackgroundColor = Colors.Gray;
+            StartButton.BackgroundColor = Color.FromArgb("#00C6AE"); // Original color
+            ResetButton.BackgroundColor = Color.FromArgb("#364955"); // Original color
+            StartButton.IsEnabled = true;
+            StopButton.IsEnabled = false;
         }
+
+        // Event handler for Reset button
+        private void OnResetClicked(object sender, EventArgs e)
+        {
+            _timer.Stop();
+            _hours = 0;
+            _minutes = 0;
+            _seconds = 0;
+            HoursPicker.SelectedIndex = 0;
+            MinutesPicker.SelectedIndex = 0;
+            MainThread.BeginInvokeOnMainThread(UpdateTimeLabel);
+            ResetButton.BackgroundColor = Colors.Gray;
+            StartButton.BackgroundColor = Color.FromArgb("#00C6AE"); // Original color
+            StopButton.BackgroundColor = Color.FromArgb("#DF4C20"); // Original color
+            StartButton.IsEnabled = true;
+            StopButton.IsEnabled = false;
+        }
+
+        private void OnTimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            if (_seconds > 0)
+            {
+                _seconds--;
+                MainThread.BeginInvokeOnMainThread(UpdateTimeLabel);
+            }
+            else
+            {
+                _timer.Stop();
+                // Optionally, alert the user that the timer has finished.
+                // Ensure that any UI updates are posted back to the main thread.
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    // Update UI to show timer has finished
+                    UpdateTimeLabel();
+                    StartButton.IsEnabled = true;
+                    StopButton.IsEnabled = false;
+                    // Consider showing an alert to the user here
+                });
+            }
+        }
+
+        private void UpdateTimeLabel()
+        {
+            // Assuming TimeLabel is on the main thread
+            var ts = TimeSpan.FromSeconds(_seconds);
+            TimeLabel.Text = ts.ToString(@"hh\:mm\:ss");
+        }
+
     }
 }
