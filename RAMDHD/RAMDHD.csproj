@@ -49,6 +49,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\adhd_type1.svg" />
+	  <None Remove="Resources\Images\adhd_type2.svg" />
+	  <None Remove="Resources\Images\adhd_type3.svg" />
 	  <None Remove="Resources\Images\brain.svg" />
 	</ItemGroup>
 
@@ -73,6 +76,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="WelcomeScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
