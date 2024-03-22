@@ -23,7 +23,7 @@ namespace RAMDHD
                 // Pop animation
                 await BrainImage.ScaleTo(3, 250, Easing.SpringIn); // Scale up the image
                                                                    // Use the built-in navigation mechanism if inside a NavigationPage or Shell.
-                await this.Navigation.PushAsync(new MainPage());
+                await this.Navigation.PushAsync(new ScreeningTestPage());
                 await BrainImage.ScaleTo(1.0, 250, Easing.SpringOut); // Scale back to original size
 
 
@@ -39,12 +39,31 @@ namespace RAMDHD
             isShaking = true; // Ensure the animation starts when the page appears
             ShakeBrainImage(); // Start the animation when the page appears
 
+            // Reset the properties of your images before starting animations
+            ResetImage(HiddenImage1);
+            ResetImage(HiddenImage2);
+            ResetImage(HiddenImage3);
+
+            // Slide the ADHD Test button into view from the right
+            SlideInButton(AdhdTestButton);
+
             // Start the pop-in animation for the other images
             await PopInImage(HiddenImage1, -100, -140);
+
             //await Task.Delay(200);
             await PopInImage(HiddenImage2, 0, -150);
             await PopInImage(HiddenImage3, 100, -140);
+
         }
+
+        private void ResetImage(View image)
+        {
+            image.Scale = 0; // Scaled down (initially invisible)
+            image.Opacity = 0; // Fully transparent (initially invisible)
+            image.TranslationX = 0; // Horizontal position reset
+            image.TranslationY = 0; // Vertical position reset
+        }
+
 
         private async Task PopInImage(View image, double finalX, double finalY)
         {
@@ -78,6 +97,15 @@ namespace RAMDHD
             }
         }
 
+        private async Task SlideInButton(Button button)
+        {
+            await button.TranslateTo(0, 0, 3000, Easing.CubicOut);
+        }
+
+        public async void OnAdhdTestButtonClicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PushAsync(new ScreeningTestPage());
+        }
         protected override void OnDisappearing()
         {
             base.OnDisappearing();

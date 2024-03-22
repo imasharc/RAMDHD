@@ -56,8 +56,15 @@
                    Opacity="0" />
         </Grid>
 
-        <!-- Bottom spacer -->
-        <BoxView Grid.Row="2" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start"/>
+        <!-- Button for ADHD Screening Test -->
+        <Button x:Name="AdhdTestButton"
+            Text="ADHD SCREENING TEST"
+            Grid.Row="3"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,100"
+            TranslationX="1000"
+            Clicked="OnAdhdTestButtonClicked" />
 
     </Grid>
 
