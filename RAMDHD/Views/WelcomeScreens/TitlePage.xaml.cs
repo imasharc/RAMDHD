@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 
-namespace RAMDHD
+namespace RAMDHD.Views.WelcomeScreens
 {
     public partial class TitlePage : ContentPage
     {

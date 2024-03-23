@@ -63,10 +63,10 @@
 	  <Compile Update="HomePage.xaml.cs">
 	    <DependentUpon>HomePage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="TitlePage.xaml.cs">
+	  <Compile Update="Views\WelcomeScreens\TitlePage.xaml.cs">
 	    <DependentUpon>TitlePage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="IntroductionPage.xaml.cs">
+	  <Compile Update="Views\WelcomeScreens\IntroductionPage.xaml.cs">
 	    <DependentUpon>IntroductionPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
@@ -84,9 +84,14 @@
 	  <MauiXaml Update="HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="IntroductionPage.xaml">
+	  <MauiXaml Update="Views\WelcomeScreens\IntroductionPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Views\MainScreens\" />
+	  <Folder Include="Views\ScreeningTestScreens\" />
 	</ItemGroup>
 
 </Project>

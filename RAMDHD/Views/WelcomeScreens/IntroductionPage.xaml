@@ -1,6 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RAMDHD.IntroductionPage">
+             x:Class="RAMDHD.Views.WelcomeScreens.IntroductionPage">
 
     <!-- Use a Grid instead of VerticalStackLayout for more precise control over layout -->
     <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">

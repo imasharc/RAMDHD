@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RAMDHD
+namespace RAMDHD.Views.WelcomeScreens
 {
     public partial class IntroductionPage
     {

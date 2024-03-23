@@ -6,9 +6,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
-
-        // Set the MainPage to a new NavigationPage with the MainPage as its root
-        MainPage = new NavigationPage(new TitlePage());
+        // Set the MainPage to the AppShell which defines your app's navigation structure
+        MainPage = new AppShell();
     }
 }
