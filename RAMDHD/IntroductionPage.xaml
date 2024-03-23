@@ -1,6 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RAMDHD.WelcomeScreen">
+             x:Class="RAMDHD.IntroductionPage">
 
     <!-- Use a Grid instead of VerticalStackLayout for more precise control over layout -->
     <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
@@ -32,8 +32,7 @@
                    VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer 
-                        NumberOfTapsRequired="1"
-                        Command="{Binding NavigateToMainPageCommand}" />
+                        NumberOfTapsRequired="1" />
                 </Image.GestureRecognizers>
             </Image>
 

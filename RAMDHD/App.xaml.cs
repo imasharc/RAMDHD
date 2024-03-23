@@ -9,6 +9,6 @@ public partial class App : Application
 		MainPage = new AppShell();
 
         // Set the MainPage to a new NavigationPage with the MainPage as its root
-        MainPage = new NavigationPage(new TitleScreen());
+        MainPage = new NavigationPage(new TitlePage());
     }
 }

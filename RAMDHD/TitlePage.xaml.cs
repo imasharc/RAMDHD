@@ -4,11 +4,11 @@ using Microsoft.Maui.Controls;
 
 namespace RAMDHD
 {
-    public partial class TitleScreen : ContentPage
+    public partial class TitlePage : ContentPage
     {
         private bool isShaking = true; // A flag to control the shaking animation
 
-        public TitleScreen()
+        public TitlePage()
         {
             InitializeComponent(); // This is necessary.
 
@@ -21,7 +21,7 @@ namespace RAMDHD
                 // Pop animation
                 await BrainImage.ScaleTo(3, 250, Easing.SpringIn); // Scale up the image
                                                                    // Use the built-in navigation mechanism if inside a NavigationPage or Shell.
-                await this.Navigation.PushAsync(new WelcomeScreen());
+                await this.Navigation.PushAsync(new IntroductionPage());
                 await BrainImage.ScaleTo(1.0, 250, Easing.SpringOut); // Scale back to original size
 
 

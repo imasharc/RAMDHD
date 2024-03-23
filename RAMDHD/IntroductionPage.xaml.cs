@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RAMDHD
 {
-    public partial class WelcomeScreen
+    public partial class IntroductionPage
     {
         private bool isShaking = true; // A flag to control the shaking animation
 
-        public WelcomeScreen()
+        public IntroductionPage()
         {
             InitializeComponent();
 
