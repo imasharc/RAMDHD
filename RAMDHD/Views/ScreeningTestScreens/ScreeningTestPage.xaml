@@ -1,0 +1,28 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RAMDHD.Views.ScreeningTestScreens.ScreeningTestPage"
+             Title="Screening Test for ADHD">
+
+    <VerticalStackLayout Spacing="25" Padding="30">
+        <!-- Title -->
+        <Label Text="Screening Test for ADHD" 
+               FontAttributes="Bold" 
+               FontSize="22" 
+               HorizontalOptions="Center" />
+
+        <!-- Question -->
+        <Label Text="How often do you have trouble listening to someone, even when they are speaking directly to you?"
+               FontSize="Medium" 
+               HorizontalOptions="Start" />
+
+        <!-- Answers as Radio Buttons -->
+        <RadioButton GroupName="answers" Content="Never" Value="0" CheckedChanged="OnAnswerSelected" />
+        <RadioButton GroupName="answers" Content="Rarely" Value="1" CheckedChanged="OnAnswerSelected" />
+        <RadioButton GroupName="answers" Content="Sometimes" Value="2" CheckedChanged="OnAnswerSelected" />
+        <RadioButton GroupName="answers" Content="Often" Value="3" CheckedChanged="OnAnswerSelected" />
+        <RadioButton GroupName="answers" Content="Very Often" Value="4" CheckedChanged="OnAnswerSelected" />
+
+        <!-- Show Results Button -->
+        <Button Text="Show Results" Clicked="OnShowResultsClicked" />
+    </VerticalStackLayout>
+</ContentPage>
