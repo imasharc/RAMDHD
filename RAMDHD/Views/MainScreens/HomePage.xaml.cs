@@ -1,4 +1,4 @@
-﻿namespace RAMDHD;
+﻿namespace RAMDHD.Views.MainScreens;
 
 public partial class MainPage : ContentPage
 {

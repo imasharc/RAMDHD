@@ -60,7 +60,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="HomePage.xaml.cs">
+	  <Compile Update="Views\MainScreens\HomePage.xaml.cs">
 	    <DependentUpon>HomePage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\WelcomeScreens\TitlePage.xaml.cs">
@@ -78,10 +78,10 @@
 	  <MauiXaml Update="ScreeningTestPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="TimerPage.xaml">
+	  <MauiXaml Update="Views\MainScreens\TimerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="HomePage.xaml">
+	  <MauiXaml Update="Views\MainScreens\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\WelcomeScreens\IntroductionPage.xaml">
@@ -90,7 +90,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Views\MainScreens\" />
 	  <Folder Include="Views\ScreeningTestScreens\" />
 	</ItemGroup>
 

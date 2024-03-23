@@ -2,7 +2,7 @@
 using System.Timers;
 using Microsoft.Maui.Controls;
 
-namespace RAMDHD
+namespace RAMDHD.Views.MainScreens
 {
     public partial class TimerPage : ContentPage
     {
