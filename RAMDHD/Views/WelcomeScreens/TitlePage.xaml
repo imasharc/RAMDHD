@@ -1,12 +1,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RAMDHD.Views.WelcomeScreens.TitlePage">
+             x:Class="RAMDHD.Views.WelcomeScreens.TitlePage"
+             BackgroundColor="White">
 
     <VerticalStackLayout Spacing="25" Padding="30" HorizontalOptions="Center" VerticalOptions="Center">
 
         <!-- Title Text -->
         <Label Text="CutCatADHD" 
                FontSize="Large" 
+               TextColor="Black"
                HorizontalOptions="Center" />
 
         <!-- Brain Image with Tap Gesture -->

@@ -1,6 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RAMDHD.Views.WelcomeScreens.IntroductionPage">
+             x:Class="RAMDHD.Views.WelcomeScreens.IntroductionPage"
+             BackgroundColor="White">
 
     <!-- Use a Grid instead of VerticalStackLayout for more precise control over layout -->
     <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
@@ -15,7 +16,8 @@
 
         <!-- Title Text -->
         <Label Grid.Row="0"
-               Text="DO YOU HAVE ADHD?" 
+               Text="DO YOU HAVE ADHD?"
+               TextColor="Black"
                FontSize="Large" 
                HorizontalOptions="Center"
                VerticalOptions="End" />
