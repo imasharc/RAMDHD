@@ -1,28 +1,143 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:RAMDHD.ViewModels.ScreeningTest"
              x:Class="RAMDHD.Views.ScreeningTestScreens.ScreeningTestPage"
-             Title="Screening Test for ADHD">
+             x:DataType="viewModels:ScreeningTestViewModel"
+             BackgroundColor="LightBlue">
 
-    <VerticalStackLayout Spacing="25" Padding="30">
-        <!-- Title -->
-        <Label Text="Screening Test for ADHD" 
-               FontAttributes="Bold" 
-               FontSize="22" 
-               HorizontalOptions="Center" />
+    <Grid VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Page content -->
+        <VerticalStackLayout Grid.Row="0" Spacing="20" Padding="30">
+
+        <!-- Screen Title -->
+        <Label Text="ADHD Screening Test"
+               FontAttributes="Bold"
+               FontSize="Title"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               Margin="0,0,0,20" />
 
         <!-- Question -->
-        <Label Text="How often do you have trouble listening to someone, even when they are speaking directly to you?"
-               FontSize="Medium" 
-               HorizontalOptions="Start" />
+        <Label Text="{Binding CurrentQuestion.Text}"
+               FontSize="Large"
+               TextColor="Black"
+               HorizontalTextAlignment="Center"
+               Margin="0,0,0,20" />
 
-        <!-- Answers as Radio Buttons -->
-        <RadioButton GroupName="answers" Content="Never" Value="0" CheckedChanged="OnAnswerSelected" />
-        <RadioButton GroupName="answers" Content="Rarely" Value="1" CheckedChanged="OnAnswerSelected" />
-        <RadioButton GroupName="answers" Content="Sometimes" Value="2" CheckedChanged="OnAnswerSelected" />
-        <RadioButton GroupName="answers" Content="Often" Value="3" CheckedChanged="OnAnswerSelected" />
-        <RadioButton GroupName="answers" Content="Very Often" Value="4" CheckedChanged="OnAnswerSelected" />
+        <!-- Answers as Horizontal Spectrum -->
+            <Grid Grid.Row="1"
+              HorizontalOptions="FillAndExpand" 
+              VerticalOptions="CenterAndExpand"
+              Margin="0,20,0,20"
+                  
+              ColumnDefinitions="*,*,*,*,*"
+              RowDefinitions="*,*">
 
-        <!-- Show Results Button -->
-        <Button Text="Show Results" Clicked="OnShowResultsClicked" />
-    </VerticalStackLayout>
+                <!-- Answer option 'Never' -->
+                <RadioButton Grid.Column="0"
+                         Grid.Row="0"
+                         GroupName="answers"
+                         Content=""
+                         Value=""
+                         CheckedChanged="OnAnswerChanged"
+                         HorizontalOptions="EndAndExpand"
+                         VerticalOptions="End"/>
+                <Label Grid.Column="0"
+                   Grid.Row="1"
+                   Text="Never"
+                       TextColor="Black"
+                   FontSize="Caption"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Start"/>
+
+                <!-- Repeat the structure above for each answer option -->
+                <!-- Answer option 'Rarely' -->
+                <RadioButton Grid.Column="1"
+                         Grid.Row="0"
+                         GroupName="answers"
+                         Content=""
+                         Value="0"
+                         CheckedChanged="OnAnswerChanged"
+                         HorizontalOptions="EndAndExpand"
+                         VerticalOptions="End"/>
+                <Label Grid.Column="1"
+                   Grid.Row="1"
+                   Text="Rarely"
+                   FontSize="Caption"
+                       TextColor="Black"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Start"/>
+
+                <!-- Answer option 'Sometimes' -->
+                <RadioButton Grid.Column="2"
+                         Grid.Row="0"
+                         GroupName="answers"
+                         Content=""
+                         Value="0"
+                         CheckedChanged="OnAnswerChanged"
+                         HorizontalOptions="EndAndExpand"
+                         VerticalOptions="End"/>
+                <Label Grid.Column="2"
+                   Grid.Row="1"
+                   Text="Sometimes"
+                   FontSize="Caption"
+                       TextColor="Black"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Start"/>
+
+                <!-- Answer option 'Often' -->
+                <RadioButton Grid.Column="3"
+                         Grid.Row="0"
+                         GroupName="answers"
+                         Content=""
+                         Value="0"
+                         CheckedChanged="OnAnswerChanged"
+                         HorizontalOptions="EndAndExpand"
+                         VerticalOptions="End"/>
+                <Label Grid.Column="3"
+                   Grid.Row="1"
+                   Text="Often"
+                   FontSize="Caption"
+                       TextColor="Black"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Start"/>
+
+                <!-- Answer option 'Very Often' -->
+                <RadioButton Grid.Column="4"
+                         Grid.Row="0"
+                         GroupName="answers"
+                         Content=""
+                         Value="0"
+                         CheckedChanged="OnAnswerChanged"
+                         HorizontalOptions="EndAndExpand"
+                         VerticalOptions="End"/>
+                <Label Grid.Column="4"
+                   Grid.Row="1"
+                   Text="Very Often"
+                   FontSize="Caption"
+                       TextColor="Black"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Start"/>
+            </Grid>
+        </VerticalStackLayout>
+    
+        <!-- Next Question Button -->
+        <Button Grid.Row="2"
+                Text="Next Question" 
+                Command="{Binding NextQuestionCommand}"
+                HorizontalOptions="Fill"
+                VerticalOptions="End"
+                Margin="30" />
+    </Grid>
 </ContentPage>

@@ -1,31 +1,28 @@
 ﻿using Microsoft.Maui.Controls;
+using RAMDHD.ViewModels.ScreeningTest;
 using System;
 
 namespace RAMDHD.Views.ScreeningTestScreens
 {
     public partial class ScreeningTestPage : ContentPage
     {
-        private int _selectedScore = -1; // -1 indicates no selection
-
+        private ScreeningTestViewModel _viewModel;
         public ScreeningTestPage()
         {
             InitializeComponent();
+            _viewModel = new ScreeningTestViewModel();
+            this.BindingContext = _viewModel;
         }
 
-        private void OnAnswerSelected(object sender, CheckedChangedEventArgs e)
+        private void OnAnswerChanged(object sender, CheckedChangedEventArgs e)
         {
-            if (sender is RadioButton radioButton && e.Value)
+            if (e.Value && sender is RadioButton radioButton)
             {
-                _selectedScore = Convert.ToInt32(radioButton.Value);
+                var viewModel = (ViewModels.ScreeningTest.ScreeningTestViewModel)BindingContext;
+                var selectedAnswerIndex = viewModel.CurrentQuestion.Answers.IndexOf(radioButton.Content.ToString());
+                viewModel.CurrentQuestion.SelectedAnswerScore = selectedAnswerIndex;
             }
         }
-
-        private void OnShowResultsClicked(object sender, EventArgs e)
-        {
-            // For now, just log the selected score to the console
-            Console.WriteLine($"Selected Score: {_selectedScore}");
-
-            // In a real application, you might navigate to a results page or calculate and display the results here.
-        }
     }
+
 }
