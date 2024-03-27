@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RAMDHD.Views.MainScreens;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -105,6 +106,11 @@ namespace RAMDHD.Views.WelcomeScreens
         public async void OnAdhdTestButtonClicked(object sender, EventArgs e)
         {
             await this.Navigation.PushAsync(new ScreeningTestScreens.ScreeningTestPage());
+        }
+        private async void OnSkipTestTapped(object sender, EventArgs e)
+        {
+            // Navigate to HomePage
+            await this.Navigation.PushAsync(new HomePage());
         }
         protected override void OnDisappearing()
         {

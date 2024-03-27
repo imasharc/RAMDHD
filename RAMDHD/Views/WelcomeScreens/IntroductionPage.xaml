@@ -12,6 +12,7 @@
             <!-- For the image -->
             <RowDefinition Height="Auto"/>
             <!-- For the bottom spacer -->
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <!-- Title Text -->
@@ -66,7 +67,18 @@
             Margin="0,0,0,100"
             TranslationX="1000"
             Clicked="OnAdhdTestButtonClicked" />
-
+        <!-- Skip the Test Label -->
+        <Label Grid.Row="3"
+               Text="Skip the test"
+               Margin="0,60,0,0"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="Blue"
+               FontAttributes="Italic">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnSkipTestTapped" />
+            </Label.GestureRecognizers>
+        </Label>
     </Grid>
 
 </ContentPage>
