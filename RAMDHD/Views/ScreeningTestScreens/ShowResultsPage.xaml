@@ -1,0 +1,48 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RAMDHD.Views.ScreeningTestScreens.ShowResultsPage"
+             Title="Test Results"
+             BackgroundColor="LightBlue">
+
+  <Grid VerticalOptions="FillAndExpand">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <!-- Top Grid for Test Results -->
+      <RowDefinition Height="*" />
+      <!-- Middle Grid for Icon -->
+      <RowDefinition Height="Auto" />
+      <!-- Bottom Grid for Button -->
+    </Grid.RowDefinitions>
+
+    <!-- Top Grid - Test Results -->
+    <StackLayout Grid.Row="0" Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+      <Label x:Name="ResultLabel"
+             Text="Your Test Results"
+             FontAttributes="Bold"
+             FontSize="Title"
+             TextColor="Black"
+             HorizontalOptions="Center"
+             VerticalOptions="Center" />
+      <!-- You can add more details about the results here -->
+    </StackLayout>
+
+    <!-- Middle Grid - Icon -->
+    <StackLayout Grid.Row="1" Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+      <!-- Replace "YourIcon.png" with your actual icon file -->
+      <Image Source="adhd_type1.svg"
+             WidthRequest="100"
+             HeightRequest="100"
+             HorizontalOptions="Center"
+             VerticalOptions="Center"/>
+      <!-- Add title or additional text if needed -->
+    </StackLayout>
+
+    <!-- Bottom Grid - Start Using The App Button -->
+    <StackLayout Grid.Row="2" Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+      <Button x:Name="StartUsingAppButton"
+        Text="Start using the app"
+        HorizontalOptions="Center"
+        VerticalOptions="End" />
+    </StackLayout>
+  </Grid>
+</ContentPage>
