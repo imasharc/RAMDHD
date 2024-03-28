@@ -1,57 +1,63 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:RAMDHD"
-             x:Class="RAMDHD.Views.MainScreens.MainPage">
+             x:Class="RAMDHD.Views.MainScreens.HomePage"
+             BackgroundColor="LightBlue">
+    <VerticalStackLayout Spacing="0" Padding="0">
+        <!-- Top View/Clickable Header -->
+        <Frame Padding="1" 
+       BorderColor="Black" 
+       CornerRadius="1" 
+       HeightRequest="150" 
+       HorizontalOptions="FillAndExpand" 
+       VerticalOptions="Start">
+            <Image Source="top_view.svg"
+           Aspect="AspectFill">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnGraphTasksClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Frame>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="ButtonNormalColor">#abdbe3</Color>
-            <Color x:Key="ButtonPressedColor">#d5edf1</Color>
-            <!-- Other resources... -->
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
-
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
-
-            <!-- Using generic CustomImageButton to make generic button elements as Image+Label button with function call -->
-            <!-- Timer Button/Label -->
-            <local:CustomImageButton x:Name="TimerButton"
-                         ImageSource="timer.svg"
-                         ButtonText="Timer"
-                         Tapped="OnTimerClicked" />
-
-
-            <!-- Calendar Button/Label -->
-            <local:CustomImageButton x:Name="CalendarButton"
-                         ImageSource="calendar.svg"
-                         ButtonText="Calendar"
-                         Tapped="OnCalendarClicked" />
-
-            <!-- Notes Button/Label -->
-            <local:CustomImageButton x:Name="NotesButton"
-                         ImageSource="notes.svg"
-                         ButtonText="Notes"
-                         Tapped="OnNotesClicked" />
-
-            <!-- Study Button/Label -->
-            <local:CustomImageButton x:Name="StudyButton"
-                         ImageSource="study.svg"
-                         ButtonText="Study"
-                         Tapped="OnStudyClicked" />
-
-            <!-- Helpline Button/Label -->
-            <local:CustomImageButton x:Name="HelplineButton"
-                         ImageSource="helpline.svg"
-                         ButtonText="Helpline"
-                         Tapped="OnHelplineClicked" />
-
-        </VerticalStackLayout>
-    </ScrollView>
-
+        <!-- Grid for Buttons -->
+        <Grid VerticalOptions="Center"
+              HorizontalOptions="Center"
+              RowSpacing="10"
+              ColumnSpacing="10"
+              Margin="0,100,0,20">
+            <!-- Adjust margin as needed -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <!-- Replace 'Button' with your custom button if needed -->
+            <Button
+                Text="UWAGA" Grid.Row="0" Grid.Column="0"
+                WidthRequest="150" HeightRequest="150"
+                BackgroundColor="#F95F62" TextColor="DarkRed" BorderWidth="1"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                Clicked="OnAttentionClicked"/>
+            <Button
+                Text="ORGANIZACJA" Grid.Row="0" Grid.Column="1"
+                WidthRequest="150" HeightRequest="150"
+                BackgroundColor="#53D35B" TextColor="DarkGreen" BorderWidth="1"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                Clicked="OnOrganizationClicked"/>
+            <Button
+                Text="LUDZIE" Grid.Row="1" Grid.Column="0"
+                WidthRequest="150" HeightRequest="150"
+                BackgroundColor="Grey" TextColor="DarkBlue" BorderWidth="1"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                Clicked="OnPeopleClicked" IsEnabled="False"/>
+            <Button
+                Text="ROZRYWKA" Grid.Row="1" Grid.Column="1"
+                WidthRequest="150" HeightRequest="150"
+                BackgroundColor="Grey" TextColor="DimGrey" BorderWidth="1"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                Clicked="OnEntertainmentClicked" IsEnabled="False"/>
+        </Grid>
+    </VerticalStackLayout>
 </ContentPage>

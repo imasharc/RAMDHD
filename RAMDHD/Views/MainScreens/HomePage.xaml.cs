@@ -1,39 +1,44 @@
-﻿namespace RAMDHD.Views.MainScreens;
+﻿using System;
+using Microsoft.Maui.Controls;
+using RAMDHD.Views.MainScreens.Organization;
+using RAMDHD.Views.MainScreens.Attention;
+using RAMDHD.Views.WelcomeScreens;
 
-public partial class MainPage : ContentPage
+namespace RAMDHD.Views.MainScreens
 {
-
-	public MainPage()
-	{
-		InitializeComponent();
-	}
-
-    public async void OnTimerClicked(object sender, EventArgs e)
+    public partial class HomePage : ContentPage
     {
-        Console.WriteLine("Timer clicked."); // Debug line
-                                             // Navigate to the StopwatchPage
-        await Navigation.PushAsync(new TimerPage());
-    }
+        public HomePage()
+        {
+            InitializeComponent();
+        }
 
+        private async void OnAttentionClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("Attention");
+            await this.Navigation.PushAsync(new AttentionHomePage());
 
-    private void OnCalendarClicked(object sender, EventArgs e)
-    {
-        Console.WriteLine("Calendar clicked");
-    }
+        }
 
-    private void OnNotesClicked(object sender, EventArgs e)
-    {
-        Console.WriteLine("Notes clicked");
-    }
+        private async void OnOrganizationClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("Organization");
+            await this.Navigation.PushAsync(new OrganizationHomePage());
+        }
 
-    private void OnStudyClicked(object sender, EventArgs e)
-    {
-        Console.WriteLine("Study clicked");
-    }
+        private void OnPeopleClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("People");
+        }
 
-    private void OnHelplineClicked(object sender, EventArgs e)
-    {
-        Console.WriteLine("Helpline clicked");
+        private void OnEntertainmentClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("Entertainment");
+        }
+
+        private void OnGraphTasksClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("GraphTasks");
+        }
     }
 }
-
