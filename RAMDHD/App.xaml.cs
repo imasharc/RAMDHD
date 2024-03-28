@@ -1,4 +1,7 @@
-﻿namespace RAMDHD;
+﻿using RAMDHD.Views.MainScreens;
+using RAMDHD.Views.WelcomeScreens;
+
+namespace RAMDHD;
 
 public partial class App : Application
 {
@@ -7,6 +10,7 @@ public partial class App : Application
 		InitializeComponent();
 
         // Set the MainPage to the AppShell which defines your app's navigation structure
-        MainPage = new AppShell();
+        MainPage = new NavigationPage(new TitlePage());
+        //MainPage = new AppShell();
     }
 }
