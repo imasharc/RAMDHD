@@ -94,7 +94,7 @@ namespace RAMDHD.Views.WelcomeScreens
                 await BrainImage.RotateTo(0, shakeDuration);   // Return to the original position
 
                 if (!isShaking) break; // Check the flag before starting another loop
-                await Task.Delay(2000); // Wait for 2 seconds before shaking again
+                await Task.Delay(1000); // Wait for 2 seconds before shaking again
             }
         }
 
