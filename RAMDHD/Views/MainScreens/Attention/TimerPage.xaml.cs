@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Timers;
 using Microsoft.Maui.Controls;
+using RAMDHD.Views.MainScreens.Organization;
 
-namespace RAMDHD.Views.MainScreens
+namespace RAMDHD.Views.MainScreens.Attention
 {
     public partial class TimerPage : ContentPage
     {
@@ -17,6 +18,46 @@ namespace RAMDHD.Views.MainScreens
             InitializePickers();
             InitializeTimer();
         }
+
+        private async void OnAttentionClicked(object sender, EventArgs e)
+        {
+            // Insert the new page before the current one
+            Navigation.InsertPageBefore(new AttentionHomePage(), this);
+
+            // Pop the current page off the stack
+            await Navigation.PopAsync();
+        }
+
+        private async void OnOrganizationClicked(object sender, EventArgs e)
+        {
+            // Insert the new page before the current one
+            Navigation.InsertPageBefore(new OrganizationHomePage(), this);
+
+            // Pop the current page off the stack
+            await Navigation.PopAsync();
+        }
+        private async void OnHomeImageTapped(object sender, EventArgs e)
+        {
+            Console.WriteLine("OnHomeImageTapped");
+            // Remove pages from the navigation stack until HomePage is found
+            for (int index = Navigation.NavigationStack.Count - 2; index >= 0; index--)
+            {
+                var page = Navigation.NavigationStack[index];
+                if (page is AttentionHomePage)
+                {
+                    Navigation.RemovePage(page);
+                    break;
+                }
+                else
+                {
+                    Navigation.RemovePage(page);
+                }
+            }
+
+            // After modifying the stack, just pop the current page
+            await Navigation.PopAsync();
+        }
+
 
         private void InitializePickers()
         {

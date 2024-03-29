@@ -1,0 +1,109 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RAMDHD.Views.MainScreens.Attention.TimerPage"
+             Title="Uwaga"
+             BackgroundColor="LightBlue">
+
+    <VerticalStackLayout Spacing="25" Padding="0" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+        <Frame Padding="1" 
+       BorderColor="Black" 
+       CornerRadius="1" 
+       HeightRequest="150" 
+       WidthRequest="392"
+       HorizontalOptions="FillAndExpand" 
+       VerticalOptions="Start">
+            <Image Source="top_view.svg"
+           Aspect="AspectFill">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Frame>
+
+        <!-- Category Indicator -->
+        <Button
+                Text="Timer"
+                WidthRequest="100" HeightRequest="50"
+            Margin="0,20,0,0"
+                BackgroundColor="#F95F62" TextColor="DarkRed" BorderWidth="1"
+            IsEnabled="False"
+                HorizontalOptions="Center" VerticalOptions="Center"
+            />
+
+        <!-- Horizontal layout for the time pickers -->
+        <HorizontalStackLayout Spacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <!-- Hours Picker -->
+            <Picker x:Name="HoursPicker"
+                    Title="Hours"
+                    WidthRequest="100"
+                    HorizontalOptions="CenterAndExpand"
+                    SelectedIndexChanged="HoursPicker_SelectedIndexChanged">
+                
+                <!-- Items will be added in the code-behind -->
+            </Picker>
+
+            <Label Text=":" HorizontalOptions="Center"/>
+
+            <!-- Minutes Picker -->
+            <Picker x:Name="MinutesPicker"
+                    Title="Minutes"
+                    WidthRequest="100"
+                    HorizontalOptions="CenterAndExpand"
+                    SelectedIndexChanged="MinutesPicker_SelectedIndexChanged">
+                <!-- Items will be added in the code-behind -->
+            </Picker>
+        </HorizontalStackLayout>
+
+        <Label x:Name="TimeLabel"
+               Text="00:00"
+               FontSize="Large"
+               HorizontalOptions="Center" />
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button x:Name="StartButton" BackgroundColor="#00C6AE" Text="Start" Clicked="OnStartClicked"/>
+            <Button x:Name="StopButton" BackgroundColor="#DF4C20" Text="Stop" Clicked="OnStopClicked"/>
+            <Button x:Name="ResetButton" BackgroundColor="#364955" Text="Reset" Clicked="OnResetClicked"/>
+        </HorizontalStackLayout>
+        
+        <!-- Bottom Navigation -->
+        <!-- Bottom Navigation Container -->
+        <Grid VerticalOptions="End" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Home Icon/Image -->
+            <Image Grid.Column="0"
+                   Grid.Row="1"
+                   Source="home_png.png"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Aspect="AspectFit"
+                   HeightRequest="60"
+                   WidthRequest="60"
+                   Margin="0, 5, 0, 0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHomeImageTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- Placeholder for your category navigation buttons -->
+            <!-- Add your buttons for UWAGA, ORGANIZACJA, LUDZIE, ROZRYWKA here with Grid.Column set accordingly -->
+            <!-- Category Navigation Buttons -->
+            <Button Grid.Row="1" Grid.Column="2" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="65" FontSize="Micro" Text="UWAGA" BackgroundColor="#aaffff" TextColor="DarkRed" BorderWidth="1" HorizontalOptions="CenterAndExpand" Clicked="OnAttentionClicked" IsEnabled="True" />
+            <Button Grid.Row="1" Grid.Column="3" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="95" FontSize="Micro" Text="ORGANIZACJA" BackgroundColor="#77D353" TextColor="DarkGreen" BorderWidth="1" HorizontalOptions="CenterAndExpand" Clicked="OnOrganizationClicked" IsEnabled="True" />
+            <Button Grid.Row="1" Grid.Column="4" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="65" FontSize="Micro" Text="LUDZIE" BackgroundColor="Grey" TextColor="DarkBlue" BorderWidth="1" HorizontalOptions="CenterAndExpand" IsEnabled="False" />
+            <Button Grid.Row="1" Grid.Column="5" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="85" FontSize="Micro" Text="ROZRYWKA" BackgroundColor="Grey" TextColor="DimGrey" BorderWidth="1" HorizontalOptions="CenterAndExpand" IsEnabled="False" />
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>
