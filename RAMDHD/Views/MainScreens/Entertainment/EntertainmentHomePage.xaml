@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RAMDHD.Views.MainScreens.Entertainment.EntertainmentHomePage"
+             Title="Entertainment"
+             BackgroundColor="LightBlue">
+
+    <VerticalStackLayout Spacing="0" Padding="0">
+        <!-- Top View/Clickable Header -->
+        <Frame Padding="1" 
+       BorderColor="Black" 
+       CornerRadius="1" 
+       HeightRequest="150" 
+       HorizontalOptions="FillAndExpand" 
+       VerticalOptions="Start">
+            <Image Source="top_view.svg"
+           Aspect="AspectFill">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnGraphTasksClicked" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Frame>
+
+        <!-- Category Indicator -->
+        <Button
+                Text="ROZRYWKA"
+                WidthRequest="120" HeightRequest="50"
+            Margin="0,20,0,0"
+                BackgroundColor="#FFFFFF" TextColor="DimGrey" BorderWidth="1"
+            IsEnabled="False"
+                HorizontalOptions="Center" VerticalOptions="Center"
+            />
+
+        <!-- Grid for Buttons -->
+        <Grid VerticalOptions="Center"
+              HorizontalOptions="Center"
+              RowSpacing="10"
+              ColumnSpacing="10"
+              Margin="0,50,0,20">
+            <!-- Adjust margin as needed -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <!-- Replace 'Button' with your custom button if needed -->
+            <Button
+                Text="AFIRMACJE" Grid.Row="0" Grid.Column="0"
+                WidthRequest="150" HeightRequest="150"
+                BackgroundColor="#FFC6E5" TextColor="Black" BorderWidth="1"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                IsEnabled="False"/>
+            <Button
+                Text="MANDALE" Grid.Row="0" Grid.Column="1"
+                WidthRequest="150" HeightRequest="150"
+                BackgroundColor="#FFB2B3" TextColor="Black" BorderWidth="1"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                IsEnabled="False"/>
+            <Button
+                Text="PLACEHOLDER" Grid.Row="1" Grid.Column="1"
+                WidthRequest="150" HeightRequest="150"
+                BackgroundColor="White" TextColor="Black" BorderWidth="1" Opacity="0"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                IsEnabled="False"/>
+        </Grid>
+
+        <!-- Bottom Navigation Container -->
+        <Grid VerticalOptions="End" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Home Icon/Image -->
+            <Image Grid.Column="0"
+                   Grid.Row="1"
+                   Source="home_png.png"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Aspect="AspectFit"
+                   HeightRequest="60"
+                   WidthRequest="60"
+                   Margin="0, 5, 0, 0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnHomeImageTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- Placeholder for your category navigation buttons -->
+            <!-- Add your buttons for UWAGA, ORGANIZACJA, LUDZIE, ROZRYWKA here with Grid.Column set accordingly -->
+            <!-- Category Navigation Buttons -->
+            <Button
+                Grid.Row="1" Grid.Column="2" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="65"
+                FontSize="Micro" Text="UWAGA" BackgroundColor="#F95F62" TextColor="DarkRed"
+                BorderWidth="1" HorizontalOptions="CenterAndExpand"
+                Clicked="OnAttentionClicked" IsEnabled="True" />
+            <Button
+                Grid.Row="1" Grid.Column="3" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="95"
+                FontSize="Micro" Text="ORGANIZACJA" BackgroundColor="#53D35B" TextColor="DarkGreen"
+                BorderWidth="1" HorizontalOptions="CenterAndExpand"
+                Clicked="OnOrganizationClicked" IsEnabled="True" />
+            <Button
+                Grid.Row="1" Grid.Column="4" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="65"
+                FontSize="Micro" Text="LUDZIE" BackgroundColor="#00A6FF" TextColor="DarkBlue"
+                BorderWidth="1" HorizontalOptions="CenterAndExpand"
+                Clicked="OnPeopleClicked" IsEnabled="True" />
+            <Button
+                Grid.Row="1" Grid.Column="5" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="85"
+                FontSize="Micro" Text="ROZRYWKA" BackgroundColor="#aaffff" TextColor="DarkBlue"
+                BorderWidth="1" HorizontalOptions="CenterAndExpand"
+                IsEnabled="False" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
