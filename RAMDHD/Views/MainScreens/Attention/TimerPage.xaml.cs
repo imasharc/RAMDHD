@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Timers;
 using Microsoft.Maui.Controls;
+using RAMDHD.Views.MainScreens.Entertainment;
 using RAMDHD.Views.MainScreens.Organization;
+using RAMDHD.Views.MainScreens.People;
 
 namespace RAMDHD.Views.MainScreens.Attention
 {
@@ -19,23 +21,6 @@ namespace RAMDHD.Views.MainScreens.Attention
             InitializeTimer();
         }
 
-        private async void OnAttentionClicked(object sender, EventArgs e)
-        {
-            // Insert the new page before the current one
-            Navigation.InsertPageBefore(new AttentionHomePage(), this);
-
-            // Pop the current page off the stack
-            await Navigation.PopAsync();
-        }
-
-        private async void OnOrganizationClicked(object sender, EventArgs e)
-        {
-            // Insert the new page before the current one
-            Navigation.InsertPageBefore(new OrganizationHomePage(), this);
-
-            // Pop the current page off the stack
-            await Navigation.PopAsync();
-        }
         private async void OnHomeImageTapped(object sender, EventArgs e)
         {
             Console.WriteLine("OnHomeImageTapped");
@@ -57,8 +42,41 @@ namespace RAMDHD.Views.MainScreens.Attention
             // After modifying the stack, just pop the current page
             await Navigation.PopAsync();
         }
+        private async void OnAttentionClicked(object sender, EventArgs e)
+        {
+            // Insert the new page before the current one
+            Navigation.InsertPageBefore(new AttentionHomePage(), this);
 
+            // Pop the current page off the stack
+            await Navigation.PopAsync();
+        }
 
+        private async void OnOrganizationClicked(object sender, EventArgs e)
+        {
+            // Insert the new page before the current one
+            Navigation.InsertPageBefore(new OrganizationHomePage(), this);
+
+            // Pop the current page off the stack
+            await Navigation.PopAsync();
+        }
+        private async void OnPeopleClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("OnPeopleClicked");
+            // Insert the new page before the current one
+            Navigation.InsertPageBefore(new PeopleHomePage(), this);
+
+            // Pop the current page off the stack
+            await Navigation.PopAsync();
+        }
+        private async void OnEntertainmentClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("OnEntertainmentClicked");
+            // Insert the new page before the current one
+            Navigation.InsertPageBefore(new EntertainmentHomePage(), this);
+
+            // Pop the current page off the stack
+            await Navigation.PopAsync();
+        }
         private void InitializePickers()
         {
             // Populate HoursPicker
