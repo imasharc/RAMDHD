@@ -49,15 +49,15 @@
             <Button
                 Text="LUDZIE" Grid.Row="1" Grid.Column="0"
                 WidthRequest="150" HeightRequest="150"
-                BackgroundColor="Grey" TextColor="DarkBlue" BorderWidth="1"
+                BackgroundColor="#00A6FF" TextColor="DarkBlue" BorderWidth="1"
                 HorizontalOptions="Center" VerticalOptions="Center"
-                Clicked="OnPeopleClicked" IsEnabled="False"/>
+                Clicked="OnPeopleClicked"/>
             <Button
                 Text="ROZRYWKA" Grid.Row="1" Grid.Column="1"
                 WidthRequest="150" HeightRequest="150"
-                BackgroundColor="Grey" TextColor="DimGrey" BorderWidth="1"
+                BackgroundColor="#FFFFFF" TextColor="DimGrey" BorderWidth="1"
                 HorizontalOptions="Center" VerticalOptions="Center"
-                Clicked="OnEntertainmentClicked" IsEnabled="False"/>
+                Clicked="OnEntertainmentClicked" IsEnabled="True"/>
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

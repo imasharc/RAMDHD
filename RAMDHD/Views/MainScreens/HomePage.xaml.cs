@@ -3,6 +3,8 @@ using Microsoft.Maui.Controls;
 using RAMDHD.Views.MainScreens.Organization;
 using RAMDHD.Views.MainScreens.Attention;
 using RAMDHD.Views.WelcomeScreens;
+using RAMDHD.Views.MainScreens.People;
+using RAMDHD.Views.MainScreens.Entertainment;
 
 namespace RAMDHD.Views.MainScreens
 {
@@ -26,14 +28,16 @@ namespace RAMDHD.Views.MainScreens
             await this.Navigation.PushAsync(new OrganizationHomePage());
         }
 
-        private void OnPeopleClicked(object sender, EventArgs e)
+        private async void OnPeopleClicked(object sender, EventArgs e)
         {
             Console.WriteLine("People");
+            await this.Navigation.PushAsync(new PeopleHomePage());
         }
 
-        private void OnEntertainmentClicked(object sender, EventArgs e)
+        private async void OnEntertainmentClicked(object sender, EventArgs e)
         {
             Console.WriteLine("Entertainment");
+            await this.Navigation.PushAsync(new EntertainmentHomePage());
         }
 
         private void OnGraphTasksClicked(object sender, EventArgs e)
