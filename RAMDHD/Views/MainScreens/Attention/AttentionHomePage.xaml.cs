@@ -1,4 +1,6 @@
-﻿using RAMDHD.Views.MainScreens.Organization;
+﻿using RAMDHD.Views.MainScreens.Entertainment;
+using RAMDHD.Views.MainScreens.Organization;
+using RAMDHD.Views.MainScreens.People;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,10 @@ namespace RAMDHD.Views.MainScreens.Attention
         {
             InitializeComponent();
 
+        }
+        private void OnGraphTasksClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("GraphTasks");
         }
         private async void OnTimerClicked(object sender, EventArgs e)
         {
@@ -29,20 +35,23 @@ namespace RAMDHD.Views.MainScreens.Attention
             // Pop the current page off the stack
             await Navigation.PopAsync();
         }
-
-        private void OnPeopleClicked(object sender, EventArgs e)
+        private async void OnPeopleClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("People");
+            Console.WriteLine("OnPeopleClicked");
+            // Insert the new page before the current one
+            Navigation.InsertPageBefore(new PeopleHomePage(), this);
+
+            // Pop the current page off the stack
+            await Navigation.PopAsync();
         }
-
-        private void OnEntertainmentClicked(object sender, EventArgs e)
+        private async void OnEntertainmentClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("Entertainment");
-        }
+            Console.WriteLine("OnEntertainmentClicked");
+            // Insert the new page before the current one
+            Navigation.InsertPageBefore(new EntertainmentHomePage(), this);
 
-        private void OnGraphTasksClicked(object sender, EventArgs e)
-        {
-            Console.WriteLine("GraphTasks");
+            // Pop the current page off the stack
+            await Navigation.PopAsync();
         }
         private async void OnHomeImageTapped(object sender, EventArgs e)
         {
