@@ -93,7 +93,7 @@
                    WidthRequest="60"
                    Margin="0, 5, 0, 0">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnHomeImageTapped" />
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnHomeImageTapped" />
                 </Image.GestureRecognizers>
             </Image>
 
@@ -102,8 +102,12 @@
             <!-- Category Navigation Buttons -->
             <Button Grid.Row="1" Grid.Column="2" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="65" FontSize="Micro" Text="UWAGA" BackgroundColor="#F95F62" TextColor="DarkRed" BorderWidth="1" HorizontalOptions="CenterAndExpand" Clicked="OnAttentionClicked" IsEnabled="True" />
             <Button Grid.Row="1" Grid.Column="3" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="95" FontSize="Micro" Text="ORGANIZACJA" BackgroundColor="#aaffff" TextColor="DarkGreen" BorderWidth="1" HorizontalOptions="CenterAndExpand" IsEnabled="False" />
-            <Button Grid.Row="1" Grid.Column="4" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="65" FontSize="Micro" Text="LUDZIE" BackgroundColor="Grey" TextColor="DarkBlue" BorderWidth="1" HorizontalOptions="CenterAndExpand" IsEnabled="False" />
-            <Button Grid.Row="1" Grid.Column="5" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="85" FontSize="Micro" Text="ROZRYWKA" BackgroundColor="Grey" TextColor="DimGrey" BorderWidth="1" HorizontalOptions="CenterAndExpand" IsEnabled="False" />
+            <Button Grid.Row="1" Grid.Column="4" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="65" FontSize="Micro" Text="LUDZIE" BackgroundColor="#00A6FF" TextColor="DarkBlue" BorderWidth="1" HorizontalOptions="CenterAndExpand" Clicked="OnPeopleClicked" IsEnabled="True" />
+            <Button
+                Grid.Row="1" Grid.Column="5" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="85"
+                FontSize="Micro" Text="ROZRYWKA" BackgroundColor="#FFFFFF" TextColor="DimGrey"
+                BorderWidth="1" HorizontalOptions="CenterAndExpand"
+                Clicked="OnEntertainmentClicked" IsEnabled="True" />
         </Grid>
     </VerticalStackLayout>
 </ContentPage>
