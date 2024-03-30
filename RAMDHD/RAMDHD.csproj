@@ -81,7 +81,13 @@
 	  <MauiXaml Update="Views\MainScreens\Attention\AttentionHomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\MainScreens\Entertainment\EntertainmentHomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\MainScreens\Organization\OrganizationHomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MainScreens\People\PeopleHomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ScreeningTestScreens\ScreeningTestPage.xaml">
