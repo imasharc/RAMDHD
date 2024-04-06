@@ -49,13 +49,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\add_new.png" />
 	  <None Remove="Resources\Images\adhd_type1.svg" />
 	  <None Remove="Resources\Images\adhd_type2.svg" />
 	  <None Remove="Resources\Images\adhd_type3.svg" />
+	  <None Remove="Resources\Images\arrow_left.png" />
+	  <None Remove="Resources\Images\arrow_right.png" />
+	  <None Remove="Resources\Images\book.png" />
 	  <None Remove="Resources\Images\brain.svg" />
+	  <None Remove="Resources\Images\coffee_cup.png" />
+	  <None Remove="Resources\Images\go_out.png" />
 	  <None Remove="Resources\Images\home.svg" />
 	  <None Remove="Resources\Images\home_png.png" />
+	  <None Remove="Resources\Images\jacket_shoes.png" />
+	  <None Remove="Resources\Images\phone.png" />
+	  <None Remove="Resources\Images\reading_book.png" />
+	  <None Remove="Resources\Images\shopping_list.png" />
 	  <None Remove="Resources\Images\top_view.svg" />
+	  <None Remove="Resources\Images\trophy.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -63,6 +74,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\MainScreens\GraphTask\GraphTaskMenu.xaml.cs">
+	    <DependentUpon>GraphTaskMenu.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\MainScreens\GraphTask\NewGraphTaskPage.xaml.cs">
+	    <DependentUpon>NewGraphTaskPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\MainScreens\HomePage.xaml.cs">
 	    <DependentUpon>HomePage.xaml</DependentUpon>
 	  </Compile>
@@ -82,6 +99,24 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MainScreens\Entertainment\EntertainmentHomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MainScreens\GraphTask\EditActivityPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MainScreens\GraphTask\Examples\BuyingBreadGraphTask.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MainScreens\GraphTask\Examples\ReadingBookGraphTask.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MainScreens\GraphTask\GraphTaskMenu.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MainScreens\GraphTask\NewGraphTaskPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MainScreens\GraphTask\ProcrastinationHomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MainScreens\Organization\OrganizationHomePage.xaml">
