@@ -49,6 +49,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\ReemKufiFun-Bold.ttf" />
+	  <None Remove="Resources\Fonts\ReemKufiFun-Medium.ttf" />
+	  <None Remove="Resources\Fonts\ReemKufiFun-Regular.ttf" />
+	  <None Remove="Resources\Fonts\ReemKufiFun-SemiBold.ttf" />
 	  <None Remove="Resources\Images\add_new.png" />
 	  <None Remove="Resources\Images\adhd_type1.svg" />
 	  <None Remove="Resources\Images\adhd_type2.svg" />
@@ -71,6 +75,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="UraniumUI" Version="2.5.6" />
+		<PackageReference Include="UraniumUI.Material" Version="2.5.6" />
 	</ItemGroup>
 
 	<ItemGroup>
