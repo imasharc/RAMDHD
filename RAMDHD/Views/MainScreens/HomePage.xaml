@@ -1,22 +1,31 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RAMDHD.Views.MainScreens.HomePage"
-             BackgroundColor="LightBlue">
+             BackgroundColor="{StaticResource Primary}">
+    
     <VerticalStackLayout Spacing="0" Padding="0">
         <!-- Top View/Clickable Header -->
         <Frame Padding="1" 
-       BorderColor="Black" 
-       CornerRadius="1" 
-       HeightRequest="150" 
-       HorizontalOptions="FillAndExpand" 
-       VerticalOptions="Start">
-            <Image Source="top_view.svg"
-           Aspect="AspectFill">
+               BorderColor="Black" 
+               CornerRadius="1" 
+               HeightRequest="150" 
+               HorizontalOptions="FillAndExpand" 
+               VerticalOptions="Start">
+            <Image Source="home.svg"
+                   Aspect="AspectFill">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnGraphTasksClicked"/>
                 </Image.GestureRecognizers>
             </Image>
         </Frame>
+
+        <Button
+            Text="GRAPH TASKS" Margin="0, 20, 0, -50"
+            WidthRequest="150" HeightRequest="50"
+            FontFamily="ReemKufiFunRegular"
+            BackgroundColor="{StaticResource Cyan300Accent}" TextColor="{StaticResource SharcBlack}" BorderWidth="1"
+            HorizontalOptions="Center" VerticalOptions="Center"
+            Clicked="OnGraphTasksClicked"/>
 
         <!-- Grid for Buttons -->
         <Grid VerticalOptions="Center"
@@ -37,25 +46,30 @@
             <Button
                 Text="UWAGA" Grid.Row="0" Grid.Column="0"
                 WidthRequest="150" HeightRequest="150"
-                BackgroundColor="#F95F62" TextColor="DarkRed" BorderWidth="1"
+                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}"
+                StyleClass="ElevatedButton" IsEnabled="True" BorderWidth="1" 
+                FontFamily="ReemKufiFunRegular"
                 HorizontalOptions="Center" VerticalOptions="Center"
                 Clicked="OnAttentionClicked"/>
             <Button
                 Text="ORGANIZACJA" Grid.Row="0" Grid.Column="1"
                 WidthRequest="150" HeightRequest="150"
-                BackgroundColor="#53D35B" TextColor="DarkGreen" BorderWidth="1"
+                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}" BorderWidth="1"
+                FontFamily="ReemKufiFunRegular"
                 HorizontalOptions="Center" VerticalOptions="Center"
                 Clicked="OnOrganizationClicked"/>
             <Button
                 Text="LUDZIE" Grid.Row="1" Grid.Column="0"
                 WidthRequest="150" HeightRequest="150"
-                BackgroundColor="#00A6FF" TextColor="DarkBlue" BorderWidth="1"
+                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}" BorderWidth="1"
+                FontFamily="ReemKufiFunRegular"
                 HorizontalOptions="Center" VerticalOptions="Center"
                 Clicked="OnPeopleClicked"/>
             <Button
                 Text="ROZRYWKA" Grid.Row="1" Grid.Column="1"
                 WidthRequest="150" HeightRequest="150"
-                BackgroundColor="#FFFFFF" TextColor="DimGrey" BorderWidth="1"
+                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}" BorderWidth="1"
+                FontFamily="ReemKufiFunRegular"
                 HorizontalOptions="Center" VerticalOptions="Center"
                 Clicked="OnEntertainmentClicked" IsEnabled="True"/>
         </Grid>
