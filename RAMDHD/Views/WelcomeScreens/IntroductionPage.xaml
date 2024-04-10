@@ -1,7 +1,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              x:Class="RAMDHD.Views.WelcomeScreens.IntroductionPage"
-             BackgroundColor="LightBlue">
+             BackgroundColor="{StaticResource Primary}">
 
     <!-- Use a Grid instead of VerticalStackLayout for more precise control over layout -->
     <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
@@ -18,8 +19,9 @@
         <!-- Title Text -->
         <Label Grid.Row="0"
                Text="DO YOU HAVE ADHD?"
-               TextColor="Black"
-               FontSize="Large" 
+               FontSize="31" 
+               FontFamily="ReemKufiFunRegular"
+               TextColor="{StaticResource Black}"
                HorizontalOptions="Center"
                VerticalOptions="End" />
 
@@ -59,21 +61,29 @@
         </Grid>
 
         <!-- Button for ADHD Screening Test -->
-        <Button x:Name="AdhdTestButton"
-            Text="ADHD SCREENING TEST"
+        <Button
             Grid.Row="3"
+            x:Name="AdhdTestButton"
+            Text="ADHD SCREENING TEST"
+            TextColor="{StaticResource SharcBlack}"
+            FontFamily="ReemKufiFunRegular"
+            BackgroundColor="{StaticResource Tertiary}"
+            BorderWidth="1"
+            BorderColor="{StaticResource Secondary}"
             HorizontalOptions="Center"
-            VerticalOptions="End"
             Margin="0,0,0,100"
+            VerticalOptions="End"
             TranslationX="1000"
-            Clicked="OnAdhdTestButtonClicked" />
+            Clicked="OnAdhdTestButtonClicked"
+            />
         <!-- Skip the Test Label -->
         <Label Grid.Row="3"
                Text="Skip the test"
                Margin="0,60,0,0"
                HorizontalOptions="Center"
                VerticalOptions="Start"
-               TextColor="Blue"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular"
                FontAttributes="Italic">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnSkipTestTapped" />
