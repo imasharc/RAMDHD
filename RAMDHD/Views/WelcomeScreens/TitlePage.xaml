@@ -1,28 +1,39 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RAMDHD.Views.WelcomeScreens.TitlePage"
-             BackgroundColor="LightBlue">
+             BackgroundColor="{StaticResource Primary}">
+    <!-- Use safe area for iOS -->
 
-    <VerticalStackLayout Spacing="25" Padding="30" HorizontalOptions="Center" VerticalOptions="Center">
+    <!-- Material Design recommends using a Grid for more complex layouts -->
+    <Grid Padding="16" RowSpacing="24">
+        <!-- Standard padding and spacing -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Header -->
+            <RowDefinition Height="*"/>
+            <!-- Content -->
+        </Grid.RowDefinitions>
 
-        <!-- Title Text -->
-        <Label Text="CutCatADHD" 
-               FontSize="Large" 
-               TextColor="Black"
-               HorizontalOptions="Center" />
+        <!-- App Title -->
+        <Label Grid.Row="0"
+               Text="CutCatADHD"
+               FontSize="40"
+               FontFamily="ReemKufiFunRegular"
+               TextColor="{StaticResource SharcBlack}"
+               HorizontalOptions="Center"
+               VerticalOptions="Start" />
 
-        <!-- Brain Image with Tap Gesture -->
-        <Image x:Name="BrainImage"
-               Source="brain.svg" 
-               WidthRequest="200" 
-               HeightRequest="200" 
-               HorizontalOptions="Center">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer 
-                    NumberOfTapsRequired="1" />
-            </Image.GestureRecognizers>
-        </Image>
-
-    </VerticalStackLayout>
-
+            <!-- Brain Image -->
+            <Image Grid.Row="1"
+                   x:Name="BrainImage"
+                   Source="brain.svg"
+                   WidthRequest="200"
+                   HeightRequest="200"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+    </Grid>
 </ContentPage>
