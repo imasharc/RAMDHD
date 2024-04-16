@@ -1,4 +1,5 @@
 ﻿using RAMDHD.Views.MainScreens.Attention;
+using RAMDHD.Views.MainScreens.GraphTask;
 using RAMDHD.Views.MainScreens.Organization;
 using RAMDHD.Views.MainScreens.People;
 using System;
@@ -15,9 +16,11 @@ namespace RAMDHD.Views.MainScreens.Entertainment
         {
             InitializeComponent();
         }
-        private void OnGraphTasksClicked(object sender, EventArgs e)
+        private async void OnGraphTasksClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("OnGraphTasksClicked");
+            Console.WriteLine("GraphTasks");
+            await this.Navigation.PushAsync(new ProcrastinationHomePage());
+
         }
         private async void OnAttentionClicked(object sender, EventArgs e)
         {

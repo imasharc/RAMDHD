@@ -3,32 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RAMDHD.Views.MainScreens.Entertainment.EntertainmentHomePage"
              Title="Entertainment"
-             BackgroundColor="LightBlue">
+             BackgroundColor="{StaticResource Primary}">
 
     <VerticalStackLayout Spacing="0" Padding="0">
-        <!-- Top View/Clickable Header -->
-        <Frame Padding="1" 
-       BorderColor="Black" 
-       CornerRadius="1" 
-       HeightRequest="150" 
-       HorizontalOptions="FillAndExpand" 
-       VerticalOptions="Start">
-            <Image Source="top_view.svg"
-           Aspect="AspectFill">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnGraphTasksClicked" />
-                </Image.GestureRecognizers>
-            </Image>
-        </Frame>
-
+        
         <!-- Category Indicator -->
         <Button
-                Text="ROZRYWKA"
-                WidthRequest="120" HeightRequest="50"
+            Text="ENTERTAINMENT"
+            WidthRequest="200" HeightRequest="50"
             Margin="0,20,0,0"
-                BackgroundColor="#FFFFFF" TextColor="DimGrey" BorderWidth="1"
+            BackgroundColor="{StaticResource Blue200Accent}" TextColor="{StaticResource SharcBlack}" 
+            FontFamily="ReemKufiFunRegular"
+            BorderWidth="1"
             IsEnabled="False"
-                HorizontalOptions="Center" VerticalOptions="Center"
+            HorizontalOptions="Center" VerticalOptions="Center"
             />
 
         <!-- Grid for Buttons -->
@@ -36,7 +24,7 @@
               HorizontalOptions="Center"
               RowSpacing="10"
               ColumnSpacing="10"
-              Margin="0,50,0,20">
+              Margin="0,50,0,30">
             <!-- Adjust margin as needed -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -50,77 +38,128 @@
             <Button
                 Text="AFIRMACJE" Grid.Row="0" Grid.Column="0"
                 WidthRequest="150" HeightRequest="150"
-                BackgroundColor="#FFC6E5" TextColor="Black" BorderWidth="1"
+                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}" 
+                FontFamily="ReemKufiFunRegular"
+                BorderWidth="1"
                 HorizontalOptions="Center" VerticalOptions="Center"
                 IsEnabled="False"/>
             <Button
                 Text="MANDALE" Grid.Row="0" Grid.Column="1"
                 WidthRequest="150" HeightRequest="150"
-                BackgroundColor="#FFB2B3" TextColor="Black" BorderWidth="1"
+                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}" 
+                FontFamily="ReemKufiFunRegular"
+                BorderWidth="1"
                 HorizontalOptions="Center" VerticalOptions="Center"
                 IsEnabled="False"/>
             <Button
                 Text="PLACEHOLDER" Grid.Row="1" Grid.Column="1"
                 WidthRequest="150" HeightRequest="150"
-                BackgroundColor="White" TextColor="Black" BorderWidth="1" Opacity="0"
+                BackgroundColor="White" TextColor="Black"
+                BorderWidth="1" Opacity="0"
                 HorizontalOptions="Center" VerticalOptions="Center"
                 IsEnabled="False"/>
         </Grid>
 
+        <!-- Bottom Navigation -->
         <!-- Bottom Navigation Container -->
-        <Grid VerticalOptions="End" HorizontalOptions="FillAndExpand">
+        <Grid VerticalOptions="End" HorizontalOptions="CenterAndExpand" Margin="120">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
-
+                <!-- Row for labels -->
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <!-- Define your columns here -->
+
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+
+                <!-- Add more columns as needed -->
             </Grid.ColumnDefinitions>
 
-            <!-- Home Icon/Image -->
-            <Image Grid.Column="0"
-                   Grid.Row="1"
-                   Source="home_png.png"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   Aspect="AspectFit"
-                   HeightRequest="60"
-                   WidthRequest="60"
-                   Margin="0, 5, 0, 0">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnHomeImageTapped" />
-                </Image.GestureRecognizers>
-            </Image>
+            <!-- First Button-Image pair -->
+            <Frame Grid.Column="0" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="home_icon.png" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="HOME" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
 
-            <!-- Placeholder for your category navigation buttons -->
-            <!-- Add your buttons for UWAGA, ORGANIZACJA, LUDZIE, ROZRYWKA here with Grid.Column set accordingly -->
-            <!-- Category Navigation Buttons -->
-            <Button
-                Grid.Row="1" Grid.Column="2" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="65"
-                FontSize="Micro" Text="UWAGA" BackgroundColor="#F95F62" TextColor="DarkRed"
-                BorderWidth="1" HorizontalOptions="CenterAndExpand"
-                Clicked="OnAttentionClicked" IsEnabled="True" />
-            <Button
-                Grid.Row="1" Grid.Column="3" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="95"
-                FontSize="Micro" Text="ORGANIZACJA" BackgroundColor="#53D35B" TextColor="DarkGreen"
-                BorderWidth="1" HorizontalOptions="CenterAndExpand"
-                Clicked="OnOrganizationClicked" IsEnabled="True" />
-            <Button
-                Grid.Row="1" Grid.Column="4" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="65"
-                FontSize="Micro" Text="LUDZIE" BackgroundColor="#00A6FF" TextColor="DarkBlue"
-                BorderWidth="1" HorizontalOptions="CenterAndExpand"
-                Clicked="OnPeopleClicked" IsEnabled="True" />
-            <Button
-                Grid.Row="1" Grid.Column="5" Margin="0, 0, 0, 0" HeightRequest="40" WidthRequest="85"
-                FontSize="Micro" Text="ROZRYWKA" BackgroundColor="#aaffff" TextColor="DarkBlue"
-                BorderWidth="1" HorizontalOptions="CenterAndExpand"
-                IsEnabled="False" />
+            <Frame Grid.Column="1" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="attention.png" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="UWAGA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="2" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="100">
+                <StackLayout>
+                    <ImageButton Source="organization.png" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="ORGANIZACJA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="3" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="people.png" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="LUDZIE" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="4" BackgroundColor="{StaticResource Cyan100Accent}" WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="stones.png" WidthRequest="30" HeightRequest="30">
+                    </ImageButton>
+                    <Label Text="SPOKOJ" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource White}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                    </Label>
+                </StackLayout>
+            </Frame>
         </Grid>
     </VerticalStackLayout>
 </ContentPage>
