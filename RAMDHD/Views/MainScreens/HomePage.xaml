@@ -2,15 +2,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RAMDHD.Views.MainScreens.HomePage"
              BackgroundColor="{StaticResource Primary}">
-    
-    <VerticalStackLayout Spacing="0" Padding="0">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
         <!-- Top View/Clickable Header -->
-        <Frame Padding="1" 
+        <Frame
+               WidthRequest="400" HeightRequest="150"
+               Padding="1" 
                BorderColor="Black" 
                CornerRadius="1" 
-               HeightRequest="150" 
-               HorizontalOptions="FillAndExpand" 
-               VerticalOptions="Start">
+               AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
+               AbsoluteLayout.LayoutFlags="XProportional,WidthProportional">
             <Image Source="home.svg"
                    Aspect="AspectFill">
                 <Image.GestureRecognizers>
@@ -19,59 +20,129 @@
             </Image>
         </Frame>
 
-        <Button
-            Text="GRAPH TASKS" Margin="0, 20, 0, -50"
-            WidthRequest="150" HeightRequest="50"
-            FontFamily="ReemKufiFunRegular"
-            BackgroundColor="{StaticResource Cyan300Accent}" TextColor="{StaticResource SharcBlack}" BorderWidth="1"
-            HorizontalOptions="Center" VerticalOptions="Center"
-            Clicked="OnGraphTasksClicked"/>
+        <!-- UWAGA Button -->
+        <Frame WidthRequest="150" HeightRequest="150"
+               BackgroundColor="{StaticResource Blue300Accent}"
+               BorderColor="{StaticResource SharcBlack}"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.25, 0.31, -0.5, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnAttentionClicked"/>
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Image Source="undraw_notify_re_65on.svg" 
+               HeightRequest="80" 
+               WidthRequest="100"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+                <Label Text="UWAGA"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="End"/>
+            </StackLayout>
+        </Frame>
 
-        <!-- Grid for Buttons -->
-        <Grid VerticalOptions="Center"
-              HorizontalOptions="Center"
-              RowSpacing="10"
-              ColumnSpacing="10"
-              Margin="0,100,0,20">
-            <!-- Adjust margin as needed -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <!-- Replace 'Button' with your custom button if needed -->
-            <Button
-                Text="UWAGA" Grid.Row="0" Grid.Column="0"
-                WidthRequest="150" HeightRequest="150"
-                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}"
-                StyleClass="ElevatedButton" IsEnabled="True" BorderWidth="1" 
-                FontFamily="ReemKufiFunRegular"
-                HorizontalOptions="Center" VerticalOptions="Center"
-                Clicked="OnAttentionClicked"/>
-            <Button
-                Text="ORGANIZACJA" Grid.Row="0" Grid.Column="1"
-                WidthRequest="150" HeightRequest="150"
-                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}" BorderWidth="1"
-                FontFamily="ReemKufiFunRegular"
-                HorizontalOptions="Center" VerticalOptions="Center"
-                Clicked="OnOrganizationClicked"/>
-            <Button
-                Text="LUDZIE" Grid.Row="1" Grid.Column="0"
-                WidthRequest="150" HeightRequest="150"
-                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}" BorderWidth="1"
-                FontFamily="ReemKufiFunRegular"
-                HorizontalOptions="Center" VerticalOptions="Center"
-                Clicked="OnPeopleClicked"/>
-            <Button
-                Text="ROZRYWKA" Grid.Row="1" Grid.Column="1"
-                WidthRequest="150" HeightRequest="150"
-                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}" BorderWidth="1"
-                FontFamily="ReemKufiFunRegular"
-                HorizontalOptions="Center" VerticalOptions="Center"
-                Clicked="OnEntertainmentClicked" IsEnabled="True"/>
-        </Grid>
-    </VerticalStackLayout>
+        <!-- ORGANIZACJA Button -->
+        <Frame WidthRequest="150" HeightRequest="150"
+               BackgroundColor="{StaticResource Blue300Accent}"
+               BorderColor="{StaticResource SharcBlack}"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.75, 0.31, -0.5, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnOrganizationClicked"/>
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Image Source="undraw_logistics_x_4_dc.svg" 
+               HeightRequest="80" 
+               WidthRequest="100"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+                <Label Text="ORGANIZACJA"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="End"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- LUDZIE Button -->
+        <Frame WidthRequest="150" HeightRequest="150"
+               BackgroundColor="{StaticResource Blue300Accent}"
+               BorderColor="{StaticResource SharcBlack}"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.25, 0.65, -0.5, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnPeopleClicked"/>
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Image Source="undraw_team_re_0bfe.svg" 
+               HeightRequest="80" 
+               WidthRequest="100"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+                <Label Text="LUDZIE"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="End"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- ROZRYWKA Button -->
+        <Frame WidthRequest="150" HeightRequest="150"
+               BackgroundColor="{StaticResource Blue300Accent}"
+               BorderColor="{StaticResource SharcBlack}"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.75, 0.65, -0.5, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnEntertainmentClicked"/>
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Image Source="undraw_meditation_re_gll0.svg" 
+               HeightRequest="80" 
+               WidthRequest="100"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+                <Label Text="SPOKOJ"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="End"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- Graph Tasks Button -->
+        <Frame WidthRequest="150" HeightRequest="150"
+               BackgroundColor="{StaticResource Blue300Accent}"
+               BorderColor="{StaticResource SharcBlack}"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.96, -0.5, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnGraphTasksClicked"/>
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Image Source="undraw_thought_process_re_om58.svg" 
+               HeightRequest="80" 
+               WidthRequest="100"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+                <Label Text="GRAFY ZADAN"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="End"/>
+            </StackLayout>
+        </Frame>
+    </AbsoluteLayout>
 </ContentPage>
