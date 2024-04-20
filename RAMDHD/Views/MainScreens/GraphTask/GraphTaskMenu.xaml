@@ -1,0 +1,187 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RAMDHD.Views.MainScreens.GraphTask.GraphTaskMenu"
+             Title="Menu Grafow Zadan"
+             BackgroundColor="{StaticResource Primary}">
+    <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <!-- Header -->
+        <Label Text="Przykladowe grafy"
+               FontSize="16"
+               TextColor="{StaticResource Cyan100Accent}"
+               FontFamily="ReemKufiFunBold"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               AbsoluteLayout.LayoutBounds="0.2, 0.05, -1, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        <!-- First Button -->
+        <Frame WidthRequest="400" HeightRequest="100"
+               BackgroundColor="{StaticResource Cyan300Accent}"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.2, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="BuyingBreadGraphExample"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Image Source="undraw_gone_shopping_re_2lau.svg" 
+               HeightRequest="50" 
+               WidthRequest="100"
+               HorizontalOptions="Start"
+               VerticalOptions="Center"/>
+                <Label Text="Wyjscie po chleb"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       VerticalOptions="Center"
+                       Padding="20, 0, 0, 0"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- Second Button -->
+        <Frame WidthRequest="400" HeightRequest="100"
+               BackgroundColor="{StaticResource Cyan300Accent}"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.36, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ReadingBookGraphExample"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Image Source="undraw_books_re_8gea.svg" 
+               HeightRequest="50" 
+               WidthRequest="100"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+                <Label Text="Czytanie ksiazki"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       VerticalOptions="Center"
+                       Padding="20, 0, 0, 0"/>
+                
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- Add New Icon/Image -->
+        <Image Source="undraw_add_files_re_v09g.svg"
+               Aspect="AspectFit"
+               HeightRequest="60"
+               WidthRequest="60"
+               AbsoluteLayout.LayoutBounds="0.5,0.8,AutoSize,AutoSize"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NavigateToNewGraphTaskPage"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <!-- Bottom Navigation Container -->
+        <Grid AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+              AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- First Button-Image pair -->
+            <Frame Grid.Column="0" BackgroundColor="{StaticResource Cyan300Accent}"  WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="undraw_sweet_home_dkhr.svg" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="HOME" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="1" BackgroundColor="{StaticResource Cyan300Accent}"  WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="undraw_notify_re_65on.svg" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="UWAGA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="2" BackgroundColor="{StaticResource Cyan300Accent}"  WidthRequest="100">
+                <StackLayout>
+                    <ImageButton Source="undraw_logistics_x_4_dc.svg" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="ORGANIZACJA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="3" BackgroundColor="{StaticResource Cyan300Accent}"  WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="undraw_team_re_0bfe.svg" WidthRequest="30" HeightRequest="30" >
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="LUDZIE" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="4" BackgroundColor="{StaticResource Cyan300Accent}"  WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="undraw_meditation_re_gll0.svg" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="SPOKOJ" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+        </Grid>
+    </AbsoluteLayout>
+</ContentPage>
