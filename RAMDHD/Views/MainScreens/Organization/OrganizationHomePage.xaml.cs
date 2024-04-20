@@ -16,48 +16,35 @@ namespace RAMDHD.Views.MainScreens.Organization
         {
             InitializeComponent();
         }
-        private async void OnGraphTasksClicked(object sender, EventArgs e)
+        private async void OnHomeImageTapped(object sender, EventArgs e)
         {
-            Console.WriteLine("GraphTasks");
-            await this.Navigation.PushAsync(new ProcrastinationHomePage());
-
+            Console.WriteLine("OnHomeImageTapped");
+            // Navigate to HomePage
+            await this.Navigation.PushAsync(new HomePage());
         }
         private async void OnAttentionClicked(object sender, EventArgs e)
         {
             Console.WriteLine("OnAttentionClicked");
-            // Pop the current page off the stack
-            // Insert the new page before the current one
-            Navigation.InsertPageBefore(new AttentionHomePage(), this);
-
-            // Pop the current page off the stack
-            await Navigation.PopAsync();
+            // Navigate to AttentionHomePage
+            await this.Navigation.PushAsync(new AttentionHomePage());
+        }
+        private async void OnOrganizationClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("OnOrganizationClicked");
+            // Navigate to OrganizationHomePage
+            await this.Navigation.PushAsync(new OrganizationHomePage());
         }
         private async void OnPeopleClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("OnPeopleClicked");
-            // Insert the new page before the current one
-            Navigation.InsertPageBefore(new PeopleHomePage(), this);
-
-            // Pop the current page off the stack
-            await Navigation.PopAsync();
+            Console.WriteLine("OnAttentionClicked");
+            // Navigate to PeopleHomePage
+            await this.Navigation.PushAsync(new PeopleHomePage());
         }
         private async void OnEntertainmentClicked(object sender, EventArgs e)
         {
             Console.WriteLine("OnEntertainmentClicked");
-            // Insert the new page before the current one
-            Navigation.InsertPageBefore(new EntertainmentHomePage(), this);
-
-            // Pop the current page off the stack
-            await Navigation.PopAsync();
-        }
-        private async void OnHomeImageTapped(object sender, EventArgs e)
-        {
-            Console.WriteLine("OnHomeImageTapped");
-            // Navigate to the home page
-            await Navigation.PopAsync();
-
-            //// Navigate to the home page using Shell navigation
-            //await Shell.Current.GoToAsync("//HomePage");
+            // Navigate to EntertainmentHomePage
+            await this.Navigation.PushAsync(new EntertainmentHomePage());
         }
     }
 }
