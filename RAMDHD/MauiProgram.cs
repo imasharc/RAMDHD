@@ -17,6 +17,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 fonts.AddFont("ReemKufiFun-Regular.ttf", "ReemKufiFunRegular");
+                fonts.AddFont("ReemKufiFun-Bold.ttf", "ReemKufiFunBold");
             });
 
 #if DEBUG
