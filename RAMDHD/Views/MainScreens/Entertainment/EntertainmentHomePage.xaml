@@ -2,87 +2,87 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RAMDHD.Views.MainScreens.Entertainment.EntertainmentHomePage"
-             Title="Entertainment"
+             Title="SPOKOJ"
              BackgroundColor="{StaticResource Primary}">
 
-    <VerticalStackLayout Spacing="0" Padding="0">
-        
-        <!-- Category Indicator -->
-        <Button
-            Text="ENTERTAINMENT"
-            WidthRequest="200" HeightRequest="50"
-            Margin="0,20,0,0"
-            BackgroundColor="{StaticResource Blue200Accent}" TextColor="{StaticResource SharcBlack}" 
-            FontFamily="ReemKufiFunRegular"
-            BorderWidth="1"
-            IsEnabled="False"
-            HorizontalOptions="Center" VerticalOptions="Center"
-            />
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-        <!-- Grid for Buttons -->
-        <Grid VerticalOptions="Center"
-              HorizontalOptions="Center"
-              RowSpacing="10"
-              ColumnSpacing="10"
-              Margin="0,50,0,30">
-            <!-- Adjust margin as needed -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <!-- Replace 'Button' with your custom button if needed -->
-            <Button
-                Text="AFIRMACJE" Grid.Row="0" Grid.Column="0"
-                WidthRequest="150" HeightRequest="150"
-                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}" 
-                FontFamily="ReemKufiFunRegular"
+        <!-- Category Indicator -->
+        <Button Text="SPOKOJ"
+                WidthRequest="220" HeightRequest="50"
+                BackgroundColor="{StaticResource Blue200Accent}" TextColor="{StaticResource SharcBlack}" 
+                FontFamily="ReemKufiFunBold" FontSize="20"
                 BorderWidth="1"
-                HorizontalOptions="Center" VerticalOptions="Center"
-                IsEnabled="False"/>
-            <Button
-                Text="MANDALE" Grid.Row="0" Grid.Column="1"
-                WidthRequest="150" HeightRequest="150"
-                BackgroundColor="{StaticResource Blue300Accent}" TextColor="{StaticResource SharcBlack}" 
-                FontFamily="ReemKufiFunRegular"
-                BorderWidth="1"
-                HorizontalOptions="Center" VerticalOptions="Center"
-                IsEnabled="False"/>
-            <Button
-                Text="PLACEHOLDER" Grid.Row="1" Grid.Column="1"
-                WidthRequest="150" HeightRequest="150"
-                BackgroundColor="White" TextColor="Black"
-                BorderWidth="1" Opacity="0"
-                HorizontalOptions="Center" VerticalOptions="Center"
-                IsEnabled="False"/>
-        </Grid>
+                IsEnabled="False"
+                AbsoluteLayout.LayoutBounds="0.5, 0.05, -1, -1"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        <!-- AFIRMACJE Button -->
+        <Frame WidthRequest="150" HeightRequest="150"
+               BackgroundColor="{StaticResource Gray400}"
+               BorderColor="{StaticResource SharcBlack}"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.25, 0.25, -0.5, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer />
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Image Source="undraw_super_thank_you_re_f8bo.svg" 
+               HeightRequest="80" 
+               WidthRequest="100"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+                <Label Text="AFIRMACJE"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="End"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- MANDALE Button -->
+        <Frame WidthRequest="150" HeightRequest="150"
+               BackgroundColor="{StaticResource Gray400}"
+               BorderColor="{StaticResource SharcBlack}"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.75, 0.25, -0.5, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer />
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Image Source="undraw_making_art_re_ee8w.svg" 
+               HeightRequest="80" 
+               WidthRequest="100"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+                <Label Text="MANDALE"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="End"/>
+            </StackLayout>
+        </Frame>
 
         <!-- Bottom Navigation -->
         <!-- Bottom Navigation Container -->
-        <Grid VerticalOptions="End" HorizontalOptions="CenterAndExpand" Margin="120">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <!-- Row for labels -->
-            </Grid.RowDefinitions>
+        <Grid AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+              AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional">
             <Grid.ColumnDefinitions>
-                <!-- Define your columns here -->
-
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
-
-                <!-- Add more columns as needed -->
             </Grid.ColumnDefinitions>
 
             <!-- First Button-Image pair -->
             <Frame Grid.Column="0" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
                 <StackLayout>
-                    <ImageButton Source="home_icon.png" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="undraw_sweet_home_dkhr.svg" WidthRequest="30" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
                         </ImageButton.GestureRecognizers>
@@ -100,7 +100,7 @@
 
             <Frame Grid.Column="1" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
                 <StackLayout>
-                    <ImageButton Source="attention.png" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="undraw_notify_re_65on.svg" WidthRequest="30" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnAttentionClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -118,7 +118,7 @@
 
             <Frame Grid.Column="2" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="100">
                 <StackLayout>
-                    <ImageButton Source="organization.png" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="undraw_logistics_x_4_dc.svg" WidthRequest="30" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -136,7 +136,7 @@
 
             <Frame Grid.Column="3" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
                 <StackLayout>
-                    <ImageButton Source="people.png" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="undraw_team_re_0bfe.svg" WidthRequest="30" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnPeopleClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -152,14 +152,14 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="4" BackgroundColor="{StaticResource Cyan100Accent}" WidthRequest="70">
+            <Frame Grid.Column="4" BackgroundColor="{StaticResource Blue200Accent}" WidthRequest="70">
                 <StackLayout>
-                    <ImageButton Source="stones.png" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="undraw_meditation_re_gll0.svg" WidthRequest="30" HeightRequest="30">
                     </ImageButton>
                     <Label Text="SPOKOJ" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource White}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
                     </Label>
                 </StackLayout>
             </Frame>
         </Grid>
-    </VerticalStackLayout>
+    </AbsoluteLayout>
 </ContentPage>
