@@ -1,4 +1,5 @@
 ﻿using RAMDHD.Views.MainScreens;
+using RAMDHD.Views.MainScreens.Attention;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -110,7 +111,7 @@ namespace RAMDHD.Views.WelcomeScreens
         private async void OnSkipTestTapped(object sender, EventArgs e)
         {
             // Navigate to HomePage
-            await this.Navigation.PushAsync(new HomePage());
+            await this.Navigation.PushAsync(new AttentionHomePage());
         }
         protected override void OnDisappearing()
         {

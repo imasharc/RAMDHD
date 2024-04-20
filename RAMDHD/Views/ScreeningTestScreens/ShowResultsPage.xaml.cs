@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 using RAMDHD.Views.MainScreens;
+using RAMDHD.Views.MainScreens.Attention;
 using System;
 
 namespace RAMDHD.Views.ScreeningTestScreens
@@ -18,7 +19,7 @@ namespace RAMDHD.Views.ScreeningTestScreens
         private async void StartUsingAppButton_Clicked(object sender, EventArgs e)
         {
             // Navigate to the HomePage
-            await Navigation.PushAsync(new HomePage());
+            await Navigation.PushAsync(new AttentionHomePage());
         }
 
         protected override void OnDisappearing()
