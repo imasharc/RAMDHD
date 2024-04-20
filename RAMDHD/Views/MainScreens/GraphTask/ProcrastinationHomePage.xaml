@@ -1,0 +1,188 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RAMDHD.Views.MainScreens.GraphTask.ProcrastinationHomePage"
+             Title="Procrastination"
+             BackgroundColor="{StaticResource Primary}">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <!-- Header -->
+        <Label Text="Prokrastynacja to NIE lenistwo!"
+               FontSize="24"
+               TextColor="{StaticResource Cyan100Accent}"
+               FontFamily="ReemKufiFunBold"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               AbsoluteLayout.LayoutBounds="0.5, 0.05, -1, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        <!-- Paragraph Text -->
+        <Label Text="Prokrastynacja moze wynikac z przytloczenia i polega na celowym odkladaniu waznych zadan na rzecz mniej znaczacych, czesto przyjemniejszych zajec."
+               FontSize="16"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               WidthRequest="350"
+               AbsoluteLayout.LayoutBounds="0.5, 0.2, -1, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        <Label Text="Sposobem poradzenia sobie z tym jest podzielenie zadan na mniejsze, latwiejsze do wykonania etapy. Dzieki takim jasno okreslonym granicom czynnosci latwiej jest dostrzec postep zadania."
+               FontSize="16"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               WidthRequest="350"
+               AbsoluteLayout.LayoutBounds="0.5, 0.4, -1, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        <Label Text="Czasami, mimo checi po prostu nie dajemy rady. Warto wtedy nagrodzic sie w trakcie wykonywania zadania, swiadomie prokrastynujac."
+               FontSize="16"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunBold"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               WidthRequest="350"
+               AbsoluteLayout.LayoutBounds="0.5, 0.65, -1, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        <!-- Secondary Button -->
+        <Button Text="JAK WSPOLPRACOWAC Z PROKRASTYNACJA?"
+                WidthRequest="350"
+                FontSize="13"
+                TextColor="{StaticResource SharcBlack}"
+                FontFamily="ReemKufiFunBold"
+                BackgroundColor="{StaticResource Tertiary}"
+                BorderWidth="1"
+                BorderColor="{StaticResource Secondary}"
+                AbsoluteLayout.LayoutBounds="0.5, 0.8, -1, -1"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Clicked="BuyingBreadGraphExample" IsEnabled="True" />
+        <!-- Skip the Test Label -->
+        <Label
+               Text="Pomin wstep"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular"
+               FontAttributes="Italic"
+               AbsoluteLayout.LayoutBounds="0.5, 0.85, -1, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnSkipIntroductionTapped" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- Bottom Navigation -->
+        <!-- Bottom Navigation Container -->
+        <Grid AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+              AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Row for labels -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <!-- Define your columns here -->
+
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+
+                <!-- Add more columns as needed -->
+            </Grid.ColumnDefinitions>
+
+            <!-- First Button-Image pair -->
+            <Frame Grid.Column="0" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="undraw_sweet_home_dkhr.svg" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="HOME" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="1" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="undraw_notify_re_65on.svg" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="UWAGA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="2" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="100">
+                <StackLayout>
+                    <ImageButton Source="undraw_logistics_x_4_dc.svg" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="ORGANIZACJA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="3" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="undraw_team_re_0bfe.svg" WidthRequest="30" HeightRequest="30" >
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="LUDZIE" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="4" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+                <StackLayout>
+                    <ImageButton Source="undraw_meditation_re_gll0.svg" WidthRequest="30" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="SPOKOJ" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+
+    </AbsoluteLayout>
+</ContentPage>
