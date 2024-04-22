@@ -8,7 +8,6 @@
 
 
         <!-- Timer Button -->
-
         <StackLayout WidthRequest="150" HeightRequest="150"
             AbsoluteLayout.LayoutBounds="0.25, 0.25, -0.5, -1"
                  AbsoluteLayout.LayoutFlags="PositionProportional">
@@ -33,80 +32,74 @@
 
 
         <!-- Notatki Button -->
-        <Frame WidthRequest="150" HeightRequest="150"
-               BackgroundColor="{StaticResource Gray400}"
-               BorderColor="{StaticResource SharcBlack}"
-               CornerRadius="10"
-               AbsoluteLayout.LayoutBounds="0.75, 0.25, -0.5, -1"
-               AbsoluteLayout.LayoutFlags="PositionProportional">
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer />
-            </Frame.GestureRecognizers>
-            <StackLayout>
-                <Image Source="undraw_add_notes_re_ln36.svg" 
-               HeightRequest="80" 
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.75, 0.25, -0.5, -1"
+                 AbsoluteLayout.LayoutFlags="PositionProportional">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTimerClicked"/>
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_add_notes_re_ln36.svg" 
+               HeightRequest="100" 
                WidthRequest="100"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
-                <Label Text="NOTATKI"
+
+            <!-- Label inside StackLayout -->
+            <Label Text="NOTATKI"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular" 
                FontSize="13"
-               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
                VerticalOptions="End"/>
-            </StackLayout>
-        </Frame>
+        </StackLayout>
 
 
         <!-- Fiszki Button -->
-        <Frame WidthRequest="150" HeightRequest="150"
-               BackgroundColor="{StaticResource Gray400}"
-               BorderColor="{StaticResource SharcBlack}"
-               CornerRadius="10"
-               AbsoluteLayout.LayoutBounds="0.25, 0.6, -0.5, -1"
-                AbsoluteLayout.LayoutFlags="PositionProportional">
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer />
-            </Frame.GestureRecognizers>
-            <StackLayout>
-                <Image Source="undraw_knowledge_re_5v9l.svg" 
-               HeightRequest="80" 
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.25, 0.6, -0.5, -1"
+                 AbsoluteLayout.LayoutFlags="PositionProportional">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTimerClicked"/>
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_knowledge_re_5v9l.svg" 
+               HeightRequest="100" 
                WidthRequest="100"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
-                <Label Text="FISZKI"
+
+            <!-- Label inside StackLayout -->
+            <Label Text="FISZKI"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular" 
                FontSize="13"
-               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
                VerticalOptions="End"/>
-            </StackLayout>
-        </Frame>
+        </StackLayout>
 
         <!-- Statystyki Button -->
-        <Frame WidthRequest="150" HeightRequest="150"
-               BackgroundColor="{StaticResource Gray400}"
-               BorderColor="{StaticResource SharcBlack}"
-               CornerRadius="10"
-               AbsoluteLayout.LayoutBounds="0.75, 0.6, -0.5, -1"
-               AbsoluteLayout.LayoutFlags="PositionProportional">
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer />
-            </Frame.GestureRecognizers>
-            <StackLayout>
-                <Image Source="undraw_all_the_data_re_hh4w.svg" 
-               HeightRequest="80" 
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.75, 0.6, -0.5, -1"
+                 AbsoluteLayout.LayoutFlags="PositionProportional">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTimerClicked"/>
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_all_the_data_re_hh4w.svg" 
+               HeightRequest="100" 
                WidthRequest="100"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
-                <Label Text="STATYSTYKI"
+
+            <!-- Label inside StackLayout -->
+            <Label Text="STATYSTYKI"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular" 
                FontSize="13"
-               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
                VerticalOptions="End"/>
-            </StackLayout>
-        </Frame>
+        </StackLayout>
 
         <!-- Bottom Navigation Container -->
         <Grid AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
