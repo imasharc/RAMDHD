@@ -1,44 +1,36 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RAMDHD.Views.MainScreens.Attention.AttentionHomePage"
-             Title="Attention"
-             BackgroundColor="{StaticResource Blue200Accent}">
+             Title="Uwaga"
+             BackgroundColor="White">
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-        <!-- Category Indicator -->
-        <Button Text="UWAGA"
-                WidthRequest="220" HeightRequest="50"
-                BackgroundColor="{StaticResource Blue200Accent}" TextColor="{StaticResource SharcBlack}" 
-                FontFamily="ReemKufiFunBold" FontSize="20"
-                BorderWidth="1"
-                IsEnabled="False"
-                AbsoluteLayout.LayoutBounds="0.5, 0.05, -1, -1"
-                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
 
         <!-- Timer Button -->
-        <Frame WidthRequest="150" HeightRequest="150"
-               BackgroundColor="{StaticResource Blue200Accent}"
-               BorderColor="{StaticResource SharcBlack}"
-               CornerRadius="10"
-               AbsoluteLayout.LayoutBounds="0.25, 0.25, -0.5, -1"
-               AbsoluteLayout.LayoutFlags="PositionProportional">
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer />
-            </Frame.GestureRecognizers>
-            <StackLayout>
-                <Image Source="undraw_time_management_re_tk5w.svg" 
-               HeightRequest="80" 
+
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.25, 0.25, -0.5, -1"
+                 AbsoluteLayout.LayoutFlags="PositionProportional">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTimerClicked"/>
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_time_management_re_tk5w.svg" 
+               HeightRequest="100" 
                WidthRequest="100"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
-                <Label Text="TIMER"
+
+            <!-- Label inside StackLayout -->
+            <Label Text="TIMER"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular" 
                FontSize="13"
-               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
                VerticalOptions="End"/>
-            </StackLayout>
-        </Frame>
+        </StackLayout>
+
 
         <!-- Notatki Button -->
         <Frame WidthRequest="150" HeightRequest="150"
@@ -129,16 +121,16 @@
 
             <!-- Navigation buttons and frames -->
             <!-- First Button-Image pair -->
-            <Frame Grid.Column="0" BackgroundColor="{StaticResource Cyan100Accent}">
+            <Frame Grid.Column="0" BackgroundColor="White">
                 <StackLayout>
-                    <ImageButton Source="undraw_notify_re_65on.svg" WidthRequest="32" HeightRequest="30"/>
-                    <Label Text="UWAGA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource White}" HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
+                    <ImageButton Source="attention.png" WidthRequest="25" HeightRequest="30"/>
+                    <Label Text="UWAGA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
                 </StackLayout>
             </Frame>
 
-            <Frame Grid.Column="1" BackgroundColor="{StaticResource Primary}">
+            <Frame Grid.Column="1" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_logistics_x_4_dc.svg" WidthRequest="32" HeightRequest="30">
+                    <ImageButton Source="icons8_schedule_96.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -154,9 +146,9 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="2" BackgroundColor="{StaticResource Cyan300Accent}">
+            <Frame Grid.Column="2" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_team_re_0bfe.svg" WidthRequest="32" HeightRequest="30" >
+                    <ImageButton Source="icons8_group_96.png" WidthRequest="25" HeightRequest="30" >
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnPeopleClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -172,9 +164,9 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="3" BackgroundColor="{StaticResource Cyan300Accent}">
+            <Frame Grid.Column="3" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_meditation_re_gll0.svg" WidthRequest="32" HeightRequest="30">
+                    <ImageButton Source="icons8_meditation_96.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -190,9 +182,9 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="4" BackgroundColor="{StaticResource Cyan300Accent}">
+            <Frame Grid.Column="4" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_thought_process_re_om58.svg" WidthRequest="32" HeightRequest="30">
+                    <ImageButton Source="graph_2.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
                         </ImageButton.GestureRecognizers>
