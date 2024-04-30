@@ -3,116 +3,239 @@
              x:Class="RAMDHD.Views.MainScreens.GraphTask.GraphTaskMenu"
              Title="Menu Grafow Zadan"
              BackgroundColor="{StaticResource Primary}">
-    <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+    <AbsoluteLayout x:Name="MainLayout" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
         <!-- Header -->
-        <Label Text="Przykladowe grafy"
-               FontSize="16"
-               TextColor="{StaticResource Cyan100Accent}"
-               FontFamily="ReemKufiFunBold"
-               HorizontalOptions="Center"
-               HorizontalTextAlignment="Center"
-               AbsoluteLayout.LayoutBounds="0.2, 0.05, -1, -1"
-               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <HorizontalStackLayout
+            AbsoluteLayout.LayoutBounds="0.2, 0.02, -1, -1"
+                   AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Label Text="Utworzone grafy"
+                   FontSize="16"
+                   TextColor="{StaticResource Tertiary}"
+                   FontFamily="ReemKufiFunBold"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   />
+            <Image Source="icons8_info.svg"
+                       WidthRequest="25"
+                       HeightRequest="25"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="10,0,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToSampleGraphTaskPage"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </HorizontalStackLayout>
 
-        <!-- First Button -->
-        <Frame WidthRequest="400" HeightRequest="100"
-               BackgroundColor="{StaticResource Cyan300Accent}"
+        <!-- Placeholder Frames for Adding New Graph Tasks -->
+        <Frame
+               x:Name="placeholder1"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
                CornerRadius="10"
-               AbsoluteLayout.LayoutBounds="0.5, 0.2, 0.5, 1"
+               AbsoluteLayout.LayoutBounds="0.5, 0.16, 0.5, 1"
                 AbsoluteLayout.LayoutFlags="PositionProportional">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="BuyingBreadGraphExample"/>
+                <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="1"/>
             </Frame.GestureRecognizers>
             <HorizontalStackLayout>
-                <Image Source="undraw_gone_shopping_re_2lau.svg" 
-               HeightRequest="50" 
-               WidthRequest="100"
-               HorizontalOptions="Start"
-               VerticalOptions="Center"/>
-                <Label Text="Wyjscie po chleb"
-               TextColor="{StaticResource SharcBlack}"
-               FontFamily="ReemKufiFunRegular" 
-               FontSize="13"
-               HorizontalTextAlignment="Start"
-                       VerticalTextAlignment="Center"
+                <Label
+                    x:Name="placeholderLabel1"
+                    Text="{Binding Title}"
+                    HeightRequest="50" 
+                    WidthRequest="100"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                </Label>
+                <Image Source="{Binding ImageSource}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
                        VerticalOptions="Center"
-                       Padding="20, 0, 0, 0"/>
+                       Margin="0,0,10,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditGraphTask" CommandParameter="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </HorizontalStackLayout>
         </Frame>
 
-        <!-- Second Button -->
-        <Frame WidthRequest="400" HeightRequest="100"
-               BackgroundColor="{StaticResource Cyan300Accent}"
+        <Frame
+               x:Name="placeholder2"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
                CornerRadius="10"
-               AbsoluteLayout.LayoutBounds="0.5, 0.36, 0.5, 1"
+               AbsoluteLayout.LayoutBounds="0.5, 0.32, 0.5, 1"
                 AbsoluteLayout.LayoutFlags="PositionProportional">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="ReadingBookGraphExample"/>
+                <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="2"/>
             </Frame.GestureRecognizers>
             <HorizontalStackLayout>
-                <Image Source="undraw_books_re_8gea.svg" 
-               HeightRequest="50" 
-               WidthRequest="100"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
-                <Label Text="Czytanie ksiazki"
-               TextColor="{StaticResource SharcBlack}"
-               FontFamily="ReemKufiFunRegular" 
-               FontSize="13"
-               HorizontalTextAlignment="Start"
-                       VerticalTextAlignment="Center"
+                <Label
+                    x:Name="placeholderLabel2"
+                    Text="{Binding Title}"
+                    HeightRequest="50" 
+                    WidthRequest="100"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    
+                </Label>
+                <Image Source="{Binding ImageSource}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
                        VerticalOptions="Center"
-                       Padding="20, 0, 0, 0"/>
-                
+                       Margin="0,0,10,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditGraphTask" CommandParameter="2"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </HorizontalStackLayout>
         </Frame>
 
-        <!-- Add New Icon/Image -->
-        <Image Source="undraw_add_files_re_v09g.svg"
-               Aspect="AspectFit"
-               HeightRequest="60"
-               WidthRequest="60"
-               AbsoluteLayout.LayoutBounds="0.5,0.8,AutoSize,AutoSize"
-               AbsoluteLayout.LayoutFlags="PositionProportional">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NavigateToNewGraphTaskPage"/>
-            </Image.GestureRecognizers>
-        </Image>
+        <Frame
+               x:Name="placeholder3"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.48, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="3"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel3"
+                    Text="{Binding Title, FallbackValue='Add new graph task'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="Black"
+                    HeightRequest="50" 
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="3"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image
+                       Source="{Binding ImageSource, FallbackValue='icons8_edit_96.png'}"
+                       WidthRequest="25"
+                       HeightRequest="25"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,10,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditGraphTask" CommandParameter="3"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
 
+        <Frame
+               x:Name="placeholder4"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.64, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="4"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel4"
+                    Text="{Binding Title, FallbackValue='Add new graph task'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="{StaticResource Gray200}"
+                    HeightRequest="50" 
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="4"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image
+                       Source="{Binding ImageSource, FallbackValue='icons8_edit_96.png'}"
+                       WidthRequest="25"
+                       HeightRequest="25"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,10,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditGraphTask" CommandParameter="4"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame
+               x:Name="placeholder5"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.8, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="5"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel5"
+                    Text="{Binding Title, FallbackValue='Add new graph task'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="{StaticResource Gray200}"
+                    HeightRequest="50" 
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="5"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image
+                       Source="{Binding ImageSource, FallbackValue='icons8_edit_96.png'}"
+                       WidthRequest="25"
+                       HeightRequest="25"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,10,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditGraphTask" CommandParameter="5"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- Bottom Navigation -->
         <!-- Bottom Navigation Container -->
         <Grid AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
               AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Row for labels -->
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <!-- Define your columns here -->
+
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+
+                <!-- Add more columns as needed -->
             </Grid.ColumnDefinitions>
 
             <!-- First Button-Image pair -->
-            <Frame Grid.Column="0" BackgroundColor="{StaticResource Cyan300Accent}"  WidthRequest="70">
+            <Frame Grid.Column="0" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_sweet_home_dkhr.svg" WidthRequest="30" HeightRequest="30">
-                        <ImageButton.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
-                        </ImageButton.GestureRecognizers>
-                    </ImageButton>
-                    <Label Text="HOME" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
-                </Frame.GestureRecognizers>
-            </Frame>
-
-            <Frame Grid.Column="1" BackgroundColor="{StaticResource Cyan300Accent}"  WidthRequest="70">
-                <StackLayout>
-                    <ImageButton Source="undraw_notify_re_65on.svg" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="attention.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnAttentionClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -128,9 +251,9 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="2" BackgroundColor="{StaticResource Cyan300Accent}"  WidthRequest="100">
+            <Frame Grid.Column="1" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_logistics_x_4_dc.svg" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="icons8_schedule_96.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -146,9 +269,9 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="3" BackgroundColor="{StaticResource Cyan300Accent}"  WidthRequest="70">
+            <Frame Grid.Column="2" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_team_re_0bfe.svg" WidthRequest="30" HeightRequest="30" >
+                    <ImageButton Source="icons8_group_96.png" WidthRequest="25" HeightRequest="30" >
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnPeopleClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -164,9 +287,9 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="4" BackgroundColor="{StaticResource Cyan300Accent}"  WidthRequest="70">
+            <Frame Grid.Column="3" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_meditation_re_gll0.svg" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="icons8_meditation_96.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -182,6 +305,23 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
+            <Frame Grid.Column="4" BackgroundColor="{StaticResource Primary}">
+                <StackLayout>
+                    <ImageButton Source="graph_2.png" WidthRequest="25" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="GRAFY ZADAN" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
         </Grid>
     </AbsoluteLayout>
 </ContentPage>
