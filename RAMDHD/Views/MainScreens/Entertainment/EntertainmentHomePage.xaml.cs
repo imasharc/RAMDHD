@@ -16,12 +16,6 @@ namespace RAMDHD.Views.MainScreens.Entertainment
         {
             InitializeComponent();
         }
-        private async void OnGraphTasksClicked(object sender, EventArgs e)
-        {
-            Console.WriteLine("GraphTasks");
-            await this.Navigation.PushAsync(new ProcrastinationHomePage());
-
-        }
         private async void OnAttentionClicked(object sender, EventArgs e)
         {
             Console.WriteLine("OnAttentionClicked");
@@ -50,14 +44,10 @@ namespace RAMDHD.Views.MainScreens.Entertainment
             // Pop the current page off the stack
             await Navigation.PopAsync();
         }
-        private async void OnHomeImageTapped(object sender, EventArgs e)
+        private async void OnGraphTasksClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("OnHomeImageTapped");
-            // Navigate to the home page
-            await Navigation.PopAsync();
-
-            //// Navigate to the home page using Shell navigation
-            //await Shell.Current.GoToAsync("//HomePage");
+            Console.WriteLine("GraphTasks");
+            await this.Navigation.PushAsync(new ProcrastinationHomePage());
         }
     }
 }
