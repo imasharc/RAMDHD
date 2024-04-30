@@ -2,96 +2,79 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RAMDHD.Views.MainScreens.People.PeopleHomePage"
-             Title="People"
-             BackgroundColor="LightBlue">
+             Title="Ludzie"
+             BackgroundColor="White">
 
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-        <!-- Category Indicator -->
-        <Button Text="LUDZIE"
-                WidthRequest="220" HeightRequest="50"
-                BackgroundColor="{StaticResource Blue200Accent}" TextColor="{StaticResource SharcBlack}" 
-                FontFamily="ReemKufiFunBold" FontSize="20"
-                BorderWidth="1"
-                IsEnabled="False"
-                AbsoluteLayout.LayoutBounds="0.5, 0.05, -1, -1"
-                AbsoluteLayout.LayoutFlags="PositionProportional"/>
-
         <!-- WAŻNE OSOBY Button -->
-        <Frame WidthRequest="150" HeightRequest="150"
-               BackgroundColor="{StaticResource Gray400}"
-               BorderColor="{StaticResource SharcBlack}"
-               CornerRadius="10"
-               AbsoluteLayout.LayoutBounds="0.25, 0.25, -0.5, -1"
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.25, 0.25, -0.5, -1"
                AbsoluteLayout.LayoutFlags="PositionProportional">
-            <Frame.GestureRecognizers>
+            <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer />
-            </Frame.GestureRecognizers>
-            <StackLayout>
-                <Image Source="undraw_lives_matter_38lv.svg" 
-               HeightRequest="80" 
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_lives_matter_38lv.svg" 
+               HeightRequest="100" 
                WidthRequest="100"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
-                <Label Text="WAZNE OSOBY"
+
+            <!-- Label inside StackLayout -->
+            <Label Text="WAZNE OSOBY"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular" 
                FontSize="13"
-               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
                VerticalOptions="End"/>
-            </StackLayout>
-        </Frame>
+        </StackLayout>
 
         <!-- FORUM Button -->
-        <Frame WidthRequest="150" HeightRequest="150"
-               BackgroundColor="{StaticResource Gray400}"
-               BorderColor="{StaticResource SharcBlack}"
-               CornerRadius="10"
-               AbsoluteLayout.LayoutBounds="0.75, 0.25, -0.5, -1"
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.75, 0.25, -0.5, -1"
                AbsoluteLayout.LayoutFlags="PositionProportional">
-            <Frame.GestureRecognizers>
+            <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer />
-            </Frame.GestureRecognizers>
-            <StackLayout>
-                <Image Source="undraw_forms_re_pkrt.svg" 
-               HeightRequest="80" 
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_forms_re_pkrt.svg" 
+               HeightRequest="100" 
                WidthRequest="100"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
-                <Label Text="FORUM"
+
+            <!-- Label inside StackLayout -->
+            <Label Text="FORUM"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular" 
                FontSize="13"
-               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
                VerticalOptions="End"/>
-            </StackLayout>
-        </Frame>
-
+        </StackLayout>
 
         <!-- LINIA POMOCY Button -->
-        <Frame WidthRequest="150" HeightRequest="150"
-               BackgroundColor="{StaticResource Gray400}"
-               BorderColor="{StaticResource SharcBlack}"
-               CornerRadius="10"
-               AbsoluteLayout.LayoutBounds="0.25, 0.6, -0.5, -1"
-                AbsoluteLayout.LayoutFlags="PositionProportional">
-            <Frame.GestureRecognizers>
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.25, 0.6, -0.5, -1"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer />
-            </Frame.GestureRecognizers>
-            <StackLayout>
-                <Image Source="undraw_night_calls_5jh7.svg" 
-               HeightRequest="80" 
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_night_calls_5jh7.svg" 
+               HeightRequest="100" 
                WidthRequest="100"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
-                <Label Text="LINIA POMOCY"
+
+            <!-- Label inside StackLayout -->
+            <Label Text="LINIA POMOCY"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular" 
                FontSize="13"
-               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
                VerticalOptions="End"/>
-            </StackLayout>
-        </Frame>
+        </StackLayout>
 
         <!-- Bottom Navigation -->
         <!-- Bottom Navigation Container -->
@@ -106,27 +89,9 @@
             </Grid.ColumnDefinitions>
 
             <!-- First Button-Image pair -->
-            <Frame Grid.Column="0" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+            <Frame Grid.Column="0" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_sweet_home_dkhr.svg" WidthRequest="30" HeightRequest="30">
-                        <ImageButton.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
-                        </ImageButton.GestureRecognizers>
-                    </ImageButton>
-                    <Label Text="HOME" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
-                </Frame.GestureRecognizers>
-            </Frame>
-
-            <Frame Grid.Column="1" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
-                <StackLayout>
-                    <ImageButton Source="undraw_notify_re_65on.svg" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="attention.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnAttentionClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -142,9 +107,9 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="2" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="100">
+            <Frame Grid.Column="1" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_logistics_x_4_dc.svg" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="icons8_schedule_96.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -160,18 +125,18 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="3" BackgroundColor="{StaticResource Blue200Accent}" WidthRequest="70">
+            <Frame Grid.Column="2" BackgroundColor="White">
                 <StackLayout>
-                    <ImageButton Source="undraw_team_re_0bfe.svg" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="icons8_group_96.png" WidthRequest="25" HeightRequest="30">
                     </ImageButton>
-                    <Label Text="LUDZIE" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource White}" HorizontalOptions="Center">
+                    <Label Text="LUDZIE" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
                     </Label>
                 </StackLayout>
             </Frame>
 
-            <Frame Grid.Column="4" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+            <Frame Grid.Column="3" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_meditation_re_gll0.svg" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="icons8_meditation_96.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -184,6 +149,24 @@
                 </StackLayout>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="4" BackgroundColor="WhiteSmoke" >
+                <StackLayout>
+                    <ImageButton Source="graph_2.png" WidthRequest="25" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="GRAFY ZADAN" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
                 </Frame.GestureRecognizers>
             </Frame>
         </Grid>
