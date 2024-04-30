@@ -1,0 +1,214 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RAMDHD.Views.MainScreens.GraphTask.EditGraphTaskPage"
+             Title="Edycja Grafu Zadan"
+             BackgroundColor="{StaticResource Primary}">
+    <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="FillAndExpand">
+
+            <!-- Task Title Entry -->
+            <Entry x:Name="TitleEntry"
+               Placeholder="Enter graph task title"
+               FontSize="16"
+               TextColor="{StaticResource Tertiary}"
+               FontFamily="ReemKufiFunBold"
+               MaxLength="160" />
+
+            <Label
+                Text="Wpisz aktywnosci oraz zaznacz wybrana, ktora posluzy do prokrastynacji"
+                LineBreakMode="WordWrap"
+                WidthRequest="300"
+                FontSize="13"
+                TextColor="{StaticResource Tertiary}"
+                FontFamily="ReemKufiFunBold"/>
+
+            <!-- Each Activity Entry with Radio Button -->
+            <HorizontalStackLayout>
+                <Entry
+                    x:Name="Activity1Entry"
+                    FontSize="16"
+                    TextColor="{StaticResource Tertiary}"
+                    FontFamily="ReemKufiFunBold"
+                    Placeholder="Enter name for Activity 1" />
+                <RadioButton
+                    x:Name="Activity1Radio"
+                    IsVisible="True"
+                    Opacity="1"
+                    GroupName="ProcrastinationTasks" Value="Activity1"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Entry
+                    x:Name="Activity2Entry"
+                    FontSize="16"
+                    TextColor="{StaticResource Tertiary}"
+                    FontFamily="ReemKufiFunBold"
+                    Placeholder="Enter name for Activity 2" />
+                <RadioButton
+                    x:Name="Activity2Radio"
+                    GroupName="ProcrastinationTasks" Value="Activity2"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Entry
+                    x:Name="Activity3Entry"
+                    FontSize="16"
+                    TextColor="{StaticResource Tertiary}"
+                    FontFamily="ReemKufiFunBold"
+                    Placeholder="Enter name for Activity 3" />
+                <RadioButton
+                    x:Name="Activity3Radio"
+                    GroupName="ProcrastinationTasks" Value="Activity3"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Entry
+                    x:Name="Activity4Entry"
+                    FontSize="16"
+                    TextColor="{StaticResource Tertiary}"
+                    FontFamily="ReemKufiFunBold"
+                    Placeholder="Enter name for closing Activity 4" />
+                <!-- No radio button for finish task as it's always the end task -->
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+        <!-- Save Button -->
+        <Button
+              Text="ZAPISZ"
+              WidthRequest="200" HeightRequest="50"
+              Margin="0,100,0,0"
+              BackgroundColor="LightGreen" TextColor="Green" BorderWidth="1"
+              HorizontalOptions="Center" VerticalOptions="Center"
+               AbsoluteLayout.LayoutBounds="0.5, 0.6, 0, 0"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+            Clicked="OnSaveButtonClickedAsync"
+               IsEnabled="True"
+            />
+
+        <!-- Delete Button -->
+        <Button
+              Text="ANULUJ"
+              WidthRequest="200" HeightRequest="50"
+            AbsoluteLayout.LayoutBounds="0.5, 0.77, 0, 0"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+              BackgroundColor="Red" TextColor="DarkRed" BorderWidth="1"
+              HorizontalOptions="Center" VerticalOptions="Center"
+            Clicked="OnCancelButtonClickedAsync"
+               IsEnabled="True"
+            />
+
+        <!-- Bottom Navigation -->
+        <!-- Bottom Navigation Container -->
+        <Grid AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+              AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Row for labels -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <!-- Define your columns here -->
+
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+
+                <!-- Add more columns as needed -->
+            </Grid.ColumnDefinitions>
+
+            <!-- First Button-Image pair -->
+            <Frame Grid.Column="0" BackgroundColor="WhiteSmoke">
+                <StackLayout>
+                    <ImageButton Source="attention.png" WidthRequest="25" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="UWAGA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAttentionClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="1" BackgroundColor="WhiteSmoke">
+                <StackLayout>
+                    <ImageButton Source="icons8_schedule_96.png" WidthRequest="25" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="ORGANIZACJA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="2" BackgroundColor="WhiteSmoke">
+                <StackLayout>
+                    <ImageButton Source="icons8_group_96.png" WidthRequest="25" HeightRequest="30" >
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="LUDZIE" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPeopleClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="3" BackgroundColor="WhiteSmoke">
+                <StackLayout>
+                    <ImageButton Source="icons8_meditation_96.png" WidthRequest="25" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="SPOKOJ" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="4" BackgroundColor="{StaticResource Primary}">
+                <StackLayout>
+                    <ImageButton Source="graph_2.png" WidthRequest="25" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="GRAFY ZADAN" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </AbsoluteLayout>
+</ContentPage>
