@@ -2,12 +2,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              x:Class="RAMDHD.Views.WelcomeScreens.IntroductionPage"
-             BackgroundColor="{StaticResource Primary}">
+             BackgroundColor="White">
 
     <!-- Use a Grid instead of VerticalStackLayout for more precise control over layout -->
     <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="100"/>
             <!-- For the title -->
             <RowDefinition Height="*"/>
             <!-- For the image -->
@@ -18,10 +18,10 @@
 
         <!-- Title Text -->
         <Label Grid.Row="0"
-               Text="DO YOU HAVE ADHD?"
+               Text="Do you have ADHD?"
                FontSize="31" 
-               FontFamily="ReemKufiFunRegular"
-               TextColor="{StaticResource Black}"
+               FontFamily="ReemKufiFunBold"
+               TextColor="{StaticResource Tertiary}"
                HorizontalOptions="Center"
                VerticalOptions="End" />
 
