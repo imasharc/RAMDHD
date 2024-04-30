@@ -27,12 +27,6 @@ namespace RAMDHD.Views.MainScreens.GraphTask
             // Navigate to GraphTaskMenu
             await this.Navigation.PushAsync(new GraphTaskMenu());
         }
-        private async void OnHomeImageTapped(object sender, EventArgs e)
-        {
-            Console.WriteLine("OnHomeImageTapped");
-            // Navigate to HomePage
-            await this.Navigation.PushAsync(new HomePage());
-        }
         private async void OnAttentionClicked(object sender, EventArgs e)
         {
             Console.WriteLine("OnAttentionClicked");
@@ -56,6 +50,11 @@ namespace RAMDHD.Views.MainScreens.GraphTask
             Console.WriteLine("OnEntertainmentClicked");
             // Navigate to EntertainmentHomePage
             await this.Navigation.PushAsync(new EntertainmentHomePage());
+        }
+        private async void OnGraphTasksClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("GraphTasks");
+            await this.Navigation.PushAsync(new ProcrastinationHomePage());
         }
     }
 }

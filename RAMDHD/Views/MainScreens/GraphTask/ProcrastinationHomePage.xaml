@@ -1,13 +1,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RAMDHD.Views.MainScreens.GraphTask.ProcrastinationHomePage"
-             Title="Procrastination"
+             Title="Grafy Zadan"
              BackgroundColor="{StaticResource Primary}">
+    
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <!-- Header -->
         <Label Text="Prokrastynacja to NIE lenistwo!"
-               FontSize="24"
-               TextColor="{StaticResource Cyan100Accent}"
+               FontSize="22"
+               TextColor="{StaticResource Tertiary}"
                FontFamily="ReemKufiFunBold"
                HorizontalOptions="Center"
                HorizontalTextAlignment="Center"
@@ -19,29 +20,26 @@
                FontSize="16"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular"
-               HorizontalOptions="Center"
-               HorizontalTextAlignment="Center"
-               WidthRequest="350"
-               AbsoluteLayout.LayoutBounds="0.5, 0.2, -1, -1"
+               HorizontalOptions="StartAndExpand"
+               WidthRequest="300"
+               AbsoluteLayout.LayoutBounds="0.5, 0.18, -1, -1"
                AbsoluteLayout.LayoutFlags="PositionProportional"/>
 
         <Label Text="Sposobem poradzenia sobie z tym jest podzielenie zadan na mniejsze, latwiejsze do wykonania etapy. Dzieki takim jasno okreslonym granicom czynnosci latwiej jest dostrzec postep zadania."
                FontSize="16"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular"
-               HorizontalOptions="Center"
-               HorizontalTextAlignment="Center"
-               WidthRequest="350"
-               AbsoluteLayout.LayoutBounds="0.5, 0.4, -1, -1"
+               HorizontalOptions="StartAndExpand"
+               WidthRequest="300"
+               AbsoluteLayout.LayoutBounds="0.5, 0.41, -1, -1"
                AbsoluteLayout.LayoutFlags="PositionProportional"/>
 
         <Label Text="Czasami, mimo checi po prostu nie dajemy rady. Warto wtedy nagrodzic sie w trakcie wykonywania zadania, swiadomie prokrastynujac."
                FontSize="16"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunBold"
-               HorizontalOptions="Center"
-               HorizontalTextAlignment="Center"
-               WidthRequest="350"
+               HorizontalOptions="StartAndExpand"
+               WidthRequest="300"
                AbsoluteLayout.LayoutBounds="0.5, 0.65, -1, -1"
                AbsoluteLayout.LayoutFlags="PositionProportional"/>
 
@@ -93,27 +91,9 @@
             </Grid.ColumnDefinitions>
 
             <!-- First Button-Image pair -->
-            <Frame Grid.Column="0" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+            <Frame Grid.Column="0" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_sweet_home_dkhr.svg" WidthRequest="30" HeightRequest="30">
-                        <ImageButton.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
-                        </ImageButton.GestureRecognizers>
-                    </ImageButton>
-                    <Label Text="HOME" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
-                </Frame.GestureRecognizers>
-            </Frame>
-
-            <Frame Grid.Column="1" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
-                <StackLayout>
-                    <ImageButton Source="undraw_notify_re_65on.svg" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="attention.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnAttentionClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -129,9 +109,9 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="2" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="100">
+            <Frame Grid.Column="1" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_logistics_x_4_dc.svg" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="icons8_schedule_96.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnOrganizationClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -147,9 +127,9 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="3" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+            <Frame Grid.Column="2" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_team_re_0bfe.svg" WidthRequest="30" HeightRequest="30" >
+                    <ImageButton Source="icons8_group_96.png" WidthRequest="25" HeightRequest="30" >
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnPeopleClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -165,9 +145,9 @@
                 </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame Grid.Column="4" BackgroundColor="{StaticResource Cyan300Accent}" WidthRequest="70">
+            <Frame Grid.Column="3" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <ImageButton Source="undraw_meditation_re_gll0.svg" WidthRequest="30" HeightRequest="30">
+                    <ImageButton Source="icons8_meditation_96.png" WidthRequest="25" HeightRequest="30">
                         <ImageButton.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
                         </ImageButton.GestureRecognizers>
@@ -180,6 +160,24 @@
                 </StackLayout>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Column="4" BackgroundColor="{StaticResource Primary}">
+                <StackLayout>
+                    <ImageButton Source="graph_2.png" WidthRequest="25" HeightRequest="30">
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label Text="GRAFY ZADAN" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
                 </Frame.GestureRecognizers>
             </Frame>
         </Grid>
