@@ -184,12 +184,12 @@
                     </ImageButton>
                     <Label Text="GRAFY ZADAN" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
+                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
                 <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnHomeImageTapped"/>
+                    <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
                 </Frame.GestureRecognizers>
             </Frame>
         </Grid>
