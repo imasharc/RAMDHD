@@ -12,23 +12,23 @@ namespace RAMDHD.Views.WelcomeScreens
         {
             InitializeComponent(); // This is necessary.
 
-            var tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += async (s, e) =>
-            {
-                // Stop the shaking animation when tapped
-                isShaking = false;
+            //var tapGestureRecognizer = new TapGestureRecognizer();
+            //tapGestureRecognizer.Tapped += async (s, e) =>
+            //{
+            //    // Stop the shaking animation when tapped
+            //    isShaking = false;
 
-                // Pop animation
-                await BrainImage.ScaleTo(3, 250, Easing.SpringIn); // Scale up the image
-                                                                   // Use the built-in navigation mechanism if inside a NavigationPage or Shell.
-                await this.Navigation.PushAsync(new IntroductionPage());
-                await BrainImage.ScaleTo(1.0, 250, Easing.SpringOut); // Scale back to original size
+            //    // Pop animation
+            //    await BrainImage.ScaleTo(3, 250, Easing.SpringIn); // Scale up the image
+            //                                                       // Use the built-in navigation mechanism if inside a NavigationPage or Shell.
+            //    await this.Navigation.PushAsync(new IntroductionPage());
+            //    await BrainImage.ScaleTo(1.0, 250, Easing.SpringOut); // Scale back to original size
 
 
-            };
+            //};
 
-            // Assuming you have an image with x:Name="BrainImage" in your TitleScreen.xaml
-            BrainImage.GestureRecognizers.Add(tapGestureRecognizer);
+            //// Assuming you have an image with x:Name="BrainImage" in your TitleScreen.xaml
+            //BrainImage.GestureRecognizers.Add(tapGestureRecognizer);
         }
 
         protected override void OnAppearing()
@@ -51,6 +51,24 @@ namespace RAMDHD.Views.WelcomeScreens
 
                 if (!isShaking) break; // Check the flag before starting another loop
                 await Task.Delay(1000); // Wait for 2 seconds before shaking again
+            }
+        }
+        private async void OnSwiped(object sender, SwipedEventArgs e)
+        {
+            if (e.Direction == SwipeDirection.Left || e.Direction == SwipeDirection.Right)
+            {
+                // Stop the shaking animation when tapped
+                isShaking = false;
+
+                // Pop animation
+                await BrainImage.ScaleTo(3, 250, Easing.SpringIn); // Scale up the image
+
+                // Use the built-in navigation mechanism if inside a NavigationPage or Shell.
+                // Handle the swipe direction (e.g., navigate to a new page)
+                await this.Navigation.PushAsync(new IntroductionPage());
+                await BrainImage.ScaleTo(1.0, 250, Easing.SpringOut); // Scale back to original size
+
+
             }
         }
 

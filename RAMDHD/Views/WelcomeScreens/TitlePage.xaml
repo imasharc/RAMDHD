@@ -1,39 +1,48 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RAMDHD.Views.WelcomeScreens.TitlePage"
-             BackgroundColor="{StaticResource Primary}">
-    <!-- Use safe area for iOS -->
-
-    <!-- Material Design recommends using a Grid for more complex layouts -->
-    <Grid Padding="16" RowSpacing="24">
-        <!-- Standard padding and spacing -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <!-- Header -->
-            <RowDefinition Height="*"/>
-            <!-- Content -->
-        </Grid.RowDefinitions>
+             BackgroundColor="White">
+    <AbsoluteLayout Padding="16">
 
         <!-- App Title -->
-        <Label Grid.Row="0"
-               Text="CutCatADHD"
+        <Label Text="CutCat"
                FontSize="40"
                FontFamily="ReemKufiFunRegular"
-               TextColor="{StaticResource SharcBlack}"
-               HorizontalOptions="Center"
-               VerticalOptions="Start" />
+               TextColor="{StaticResource Tertiary}"
+               FontAttributes="Italic"
+               AbsoluteLayout.LayoutBounds=".5, 0, AutoSize, AutoSize"
+               AbsoluteLayout.LayoutFlags="PositionProportional" />
 
-            <!-- Brain Image -->
-            <Image Grid.Row="1"
-                   x:Name="BrainImage"
-                   Source="brain.svg"
-                   WidthRequest="200"
-                   HeightRequest="200"
-                   HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1"/>
-                </Image.GestureRecognizers>
-            </Image>
-    </Grid>
+        <!-- ADHD Label -->
+        <Label Text="ADHD"
+               FontSize="40"
+               FontFamily="ReemKufiFunBold"
+               TextColor="{StaticResource Tertiary}"
+               AbsoluteLayout.LayoutBounds=".5, .1, AutoSize, AutoSize"
+               AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+        <!-- Brain Image -->
+        <Image x:Name="BrainImage"
+               Source="brain.svg"
+               AbsoluteLayout.LayoutBounds=".5, .5, 200, 200"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Image.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <!-- Optionally, you can overlay a Label on the Image by giving it the same LayoutBounds -->
+        <Label Text="----------------"
+               FontSize="50"
+               FontFamily="ReemKufiFunBold"
+               TextColor="{StaticResource Tertiary}"
+               AbsoluteLayout.LayoutBounds=".5, .5, AutoSize, AutoSize"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Label.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+            </Label.GestureRecognizers>
+        </Label>
+    </AbsoluteLayout>
 </ContentPage>
