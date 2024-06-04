@@ -1,69 +1,84 @@
-﻿using RAMDHD.Views.MainScreens.Entertainment;
+﻿using RAMDHD.Views.MainScreens.Attention.Flashcards;
+using RAMDHD.Views.MainScreens.Mindfulness;
 using RAMDHD.Views.MainScreens.GraphTask;
 using RAMDHD.Views.MainScreens.Organization;
 using RAMDHD.Views.MainScreens.People;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
+using System.ComponentModel;
 
 namespace RAMDHD.Views.MainScreens.Attention
 {
-    public partial class AttentionHomePage : ContentPage
+    public partial class AttentionHomePage : ContentPage, INotifyPropertyChanged
     {
+        private int activePage;
         public AttentionHomePage()
         {
+            ActivePage = 0;
             InitializeComponent();
+            BindingContext = this; // Set the BindingContext to the current instance
 
+        }
+        public int ActivePage
+        {
+            get => activePage;
+            set
+            {
+                if (activePage != value)
+                {
+                    activePage = value;
+                    OnPropertyChanged(nameof(ActivePage));
+                }
+            }
+        }
+        public ICommand NavigateCommand => new Command<string>(async (page) =>
+        {
+            switch (page)
+            {
+                case "Attention":
+                    await this.Navigation.PushAsync(new AttentionHomePage());
+                    break;
+                case "Organization":
+                    await this.Navigation.PushAsync(new OrganizationHomePage());
+                    break;
+                case "People":
+                    await this.Navigation.PushAsync(new PeopleHomePage());
+                    break;
+                case "Mindfulness":
+                    await this.Navigation.PushAsync(new MindfulnessHomePage());
+                    break;
+                case "GraphTasks":
+                    await this.Navigation.PushAsync(new ProcrastinationHomePage());
+                    break;
+            }
+        });
+
+        private async void OnTimerClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TimerPage());
+        }
+        private async void OnNotesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NotesPage());
+        }
+        private async void OnFlashcardsClicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PushAsync(new FlashcardsMenuPage());
         }
         private async void OnGraphTasksClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("GraphTasks");
             await this.Navigation.PushAsync(new ProcrastinationHomePage());
-
         }
-        private async void OnTimerClicked(object sender, EventArgs e)
-        {
-            Console.WriteLine("OnTimerClicked");
-            // Navigate to the Timer page
-            await Navigation.PushAsync(new TimerPage());
-        }
-
         private async void OnOrganizationClicked(object sender, EventArgs e)
         {
-            // Insert the new page before the current one
-            Navigation.InsertPageBefore(new OrganizationHomePage(), this);
-
-            // Pop the current page off the stack
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new OrganizationHomePage());
         }
         private async void OnPeopleClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("OnPeopleClicked");
-            // Insert the new page before the current one
-            Navigation.InsertPageBefore(new PeopleHomePage(), this);
-
-            // Pop the current page off the stack
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new PeopleHomePage());
         }
-        private async void OnEntertainmentClicked(object sender, EventArgs e)
+        private async void OnMindfulnessClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("OnEntertainmentClicked");
-            // Insert the new page before the current one
-            Navigation.InsertPageBefore(new EntertainmentHomePage(), this);
-
-            // Pop the current page off the stack
-            await Navigation.PopAsync();
-        }
-        private async void OnHomeImageTapped(object sender, EventArgs e)
-        {
-            Console.WriteLine("OnHomeImageTapped");
-            // Navigate to the home page
-            await Navigation.PopAsync();
-
-            //// Navigate to the home page using Shell navigation
-            //await Shell.Current.GoToAsync("//HomePage");
+            await Navigation.PushAsync(new MindfulnessHomePage());
         }
     }
 }
