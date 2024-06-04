@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RAMDHD.Views.Components.BottomNavigationView">
+    <Grid AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+          AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Navigation buttons and frames -->
+        <Frame Grid.Column="0" BackgroundColor="{Binding ActivePage, Converter={StaticResource ActivePageConverter}, ConverterParameter=0}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="Attention"/>
+            </Frame.GestureRecognizers>
+            <ImageButton Source="learning.svg" WidthRequest="30" HeightRequest="30">
+                <ImageButton.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="Attention"/>
+                </ImageButton.GestureRecognizers>
+            </ImageButton>
+        </Frame>
+
+        <Frame Grid.Column="1" BackgroundColor="{Binding ActivePage, Converter={StaticResource ActivePageConverter}, ConverterParameter=1}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="Organization"/>
+            </Frame.GestureRecognizers>
+            <ImageButton Source="calendar_plus.svg" WidthRequest="30" HeightRequest="30">
+                <ImageButton.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="Organization"/>
+                </ImageButton.GestureRecognizers>
+            </ImageButton>
+        </Frame>
+
+        <Frame Grid.Column="2" BackgroundColor="{Binding ActivePage, Converter={StaticResource ActivePageConverter}, ConverterParameter=2}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="People"/>
+            </Frame.GestureRecognizers>
+            <ImageButton Source="community.svg" WidthRequest="30" HeightRequest="30">
+                <ImageButton.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="People"/>
+                </ImageButton.GestureRecognizers>
+            </ImageButton>
+        </Frame>
+
+        <Frame Grid.Column="3" BackgroundColor="{Binding ActivePage, Converter={StaticResource ActivePageConverter}, ConverterParameter=3}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="Mindfulness"/>
+            </Frame.GestureRecognizers>
+            <ImageButton Source="donate.svg" WidthRequest="30" HeightRequest="30">
+                <ImageButton.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="Mindfulness"/>
+                </ImageButton.GestureRecognizers>
+            </ImageButton>
+        </Frame>
+
+        <Frame Grid.Column="4" BackgroundColor="{Binding ActivePage, Converter={StaticResource ActivePageConverter}, ConverterParameter=4}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="GraphTasks"/>
+            </Frame.GestureRecognizers>
+            <ImageButton Source="curve_array.svg" WidthRequest="30" HeightRequest="30">
+                <ImageButton.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="GraphTasks"/>
+                </ImageButton.GestureRecognizers>
+            </ImageButton>
+        </Frame>
+    </Grid>
+
+</ContentView>
