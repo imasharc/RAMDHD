@@ -1,8 +1,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD.Views.Components"
              x:Class="RAMDHD.Views.MainScreens.Organization.OrganizationHomePage"
-             Title="Organizacja"
-             BackgroundColor="White">
+             Title="Organization"
+             BackgroundColor="{StaticResource White}">
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
         <!-- Kalendarz Button -->
@@ -13,12 +14,12 @@
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer/>
             </StackLayout.GestureRecognizers>
-            <Image Source="undraw_online_calendar_re_wk3t.svg" 
+            <Image Source="undraw_online_calendar_re_wk3t_blacknwhite.svg" 
             HeightRequest="100" 
             WidthRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"/>
-            <Label Text="KALENDARZ"
+            <Label Text="CALENDAR"
             TextColor="{StaticResource SharcBlack}"
             FontFamily="ReemKufiFunRegular" 
             FontSize="13"
@@ -34,12 +35,12 @@
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer/>
             </StackLayout.GestureRecognizers>
-            <Image Source="undraw_diary_re_4jpc.svg" 
+            <Image Source="undraw_diary_re_4jpc_blacknwhite.svg" 
             HeightRequest="100" 
             WidthRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"/>
-            <Label Text="PAMIETNIK"
+            <Label Text="DIARY"
             TextColor="{StaticResource SharcBlack}"
             FontFamily="ReemKufiFunRegular" 
             FontSize="13"
@@ -55,14 +56,14 @@
             AbsoluteLayout.LayoutBounds="0.25, 0.6, -0.5, -1"
             AbsoluteLayout.LayoutFlags="PositionProportional">
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer/>
+                <TapGestureRecognizer Tapped="OnRoutineClicked"/>
             </StackLayout.GestureRecognizers>
             <Image Source="undraw_to_do_re_jaef.svg" 
             HeightRequest="100" 
             WidthRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"/>
-            <Label Text="RUTYNA"
+            <Label Text="ROUTINE"
             TextColor="{StaticResource SharcBlack}"
             FontFamily="ReemKufiFunRegular" 
             FontSize="13"
@@ -70,97 +71,10 @@
             VerticalOptions="End"/>
         </StackLayout>
 
-        <!-- Bottom Navigation Container -->
-        <Grid AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
-              AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <!-- Navigation buttons and frames -->
-            <!-- First Button-Image pair -->
-            <Frame Grid.Column="0" BackgroundColor="WhiteSmoke">
-                <StackLayout>
-                    <ImageButton Source="attention.png" WidthRequest="25" HeightRequest="30">
-                        <ImageButton.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnAttentionClicked"/>
-                        </ImageButton.GestureRecognizers>
-                    </ImageButton>
-                    <Label Text="UWAGA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnAttentionClicked"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnAttentionClicked"/>
-                </Frame.GestureRecognizers>
-            </Frame>
-
-            <Frame Grid.Column="1" BackgroundColor="White">
-                <StackLayout>
-                    <ImageButton Source="icons8_schedule_96.png" WidthRequest="25" HeightRequest="30"/>
-                    <Label Text="ORGANIZACJA" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
-                </StackLayout>
-            </Frame>
-
-            <Frame Grid.Column="2" BackgroundColor="WhiteSmoke">
-                <StackLayout>
-                    <ImageButton Source="icons8_group_96.png" WidthRequest="25" HeightRequest="30" >
-                        <ImageButton.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnPeopleClicked"/>
-                        </ImageButton.GestureRecognizers>
-                    </ImageButton>
-                    <Label Text="LUDZIE" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnPeopleClicked"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnPeopleClicked"/>
-                </Frame.GestureRecognizers>
-            </Frame>
-
-            <Frame Grid.Column="3" BackgroundColor="WhiteSmoke">
-                <StackLayout>
-                    <ImageButton Source="icons8_meditation_96.png" WidthRequest="25" HeightRequest="30">
-                        <ImageButton.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
-                        </ImageButton.GestureRecognizers>
-                    </ImageButton>
-                    <Label Text="SPOKOJ" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnEntertainmentClicked"/>
-                </Frame.GestureRecognizers>
-            </Frame>
-
-            <Frame Grid.Column="4" BackgroundColor="WhiteSmoke">
-                <StackLayout>
-                    <ImageButton Source="graph_2.png" WidthRequest="25" HeightRequest="30">
-                        <ImageButton.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
-                        </ImageButton.GestureRecognizers>
-                    </ImageButton>
-                    <Label Text="GRAFY ZADAN" FontSize="7" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}" HorizontalOptions="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnGraphTasksClicked"/>
-                </Frame.GestureRecognizers>
-            </Frame>
-        </Grid>
+        <!-- Bottom Navigation -->
+        <local:BottomNavigationView AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional"
+                                    ActivePage="{Binding ActivePage}"
+                                    NavigateCommand="{Binding NavigateCommand}"/>
     </AbsoluteLayout>
 </ContentPage>

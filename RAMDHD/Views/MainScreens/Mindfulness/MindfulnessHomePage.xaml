@@ -2,28 +2,28 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:RAMDHD.Views.Components"
-             x:Class="RAMDHD.Views.MainScreens.People.PeopleHomePage"
-             Title="People"
+             x:Class="RAMDHD.Views.MainScreens.Mindfulness.MindfulnessHomePage"
+             Title="Mindfulness"
              BackgroundColor="{StaticResource White}">
 
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-        <!-- WAŻNE OSOBY Button -->
+        <!-- AFFIRMATIONS Button -->
         <StackLayout WidthRequest="150" HeightRequest="150"
             AbsoluteLayout.LayoutBounds="0.25, 0.25, -0.5, -1"
                AbsoluteLayout.LayoutFlags="PositionProportional">
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer />
+                <TapGestureRecognizer Tapped="OnAffirmationsClicked"/>
             </StackLayout.GestureRecognizers>
             <!-- Image inside StackLayout -->
-            <Image Source="undraw_lives_matter_38lv_greyscale.svg" 
+            <Image Source="undraw_super_thank_you_re_f8bo.svg" 
                HeightRequest="100" 
                WidthRequest="100"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
 
             <!-- Label inside StackLayout -->
-            <Label Text="IMPORTANT PEOPLE"
+            <Label Text="AFFIRMATIONS"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular" 
                FontSize="13"
@@ -31,45 +31,22 @@
                VerticalOptions="End"/>
         </StackLayout>
 
-        <!-- FORUM Button -->
+        <!-- MANDALAS Button -->
         <StackLayout WidthRequest="150" HeightRequest="150"
             AbsoluteLayout.LayoutBounds="0.75, 0.25, -0.5, -1"
                AbsoluteLayout.LayoutFlags="PositionProportional">
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnForumClicked"/>
+                <TapGestureRecognizer/>
             </StackLayout.GestureRecognizers>
             <!-- Image inside StackLayout -->
-            <Image Source="undraw_forms_re_pkrt.svg" 
+            <Image Source="undraw_making_art_re_ee8w_blacknwhite.svg" 
                HeightRequest="100" 
                WidthRequest="100"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
 
             <!-- Label inside StackLayout -->
-            <Label Text="FORUMS"
-               TextColor="{StaticResource SharcBlack}"
-               FontFamily="ReemKufiFunRegular" 
-               FontSize="13"
-               HorizontalOptions="Center"
-               VerticalOptions="End"/>
-        </StackLayout>
-
-        <!-- LINIA POMOCY Button -->
-        <StackLayout WidthRequest="150" HeightRequest="150"
-            AbsoluteLayout.LayoutBounds="0.25, 0.6, -0.5, -1"
-               AbsoluteLayout.LayoutFlags="PositionProportional">
-            <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnHelplineClicked"/>
-            </StackLayout.GestureRecognizers>
-            <!-- Image inside StackLayout -->
-            <Image Source="undraw_night_calls_5jh7.svg" 
-               HeightRequest="100" 
-               WidthRequest="100"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
-
-            <!-- Label inside StackLayout -->
-            <Label Text="HELPLINE"
+            <Label Text="MANDALAS"
                TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunRegular" 
                FontSize="13"

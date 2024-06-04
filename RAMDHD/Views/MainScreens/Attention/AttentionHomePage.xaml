@@ -1,7 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RAMDHD.Views.MainScreens.Attention.AttentionHomePage"
              xmlns:local="clr-namespace:RAMDHD.Views.Components"
+             x:Class="RAMDHD.Views.MainScreens.Attention.AttentionHomePage"
              Title="Attention"
              BackgroundColor="{StaticResource White}">
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">

@@ -1,49 +1,58 @@
 ﻿using RAMDHD.Views.MainScreens.Attention;
-using RAMDHD.Views.MainScreens.Entertainment;
+using RAMDHD.Views.MainScreens.Mindfulness;
 using RAMDHD.Views.MainScreens.GraphTask;
+using RAMDHD.Views.MainScreens.Organization.Routine;
 using RAMDHD.Views.MainScreens.People;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
+using System.ComponentModel;
 
 namespace RAMDHD.Views.MainScreens.Organization
 {
-    public partial class OrganizationHomePage : ContentPage
+    public partial class OrganizationHomePage : ContentPage, INotifyPropertyChanged
     {
+        private int activePage;
         public OrganizationHomePage()
         {
+            ActivePage = 1;
             InitializeComponent();
+            BindingContext = this;
         }
-        private async void OnAttentionClicked(object sender, EventArgs e)
+        public int ActivePage
         {
-            Console.WriteLine("OnAttentionClicked");
-            // Navigate to AttentionHomePage
-            await this.Navigation.PushAsync(new AttentionHomePage());
+            get => activePage;
+            set
+            {
+                if (activePage != value)
+                {
+                    activePage = value;
+                    OnPropertyChanged(nameof(ActivePage));
+                }
+            }
         }
-        private async void OnOrganizationClicked(object sender, EventArgs e)
+        public ICommand NavigateCommand => new Command<string>(async (page) =>
         {
-            Console.WriteLine("OnOrganizationClicked");
-            // Navigate to OrganizationHomePage
-            await this.Navigation.PushAsync(new OrganizationHomePage());
-        }
-        private async void OnPeopleClicked(object sender, EventArgs e)
+            switch (page)
+            {
+                case "Attention":
+                    await this.Navigation.PushAsync(new AttentionHomePage());
+                    break;
+                case "Organization":
+                    await this.Navigation.PushAsync(new OrganizationHomePage());
+                    break;
+                case "People":
+                    await this.Navigation.PushAsync(new PeopleHomePage());
+                    break;
+                case "Mindfulness":
+                    await this.Navigation.PushAsync(new MindfulnessHomePage());
+                    break;
+                case "GraphTasks":
+                    await this.Navigation.PushAsync(new ProcrastinationHomePage());
+                    break;
+            }
+        });
+        private async void OnRoutineClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("OnAttentionClicked");
-            // Navigate to PeopleHomePage
-            await this.Navigation.PushAsync(new PeopleHomePage());
-        }
-        private async void OnEntertainmentClicked(object sender, EventArgs e)
-        {
-            Console.WriteLine("OnEntertainmentClicked");
-            // Navigate to EntertainmentHomePage
-            await this.Navigation.PushAsync(new EntertainmentHomePage());
-        }
-        private async void OnGraphTasksClicked(object sender, EventArgs e)
-        {
-            Console.WriteLine("GraphTasks");
-            await this.Navigation.PushAsync(new ProcrastinationHomePage());
+            await this.Navigation.PushAsync(new RoutineMenuPage());
         }
     }
 }

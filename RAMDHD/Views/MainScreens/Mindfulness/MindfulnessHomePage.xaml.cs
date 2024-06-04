@@ -1,22 +1,20 @@
-﻿using RAMDHD.Views.MainScreens.Attention.Flashcards;
-using RAMDHD.Views.MainScreens.Mindfulness;
+﻿using RAMDHD.Views.MainScreens.Attention;
 using RAMDHD.Views.MainScreens.GraphTask;
+using RAMDHD.Views.MainScreens.Mindfulness.Affirmations;
 using RAMDHD.Views.MainScreens.Organization;
 using RAMDHD.Views.MainScreens.People;
 using System.Windows.Input;
-using System.ComponentModel;
 
-namespace RAMDHD.Views.MainScreens.Attention
+namespace RAMDHD.Views.MainScreens.Mindfulness
 {
-    public partial class AttentionHomePage : ContentPage, INotifyPropertyChanged
+    public partial class MindfulnessHomePage : ContentPage
     {
         private int activePage;
-        public AttentionHomePage()
+        public MindfulnessHomePage()
         {
-            ActivePage = 0;
+            ActivePage = 3;
             InitializeComponent();
-            BindingContext = this; // Set the BindingContext to the current instance
-
+            BindingContext = this;
         }
         public int ActivePage
         {
@@ -51,18 +49,9 @@ namespace RAMDHD.Views.MainScreens.Attention
                     break;
             }
         });
-
-        private async void OnTimerClicked(object sender, EventArgs e)
+        private async void OnAffirmationsClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TimerPage());
+            await this.Navigation.PushAsync(new AffirmationsPage());
         }
-        private async void OnNotesClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NotesPage());
-        }
-        private async void OnFlashcardsClicked(object sender, EventArgs e)
-        {
-            await this.Navigation.PushAsync(new FlashcardsMenuPage());
-        } 
     }
 }
