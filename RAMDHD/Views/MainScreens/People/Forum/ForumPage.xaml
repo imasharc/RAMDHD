@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD.Views.Components"
+             x:Class="RAMDHD.Views.MainScreens.People.Forum.ForumPage"
+             Title="Forums Page"
+             BackgroundColor="{StaticResource White}">
+    <AbsoluteLayout x:Name="MainLayout" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <!-- Header -->
+        <HorizontalStackLayout
+            AbsoluteLayout.LayoutBounds="0.2, 0.02, -1, -1"
+                   AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Label Text="Forums which you can trust"
+                   FontSize="16"
+                   TextColor="{StaticResource Tertiary}"
+                   FontFamily="ReemKufiFunBold"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   />
+        </HorizontalStackLayout>
+
+        <!-- Placeholder Frames for Adding New Graph Tasks -->
+        <Frame
+               x:Name="placeholder1"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.16, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholder1Tapped"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel1"
+                    Text="{Binding Headline, FallbackValue='Mozna Zwariowac - Community on Facebook'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="{StaticResource SharcBlack}"
+                    HeightRequest="50" 
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+
+                </Label>
+                <Image Source="{Binding ImageSource, FallbackValue='internet.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,10,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPlaceholder1Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame
+               x:Name="placeholder2"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.32, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholder2Tapped"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel2"
+                    Text="{Binding Headline, FallbackValue='ADHD Community on Reddit'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="{StaticResource SharcBlack}"
+                    HeightRequest="50" 
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+
+                </Label>
+                <Image Source="{Binding ImageSource, FallbackValue='internet.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,10,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPlaceholder2Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame
+               x:Name="placeholder3"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.48, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholder3Tapped"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel3"
+                    Text="{Binding Headline, FallbackValue='ADDitude.com articles and forum'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="{StaticResource SharcBlack}"
+                    HeightRequest="50" 
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPlaceholder3Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image
+                       Source="{Binding ImageSource, FallbackValue='internet.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,10,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- Bottom Navigation -->
+        <local:BottomNavigationView AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional"
+                                    ActivePage="{Binding ActivePage}"
+                                    NavigateCommand="{Binding NavigateCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>
