@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.Sqlite;
+﻿using Microsoft.Data.Sqlite;
 
 namespace RAMDHD.Database
 {
@@ -40,19 +35,52 @@ namespace RAMDHD.Database
             //    Console.WriteLine("An error occurred: " + ex.Message);
             //}
 
-            var tableCommand = @"
-            CREATE TABLE IF NOT EXISTS GraphTask (
-                Id INTEGER PRIMARY KEY,
-                Title TEXT NOT NULL,
-                Activity1 TEXT NOT NULL,
-                Activity2 TEXT NOT NULL,
-                Activity3 TEXT NOT NULL,
-                Activity4 TEXT NOT NULL,
-                Procrastination INTEGER NOT NULL
-            )";
+            CreateGraphTaskTable(connection); // Create GraphTask table
+            CreateNotesTable(connection); // Create Note table
+            CreateRoutineTable(connection); // Create Routine table
+        }
 
-            var createTable = new SqliteCommand(tableCommand, connection);
-            createTable.ExecuteNonQuery();
+        private void CreateGraphTaskTable(SqliteConnection connection)
+        {
+            var tableCommandText = @"
+                CREATE TABLE IF NOT EXISTS GraphTask (
+                    Id INTEGER PRIMARY KEY,
+                    Title TEXT NULLABLE,
+                    Activity1 TEXT NULLABLE,
+                    Activity2 TEXT NULLABLE,
+                    Activity3 TEXT NULLABLE,
+                    Activity4 TEXT NULLABLE,
+                    Procrastination INTEGER NULLABLE
+                )";
+            var createTableCommand = new SqliteCommand(tableCommandText, connection);
+            createTableCommand.ExecuteNonQuery();
+        }
+
+        private void CreateNotesTable(SqliteConnection connection)
+        {
+            var tableCommandText = @"
+                CREATE TABLE IF NOT EXISTS Note (
+                    Id INTEGER PRIMARY KEY,
+                    Headline TEXT NULLABLE,
+                    Description TEXT NULLABLE
+                )";
+            var createTableCommand = new SqliteCommand(tableCommandText, connection);
+            createTableCommand.ExecuteNonQuery();
+        }
+        private void CreateRoutineTable(SqliteConnection connection)
+        {
+            var tableCommandText = @"
+                CREATE TABLE IF NOT EXISTS Routine (
+                    Id INTEGER PRIMARY KEY,
+                    Title TEXT NULLABLE,
+                    Description TEXT NULLABLE,
+                    Step1 TEXT NULLABLE,
+                    Step2 TEXT NULLABLE,
+                    Step3 TEXT NULLABLE,
+                    Step4 TEXT NULLABLE
+                )";
+            var createTableCommand = new SqliteCommand(tableCommandText, connection);
+            createTableCommand.ExecuteNonQuery();
         }
     }
 }
