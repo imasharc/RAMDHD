@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD.Views.Components"
+             x:Class="RAMDHD.Views.MainScreens.Organization.Routine.EditRoutinePage"
+             Title="Edit Routine"
+             BackgroundColor="{StaticResource Primary}">
+    <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="FillAndExpand">
+
+            <!-- Task Title Entry -->
+            <Entry x:Name="HeadlineEntry"
+               Placeholder="Enter routine name"
+               FontSize="16"
+               TextColor="{StaticResource Tertiary}"
+               FontFamily="ReemKufiFunBold"
+               MaxLength="160" />
+
+            <Label
+                Text="Below you can describe the routine precisely"
+                LineBreakMode="WordWrap"
+                WidthRequest="300"
+                FontSize="13"
+                TextColor="{StaticResource Tertiary}"
+                FontFamily="ReemKufiFunBold"/>
+
+            <Entry x:Name="DescriptionEntry"
+               Placeholder="Enter note description"
+               FontSize="16"
+               TextColor="{StaticResource Tertiary}"
+               FontFamily="ReemKufiFunBold"
+               MaxLength="160" />
+
+            <Entry x:Name="Step1Entry"
+               Placeholder="Enter step 1 of the routine"
+               FontSize="16"
+               TextColor="{StaticResource Tertiary}"
+               FontFamily="ReemKufiFunBold"
+               MaxLength="160" />
+
+            <Entry x:Name="Step2Entry"
+               Placeholder="Enter step 2 of the routine"
+               FontSize="16"
+               TextColor="{StaticResource Tertiary}"
+               FontFamily="ReemKufiFunBold"
+               MaxLength="160" />
+
+            <Entry x:Name="Step3Entry"
+               Placeholder="Enter step 3 of the routine"
+               FontSize="16"
+               TextColor="{StaticResource Tertiary}"
+               FontFamily="ReemKufiFunBold"
+               MaxLength="160" />
+
+            <Entry x:Name="Step4Entry"
+               Placeholder="Enter step 4 of the routine"
+               FontSize="16"
+               TextColor="{StaticResource Tertiary}"
+               FontFamily="ReemKufiFunBold"
+               MaxLength="160" />
+            
+        </VerticalStackLayout>
+
+        <!-- Save Button -->
+        <Button
+              Text="SAVE"
+              WidthRequest="200" HeightRequest="50"
+              Margin="0,100,0,0"
+              BackgroundColor="LightGreen" TextColor="Green" BorderWidth="1"
+              HorizontalOptions="Center" VerticalOptions="Center"
+               AbsoluteLayout.LayoutBounds="0.5, 0.67, 0, 0"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+            Clicked="OnSaveButtonClickedAsync"
+               IsEnabled="True"
+            />
+
+        <!-- Delete Button -->
+        <Button
+              Text="CANCEL"
+              WidthRequest="200" HeightRequest="50"
+            AbsoluteLayout.LayoutBounds="0.5, 0.83, 0, 0"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+              BackgroundColor="Red" TextColor="DarkRed" BorderWidth="1"
+              HorizontalOptions="Center" VerticalOptions="Center"
+            Clicked="OnCancelButtonClickedAsync"
+               IsEnabled="True"
+            />
+
+        <!-- Bottom Navigation -->
+        <local:BottomNavigationView AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional"
+                                    ActivePage="{Binding ActivePage}"
+                                    NavigateCommand="{Binding NavigateCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>
