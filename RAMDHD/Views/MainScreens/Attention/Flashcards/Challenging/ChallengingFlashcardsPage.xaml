@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD.Views.Components"
+             x:Class="RAMDHD.Views.MainScreens.Attention.Flashcards.Challenging.ChallengingFlashcardsPage"
+             Title="Challenging Flashcards"
+             BackgroundColor="{StaticResource White}">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <!-- Sample Flashcards Button -->
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.5, 0.1, -0.5, -1"
+                 AbsoluteLayout.LayoutFlags="PositionProportional">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnSampleChallengesClicked"/>
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_order_delivered_re_v4ab.svg" 
+               HeightRequest="200" 
+               WidthRequest="200"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+            <!-- Label inside StackLayout -->
+            <Label Text="SAMPLE CHALLENGES"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalOptions="Center"
+               VerticalOptions="End"/>
+        </StackLayout>
+
+        <!-- Custom Flashcards Button -->
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.5, 0.6, -0.5, -1"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 IsEnabled="False">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnCustomChallengesClicked"/>
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_researching_re_fuod_blacknwhite.svg" 
+               HeightRequest="200" 
+               WidthRequest="200"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+            <!-- Label inside StackLayout -->
+            <Label Text="CUSTOM CHALLENGES"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalOptions="Center"
+               VerticalOptions="End"/>
+        </StackLayout>
+
+        <!-- Bottom Navigation -->
+        <local:BottomNavigationView AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional"
+                                    ActivePage="{Binding ActivePage}"
+                                    NavigateCommand="{Binding NavigateCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>
