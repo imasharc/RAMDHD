@@ -15,7 +15,7 @@ namespace RAMDHD.Views.MainScreens.Attention
         {
             ActivePage = 0;
             InitializeComponent();
-            BindingContext = this; // Set the BindingContext to the current instance
+            BindingContext = this;
 
         }
         public int ActivePage
@@ -58,7 +58,7 @@ namespace RAMDHD.Views.MainScreens.Attention
         }
         private async void OnNotesClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NotesPage());
+            await Navigation.PushAsync(new NotesMenuPage());
         }
         private async void OnFlashcardsClicked(object sender, EventArgs e)
         {

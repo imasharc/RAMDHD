@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD.Views.Components"
+             x:Class="RAMDHD.Views.MainScreens.Attention.Flashcards.FlashcardsMenuPage"
+             Title="Flashcards Menu"
+             BackgroundColor="{StaticResource White}">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <!-- Educational Flashcards Button -->
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.5, 0.1, -0.5, -1"
+                 AbsoluteLayout.LayoutFlags="PositionProportional">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnEducationalFlashcardsClicked"/>
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_education_f8ru.svg" 
+               HeightRequest="200" 
+               WidthRequest="200"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+            <!-- Label inside StackLayout -->
+            <Label Text="EDUCATIONAL"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalOptions="Center"
+               VerticalOptions="End"/>
+        </StackLayout>
+
+        <!-- Challenging Flashcards Button -->
+        <StackLayout WidthRequest="150" HeightRequest="150"
+            AbsoluteLayout.LayoutBounds="0.5, 0.6, -0.5, -1"
+                 AbsoluteLayout.LayoutFlags="PositionProportional">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnChallengingFlashcardsClicked"/>
+            </StackLayout.GestureRecognizers>
+            <!-- Image inside StackLayout -->
+            <Image Source="undraw_fitness_stats_sht6.svg" 
+               HeightRequest="200" 
+               WidthRequest="200"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+            <!-- Label inside StackLayout -->
+            <Label Text="CHALLENGING"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunRegular" 
+               FontSize="13"
+               HorizontalOptions="Center"
+               VerticalOptions="End"/>
+        </StackLayout>
+
+        <!-- Bottom Navigation -->
+        <local:BottomNavigationView AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional"
+                                    ActivePage="{Binding ActivePage}"
+                                    NavigateCommand="{Binding NavigateCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>
