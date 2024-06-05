@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD.Views.Components"
+             x:Class="RAMDHD.Views.MainScreens.Attention.Flashcards.Challenging.Sample.SampleChallengesFlashcardsPage"
+             Title="Sample Challenges"
+             BackgroundColor="{StaticResource White}">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <!-- Flashcards Container -->
+        <StackLayout AbsoluteLayout.LayoutBounds="0.5, 0.3, -0.5, 0.5"
+                     AbsoluteLayout.LayoutFlags="XProportional, YProportional, WidthProportional, HeightProportional"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <!-- Flashcard 1 -->
+            <Frame x:Name="Flashcard1" BackgroundColor="White" CornerRadius="10" Padding="10">
+                <StackLayout>
+                    <Label x:Name="Flashcard1Front" Text="Question?" IsVisible="True"
+                           WidthRequest="250" HeightRequest="100"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           FontSize="16" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}"
+                           HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                    <Label x:Name="Flashcard1Back" Text="Answer" IsVisible="False"
+                           WidthRequest="250" HeightRequest="150"
+                           HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                           FontSize="16" FontFamily="ReemKufiFunRegular" TextColor="{StaticResource SharcBlack}"
+                           HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFlashcard1Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Add more flashcards as needed -->
+
+        </StackLayout>
+
+        <!-- Draw Random Flashcard Button -->
+        <Frame
+               x:Name="placeholder1"
+               WidthRequest="200" HeightRequest="60"
+               BackgroundColor="{StaticResource Secondary}"
+               CornerRadius="20" BorderColor="{StaticResource SharcBlack}"
+               AbsoluteLayout.LayoutBounds="0.5, 0.75, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnRandomButtonClicked"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel1"
+                    Text="{Binding Title, FallbackValue='RANDOM'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    FontSize="13"
+                    TextColor="{StaticResource SharcBlack}"
+                    HeightRequest="50" 
+                    WidthRequest="100"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="20, 30, 0, 0">
+
+                </Label>
+                <Image Source="{Binding ImageSource, FallbackValue='dice_four.png'}"
+                       WidthRequest="20"
+                       HeightRequest="20"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,10,0">
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- Bottom Navigation -->
+        <local:BottomNavigationView AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional"
+                                    ActivePage="{Binding ActivePage}"
+                                    NavigateCommand="{Binding NavigateCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>
