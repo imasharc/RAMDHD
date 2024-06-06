@@ -1,0 +1,201 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD.Views.Components"
+             x:Class="RAMDHD.Views.MainScreens.GraphTask.Custom.GraphTaskTemplatePage"
+             Title="TitleLabel"
+             BackgroundColor="{StaticResource White}">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        
+        <!-- Activity 1 -->
+        <Frame
+            x:Name="Activity1"
+            WidthRequest="80"
+            HeightRequest="80"
+            CornerRadius="40"
+            BorderColor="Gray"
+            BackgroundColor="Gainsboro"
+            AbsoluteLayout.LayoutBounds="0.2, 0.1, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ActivityTapped" CommandParameter="Activity1" />
+            </Frame.GestureRecognizers>
+            <Image
+                Source="number1_square.svg"
+                HeightRequest="50"
+                WidthRequest="50"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+        </Frame>
+
+        <Label
+            x:Name="Activity1Label"
+            Grid.Column="2" Grid.Row="0"
+            Text="1. ?"
+            FontFamily="ReemKufiFunRegular"
+            FontSize="13"
+            TextColor="DarkBlue"
+            AbsoluteLayout.LayoutBounds="0.6, 0.12, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            WidthRequest="200"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            LineBreakMode="WordWrap">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ActivityTapped" CommandParameter="Activity1" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- Curved Arrow -->
+        <Image
+            Source="arrow_right.png"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            AbsoluteLayout.LayoutBounds="0.25, 0.2, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            HeightRequest="100"
+            WidthRequest="50" />
+
+        <!-- Activity 2 -->
+        <Frame
+            x:Name="Activity2"
+            WidthRequest="80"
+            HeightRequest="80"
+            CornerRadius="40"
+            BorderColor="Gray"
+            BackgroundColor="Gainsboro"
+            AbsoluteLayout.LayoutBounds="0.42, 0.25, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            HorizontalOptions="Center"
+            VerticalOptions="Start">
+            <Image
+                Source="number2_square.svg" 
+                HeightRequest="50"
+                WidthRequest="50"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+        </Frame>
+
+        <Label
+            x:Name="Activity2Label"
+            Text="2. ?"
+            FontFamily="ReemKufiFunRegular"
+            FontSize="13"
+            AbsoluteLayout.LayoutBounds="0.55, 0.28, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            LineBreakMode="WordWrap"
+            WidthRequest="150"
+            TextColor="DarkBlue"
+            HorizontalOptions="Start"
+            VerticalOptions="Center" />
+
+        <!-- Curved Arrow -->
+        <Image
+            Source="arrow_left.png"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            AbsoluteLayout.LayoutBounds="0.35, 0.36, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            HeightRequest="100"
+            WidthRequest="50" />
+
+        <!-- Activity 3 -->
+        <Frame
+            x:Name="Activity3"
+            WidthRequest="80"
+            HeightRequest="80"
+            CornerRadius="40"
+            AbsoluteLayout.LayoutBounds="0.16, 0.4, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            BorderColor="Gray"
+            BackgroundColor="Gainsboro"
+            HorizontalOptions="Center"
+            VerticalOptions="Start">
+            <Image
+                Source="number3_square.svg" 
+                HeightRequest="50"
+                WidthRequest="50"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+        </Frame>
+
+        <Label
+            x:Name="Activity3Label"
+            Text="3. ?"
+            FontFamily="ReemKufiFunRegular"
+            FontSize="13"
+            TextColor="DarkBlue"
+            LineBreakMode="WordWrap"
+            WidthRequest="200"
+            AbsoluteLayout.LayoutBounds="0.4, 0.42, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"/>
+
+        <!-- Curved Arrow -->
+        <Image
+            Source="arrow_right.png"
+            HorizontalOptions="Center"
+            AbsoluteLayout.LayoutBounds="0.25, 0.52, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            VerticalOptions="End"
+            HeightRequest="100"
+            WidthRequest="60" />
+
+        <!-- Activity 4 -->
+        <Frame
+            x:Name="Activity4"
+            WidthRequest="80"
+            HeightRequest="80"
+            CornerRadius="40"
+            AbsoluteLayout.LayoutBounds="0.45, 0.55, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            BorderColor="Gray"
+            BackgroundColor="LightGreen"
+            HorizontalOptions="Center"
+            VerticalOptions="Start">
+            <Image
+                Source="trophy.png" 
+                HeightRequest="50"
+                WidthRequest="50"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+        </Frame>
+
+        <Label
+            x:Name="Activity4Label"
+            Text="4. ?"
+            FontFamily="ReemKufiFunBold"
+            FontSize="13"
+            AbsoluteLayout.LayoutBounds="0.6, 0.55, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            TextColor="DarkBlue"
+            WidthRequest="160"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"/>
+
+        <!-- Secondary Button -->
+        <Button Text="BACK TO THE MENU"
+                WidthRequest="270"
+                FontSize="13"
+                TextColor="{StaticResource SharcBlack}"
+                FontFamily="ReemKufiFunBold"
+                BackgroundColor="{StaticResource Tertiary}"
+                BorderWidth="1"
+                BorderColor="{StaticResource Secondary}"
+                AbsoluteLayout.LayoutBounds="0.5, 0.8, -1, -1"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Clicked="NavigateToGraphTaskMenu" IsEnabled="True" />
+
+        <!-- Bottom Navigation -->
+        <local:BottomNavigationView AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional"
+                                    ActivePage="{Binding ActivePage}"
+                                    NavigateCommand="{Binding NavigateCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>
