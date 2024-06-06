@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD.Views.Components"
+             x:Class="RAMDHD.Views.MainScreens.Organization.Routine.RoutineTemplatePage"
+             Title="TitleLabel"
+             BackgroundColor="{StaticResource White}">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Label
+            x:Name="TitleLabel"
+            Text="title"
+            FontFamily="ReemKufiFunRegular"
+            FontSize="20"
+            TextColor="{StaticResource SharcBlack}"
+            TextDecorations="Underline"
+            AbsoluteLayout.LayoutBounds="0.4, 0.05, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            WidthRequest="200"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            LineBreakMode="WordWrap">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+            x:Name="DescriptionLabel"
+            Text="description"
+            FontFamily="ReemKufiFunRegular"
+            FontSize="16"
+            TextColor="{StaticResource SharcBlack}"
+            AbsoluteLayout.LayoutBounds="0.4, 0.15, -0.5, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            WidthRequest="200"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            LineBreakMode="WordWrap">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <StackLayout
+            Padding="20"
+            AbsoluteLayout.LayoutBounds="0, 0.4, -1, -1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            Spacing="10">
+            <!-- Routine Step 1 -->
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                <CheckBox x:Name="Step1CheckBox" Color="LightGreen" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                <Label x:Name="Step1Label" Text="Routine Step 1"
+                       TextColor="{StaticResource SharcBlack}" FontFamily="ReemKufiFunRegular" FontSize="18"
+                       VerticalOptions="Center" />
+            </StackLayout>
+            <!-- Routine Step 2 -->
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                <CheckBox x:Name="Step2CheckBox" Color="LightGreen" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                <Label x:Name="Step2Label" Text="Routine Step 2"
+                       TextColor="{StaticResource SharcBlack}" FontFamily="ReemKufiFunRegular" FontSize="18"
+                       VerticalOptions="Center" />
+            </StackLayout>
+            <!-- Routine Step 3 -->
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                <CheckBox x:Name="Step3CheckBox" Color="LightGreen" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                <Label x:Name="Step3Label" Text="Routine Step 3"
+                       TextColor="{StaticResource SharcBlack}" FontFamily="ReemKufiFunRegular" FontSize="18"
+                       VerticalOptions="Center" />
+            </StackLayout>
+            <!-- Routine Step 4 -->
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                <CheckBox x:Name="Step4CheckBox" Color="LightGreen" CheckedChanged="OnCheckBoxCheckedChanged"/>
+                <Label x:Name="Step4Label" Text="Routine Step 4"
+                       TextColor="{StaticResource SharcBlack}" FontFamily="ReemKufiFunRegular" FontSize="18"
+                       VerticalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+
+        <!-- Back to Menu Button -->
+        <Button
+              Text="BACK TO MENU"
+              WidthRequest="200" HeightRequest="50"
+            AbsoluteLayout.LayoutBounds="0.5, 0.8, 0, 0"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+              BackgroundColor="{StaticResource Secondary}" TextColor="{StaticResource SharcBlack}" BorderWidth="1"
+              HorizontalOptions="Center" VerticalOptions="Center"
+            Clicked="OnBackToMenuButtonClickedAsync"
+               IsEnabled="True"
+            />
+
+        <!-- Bottom Navigation -->
+        <local:BottomNavigationView AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional"
+                                    ActivePage="{Binding ActivePage}"
+                                    NavigateCommand="{Binding NavigateCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>
