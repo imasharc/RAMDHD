@@ -34,11 +34,11 @@
             <HorizontalStackLayout>
                 <Label
                     x:Name="placeholderLabel1"
-                    Text="{Binding Title, FallbackValue='Add new routine'}"
+                    Text="Add new routine"
                     FontFamily = "ReemKufiFunRegular"
                     TextColor="{StaticResource Gray200}"
                     HeightRequest="50" 
-                    WidthRequest="250"
+                    WidthRequest="220"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
                     Margin="40, 20, 0, 0">
@@ -81,11 +81,11 @@
             <HorizontalStackLayout>
                 <Label
                     x:Name="placeholderLabel2"
-                    Text="{Binding Title, FallbackValue='Add new routine'}"
+                    Text="Add new routine"
                     FontFamily = "ReemKufiFunRegular"
                     TextColor="{StaticResource Gray200}"
                     HeightRequest="50" 
-                    WidthRequest="250"
+                    WidthRequest="220"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
                     Margin="40, 20, 0, 0">
@@ -128,11 +128,11 @@
             <HorizontalStackLayout>
                 <Label
                     x:Name="placeholderLabel3"
-                    Text="{Binding Title, FallbackValue='Add new routine'}"
+                    Text="Add new routine"
                     FontFamily = "ReemKufiFunRegular"
                     TextColor="{StaticResource Gray200}"
                     HeightRequest="50" 
-                    WidthRequest="250"
+                    WidthRequest="220"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
                     Margin="40, 20, 0, 0">
@@ -177,11 +177,11 @@
             <HorizontalStackLayout>
                 <Label
                     x:Name="placeholderLabel4"
-                    Text="{Binding Title, FallbackValue='Add new routine'}"
+                    Text="Add new routine"
                     FontFamily = "ReemKufiFunRegular"
                     TextColor="{StaticResource Gray200}"
                     HeightRequest="50" 
-                    WidthRequest="250"
+                    WidthRequest="220"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
                     Margin="40, 20, 0, 0">
@@ -226,11 +226,11 @@
             <HorizontalStackLayout>
                 <Label
                     x:Name="placeholderLabel5"
-                    Text="{Binding Title, FallbackValue='Add new routine'}"
+                    Text="Add new routine"
                     FontFamily = "ReemKufiFunRegular"
                     TextColor="{StaticResource Gray200}"
                     HeightRequest="50" 
-                    WidthRequest="250"
+                    WidthRequest="220"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
                     Margin="40, 20, 0, 0">

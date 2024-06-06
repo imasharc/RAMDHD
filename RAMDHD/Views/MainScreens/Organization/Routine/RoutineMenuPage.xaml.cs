@@ -103,7 +103,7 @@ public partial class RoutineMenuPage : ContentPage
             if (answer)
             {
                 // Perform the delete action
-                await _databaseAccess.DeleteNoteByIdAsync(id);
+                await _databaseAccess.DeleteRoutineByIdAsync(id);
 
                 await DisplayAlert("Success", $"Routine deleted successfully", "OK");
 
