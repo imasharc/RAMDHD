@@ -1,0 +1,109 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD.Views.Components"
+             x:Class="RAMDHD.Views.MainScreens.GraphTask.Custom.EditGraphTaskPage"
+             Title="Edit Graph Task"
+             BackgroundColor="{StaticResource White}">
+    <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="FillAndExpand">
+
+            <!-- Task Title Entry -->
+            <Entry x:Name="TitleEntry"
+               Placeholder="Enter graph task title"
+               FontSize="16"
+               TextColor="{StaticResource SharcBlack}"
+               FontFamily="ReemKufiFunBold"
+               MaxLength="160" />
+
+            <Label
+                Text="Enter the activities and select the procrastination one"
+                LineBreakMode="WordWrap"
+                WidthRequest="320"
+                FontSize="13"
+                TextColor="{StaticResource Tertiary}"
+                FontFamily="ReemKufiFunBold"/>
+
+            <!-- Each Activity Entry with Radio Button -->
+            <HorizontalStackLayout>
+                <Entry
+                    x:Name="Activity1Entry"
+                    FontSize="16"
+                    TextColor="{StaticResource SharcBlack}"
+                    FontFamily="ReemKufiFunBold"
+                    Placeholder="Enter name for Activity 1" />
+                <RadioButton
+                    x:Name="Activity1Radio"
+                    IsVisible="True"
+                    Opacity="1"
+                    GroupName="ProcrastinationTasks" Value="Activity1"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Entry
+                    x:Name="Activity2Entry"
+                    FontSize="16"
+                    TextColor="{StaticResource SharcBlack}"
+                    FontFamily="ReemKufiFunBold"
+                    Placeholder="Enter name for Activity 2" />
+                <RadioButton
+                    x:Name="Activity2Radio"
+                    GroupName="ProcrastinationTasks" Value="Activity2"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Entry
+                    x:Name="Activity3Entry"
+                    FontSize="16"
+                    TextColor="{StaticResource SharcBlack}"
+                    FontFamily="ReemKufiFunBold"
+                    Placeholder="Enter name for Activity 3" />
+                <RadioButton
+                    x:Name="Activity3Radio"
+                    GroupName="ProcrastinationTasks" Value="Activity3"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Entry
+                    x:Name="Activity4Entry"
+                    FontSize="16"
+                    TextColor="Green"
+                    FontFamily="ReemKufiFunBold"
+                    Placeholder="Enter name for closing Activity 4" />
+                <!-- No radio button for finish task as it's always the end task -->
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+        <!-- Save Button -->
+        <Button
+              Text="SAVE"
+              WidthRequest="200" HeightRequest="50"
+              Margin="0,100,0,0"
+              BackgroundColor="LightGreen" TextColor="Green" BorderWidth="1"
+              HorizontalOptions="Center" VerticalOptions="Center"
+               AbsoluteLayout.LayoutBounds="0.5, 0.6, 0, 0"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+            Clicked="OnSaveButtonClickedAsync"
+               IsEnabled="True"
+            />
+
+        <!-- Delete Button -->
+        <Button
+              Text="CANCEL"
+              WidthRequest="200" HeightRequest="50"
+            AbsoluteLayout.LayoutBounds="0.5, 0.77, 0, 0"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+              BackgroundColor="Red" TextColor="DarkRed" BorderWidth="1"
+              HorizontalOptions="Center" VerticalOptions="Center"
+            Clicked="OnCancelButtonClickedAsync"
+               IsEnabled="True"
+            />
+
+        <!-- Bottom Navigation -->
+        <local:BottomNavigationView AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional"
+                                    ActivePage="{Binding ActivePage}"
+                                    NavigateCommand="{Binding NavigateCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>
