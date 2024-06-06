@@ -1,0 +1,283 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RAMDHD.Views.Components"
+             x:Class="RAMDHD.Views.MainScreens.GraphTask.Custom.GraphTaskMenu"
+             Title="Graph Tasks Menu"
+             BackgroundColor="{StaticResource White}">
+    <AbsoluteLayout x:Name="MainLayout" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <!-- Header -->
+        <HorizontalStackLayout
+            AbsoluteLayout.LayoutBounds="0.2, 0.02, -1, -1"
+                   AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Label Text="Created graph tasks"
+                   FontSize="16"
+                   TextColor="{StaticResource Tertiary}"
+                   FontFamily="ReemKufiFunBold"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   />
+            <Image Source="info_circle.svg"
+                       WidthRequest="25"
+                       HeightRequest="25"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="10,0,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToSampleGraphTaskPage"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </HorizontalStackLayout>
+
+        <!-- Placeholder Frames for Adding New Graph Tasks -->
+        <Frame
+               x:Name="placeholder1"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.16, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="1"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel1"
+                    Text="{Binding Title}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="{StaticResource Gray200}"
+                    HeightRequest="50" 
+                    WidthRequest="220"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+
+                </Label>
+                <Image Source="{Binding EditIcon, FallbackValue='edit_pencil.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditGraphTask" CommandParameter="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                       Source="{Binding DeleteIcon, FallbackValue='x.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DeleteGraphTask" CommandParameter="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame
+               x:Name="placeholder2"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.32, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="2"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel2"
+                    Text="{Binding Title, FallbackValue='Add new graph task'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="{StaticResource Gray200}"
+                    HeightRequest="50" 
+                    WidthRequest="220"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+                    
+                </Label>
+                <Image Source="{Binding EditIcon, FallbackValue='edit_pencil.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditGraphTask" CommandParameter="2"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                       Source="{Binding DeleteIcon, FallbackValue='x.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DeleteGraphTask" CommandParameter="2"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame
+               x:Name="placeholder3"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.48, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="3"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel3"
+                    Text="{Binding Title, FallbackValue='Add new graph task'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="{StaticResource Gray200}"
+                    HeightRequest="50" 
+                    WidthRequest="220"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="3"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image
+                       Source="{Binding EditIcon, FallbackValue='edit_pencil.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditGraphTask" CommandParameter="3"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                       Source="{Binding DeleteIcon, FallbackValue='x.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DeleteGraphTask" CommandParameter="3"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame
+               x:Name="placeholder4"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.64, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="4"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel4"
+                    Text="{Binding Title, FallbackValue='Add new graph task'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="{StaticResource Gray200}"
+                    HeightRequest="50" 
+                    WidthRequest="220"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="4"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image
+                       Source="{Binding ImageSource, FallbackValue='edit_pencil.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,10,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditGraphTask" CommandParameter="4"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                       Source="{Binding DeleteIcon, FallbackValue='x.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DeleteGraphTask" CommandParameter="3"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame
+               x:Name="placeholder5"
+               WidthRequest="400" HeightRequest="100"
+               BackgroundColor="WhiteSmoke"
+               CornerRadius="10"
+               AbsoluteLayout.LayoutBounds="0.5, 0.8, 0.5, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="5"/>
+            </Frame.GestureRecognizers>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="placeholderLabel5"
+                    Text="{Binding Title, FallbackValue='Add new graph task'}"
+                    FontFamily = "ReemKufiFunRegular"
+                    TextColor="{StaticResource Gray200}"
+                    HeightRequest="50" 
+                    WidthRequest="220"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="40, 20, 0, 0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPlaceholderTapped" CommandParameter="5"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image
+                       Source="{Binding ImageSource, FallbackValue='edit_pencil.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,10,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditGraphTask" CommandParameter="5"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                       Source="{Binding DeleteIcon, FallbackValue='x.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DeleteGraphTask" CommandParameter="3"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- Bottom Navigation -->
+        <local:BottomNavigationView AbsoluteLayout.LayoutBounds="0.5, 1, 1, AutoSize"
+                                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional, PositionProportional"
+                                    ActivePage="{Binding ActivePage}"
+                                    NavigateCommand="{Binding NavigateCommand}"/>
+    </AbsoluteLayout>
+</ContentPage>
