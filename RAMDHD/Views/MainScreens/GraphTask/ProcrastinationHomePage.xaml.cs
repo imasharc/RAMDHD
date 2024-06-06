@@ -13,7 +13,7 @@ namespace RAMDHD.Views.MainScreens.GraphTask
         private int activePage;
         public ProcrastinationHomePage()
         {
-            ActivePage = 0;
+            ActivePage = 4;
             InitializeComponent();
             BindingContext = this;
         }
