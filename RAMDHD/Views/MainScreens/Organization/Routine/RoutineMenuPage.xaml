@@ -44,14 +44,25 @@
                     Margin="40, 20, 0, 0">
 
                 </Label>
-                <Image Source="{Binding ImageSource, FallbackValue='icons8_edit_96.png'}"
+                <Image Source="{Binding EditIcon, FallbackValue='edit_pencil.svg'}"
                        WidthRequest="30"
                        HeightRequest="30"
                        HorizontalOptions="EndAndExpand"
                        VerticalOptions="Center"
-                       Margin="0,0,10,0">
+                       Margin="0,0,0,0">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="EditRoutine" CommandParameter="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                       Source="{Binding DeleteIcon, FallbackValue='x.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DeleteRoutine" CommandParameter="1"/>
                     </Image.GestureRecognizers>
                 </Image>
             </HorizontalStackLayout>
@@ -80,14 +91,25 @@
                     Margin="40, 20, 0, 0">
 
                 </Label>
-                <Image Source="{Binding ImageSource, FallbackValue='icons8_edit_96.png'}"
+                <Image Source="{Binding EditIcon, FallbackValue='edit_pencil.svg'}"
                        WidthRequest="30"
                        HeightRequest="30"
                        HorizontalOptions="EndAndExpand"
                        VerticalOptions="Center"
-                       Margin="0,0,10,0">
+                       Margin="0,0,0,0">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="EditRoutine" CommandParameter="2"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                       Source="{Binding DeleteIcon, FallbackValue='x.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DeleteRoutine" CommandParameter="2"/>
                     </Image.GestureRecognizers>
                 </Image>
             </HorizontalStackLayout>
@@ -118,15 +140,25 @@
                         <TapGestureRecognizer Tapped="EditRoutine" CommandParameter="3"/>
                     </Label.GestureRecognizers>
                 </Label>
-                <Image
-                       Source="{Binding ImageSource, FallbackValue='icons8_edit_96.png'}"
-                       WidthRequest="25"
-                       HeightRequest="25"
+                <Image Source="{Binding EditIcon, FallbackValue='edit_pencil.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
                        HorizontalOptions="EndAndExpand"
                        VerticalOptions="Center"
-                       Margin="0,0,10,0">
+                       Margin="0,0,0,0">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Tapped="EditRoutine" CommandParameter="3"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                       Source="{Binding DeleteIcon, FallbackValue='x.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DeleteRoutine" CommandParameter="3"/>
                     </Image.GestureRecognizers>
                 </Image>
             </HorizontalStackLayout>
@@ -157,15 +189,25 @@
                         <TapGestureRecognizer Tapped="EditRoutine" CommandParameter="4"/>
                     </Label.GestureRecognizers>
                 </Label>
-                <Image
-                       Source="{Binding ImageSource, FallbackValue='icons8_edit_96.png'}"
-                       WidthRequest="25"
-                       HeightRequest="25"
+                <Image Source="{Binding EditIcon, FallbackValue='edit_pencil.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
                        HorizontalOptions="EndAndExpand"
                        VerticalOptions="Center"
-                       Margin="0,0,10,0">
+                       Margin="0,0,0,0">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Tapped="EditRoutine" CommandParameter="4"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                       Source="{Binding DeleteIcon, FallbackValue='x.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DeleteRoutine" CommandParameter="4"/>
                     </Image.GestureRecognizers>
                 </Image>
             </HorizontalStackLayout>
@@ -196,15 +238,25 @@
                         <TapGestureRecognizer Tapped="EditRoutine" CommandParameter="5"/>
                     </Label.GestureRecognizers>
                 </Label>
-                <Image
-                       Source="{Binding ImageSource, FallbackValue='icons8_edit_96.png'}"
-                       WidthRequest="25"
-                       HeightRequest="25"
+                <Image Source="{Binding EditIcon, FallbackValue='edit_pencil.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
                        HorizontalOptions="EndAndExpand"
                        VerticalOptions="Center"
-                       Margin="0,0,10,0">
+                       Margin="0,0,0,0">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Tapped="EditRoutine" CommandParameter="5"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                       Source="{Binding DeleteIcon, FallbackValue='x.svg'}"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DeleteRoutine" CommandParameter="5"/>
                     </Image.GestureRecognizers>
                 </Image>
             </HorizontalStackLayout>

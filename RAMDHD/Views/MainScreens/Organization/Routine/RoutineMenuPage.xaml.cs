@@ -16,7 +16,7 @@ public partial class RoutineMenuPage : ContentPage
     private DatabaseDataAccess _databaseAccess = new DatabaseDataAccess(new DatabaseConnection(dbPath));
     public RoutineMenuPage()
 	{
-        ActivePage = 0;
+        ActivePage = 1;
         InitializeComponent();
         BindingContext = this;
         LoadAndDisplayNotes();
@@ -84,8 +84,34 @@ public partial class RoutineMenuPage : ContentPage
         {
             string id = tapGesture.CommandParameter.ToString();
             Console.WriteLine($"Image with ID {id} tapped");
-            // Navigate to an edit page or perform action related to the image tap
             await Navigation.PushAsync(new EditRoutinePage(id));
+        }
+    }
+    private async void DeleteRoutine(object sender, EventArgs e)
+    {
+        if (sender is Image image && image.GestureRecognizers.FirstOrDefault() is TapGestureRecognizer tapGesture)
+        {
+            int.TryParse(tapGesture.CommandParameter.ToString(), out int id);
+
+            bool answer = await Application.Current.MainPage.DisplayAlert(
+            "Confirm Delete",
+            "Are you sure you want to delete this routine?",
+            "Yes",
+            "No"
+        );
+
+            if (answer)
+            {
+                // Perform the delete action
+                await _databaseAccess.DeleteNoteByIdAsync(id);
+
+                await DisplayAlert("Success", $"Routine deleted successfully", "OK");
+
+                // Insert the new GraphTaskMenu page before the current page and then pop the current one
+                // Creates the illusion of page refreshing
+                Navigation.InsertPageBefore(new RoutineMenuPage(), this);
+                await Navigation.PopAsync();
+            }
         }
     }
     private async void LoadAndDisplayNotes()
@@ -108,7 +134,8 @@ public partial class RoutineMenuPage : ContentPage
         var viewModel = new RoutineViewModel
         {
             Title = title,
-            ImageSource = "icons8_edit_96.png" // Make sure this image exists in your resources
+            EditIcon = "edit_pencil.svg",
+            DeleteIcon = "trash.svg"
         };
 
         Frame placeholder = FindPlaceholderById(routine.Id);
@@ -126,7 +153,9 @@ public partial class RoutineMenuPage : ContentPage
 
             // Add the newly bound image and label to the StackLayout
             stackLayout.Children.Add(CreateLabel(viewModel, routine.Id));
-            stackLayout.Children.Add(CreateImage(viewModel, routine.Id));
+            stackLayout.Children.Add(CreateEditIcon(viewModel, routine.Id));
+            stackLayout.Children.Add(CreateDeleteIcon(viewModel, routine.Id));
+
         }
     }
     private Label CreateLabel(RoutineViewModel viewModel, int commandParameter)
@@ -137,7 +166,7 @@ public partial class RoutineMenuPage : ContentPage
             //Text = string.IsNullOrWhiteSpace(viewModel.Title) ? "Add new graph task" : viewModel.Title,
             Text = "Add new routine",
             FontSize = 13,
-            WidthRequest = 250,
+            WidthRequest = 220,
             HorizontalTextAlignment = TextAlignment.Start,
             VerticalTextAlignment = TextAlignment.Center,
             VerticalOptions = LayoutOptions.Center,
@@ -153,21 +182,43 @@ public partial class RoutineMenuPage : ContentPage
 
         return label;
     }
-    private Image CreateImage(RoutineViewModel viewModel, int commandParameter)
+    private Image CreateEditIcon(RoutineViewModel viewModel, int commandParameter)
     {
         var image = new Image
         {
-            Source = "icons8_edit_96.png",
-            HeightRequest = 25, // Adjust the size as necessary
-            WidthRequest = 25,
+            Source = "edit_pencil.svg",
+            HeightRequest = 30, // Adjust the size as necessary
+            WidthRequest = 30,
             HorizontalOptions = LayoutOptions.End,
             VerticalOptions = LayoutOptions.Center,
+            Margin = new Thickness(0, 0, 0, 0),
             Aspect = Aspect.AspectFit
         };
-        image.SetBinding(Image.SourceProperty, "ImageSource");
+        image.SetBinding(Image.SourceProperty, "EditIcon");
 
         var imageTapGestureRecognizer = new TapGestureRecognizer();
         imageTapGestureRecognizer.Tapped += EditRoutine; // assuming this is a method in your code
+        imageTapGestureRecognizer.CommandParameter = commandParameter; // or whatever parameter you want to pass
+        image.GestureRecognizers.Add(imageTapGestureRecognizer);
+
+        return image;
+    }
+    private Image CreateDeleteIcon(RoutineViewModel viewModel, int commandParameter)
+    {
+        var image = new Image
+        {
+            Source = "trash.svg",
+            HeightRequest = 30, // Adjust the size as necessary
+            WidthRequest = 30,
+            HorizontalOptions = LayoutOptions.End,
+            VerticalOptions = LayoutOptions.Center,
+            Margin = new Thickness(20, 0, 0, 0),
+            Aspect = Aspect.AspectFit
+        };
+        image.SetBinding(Image.SourceProperty, "DeleteIcon");
+
+        var imageTapGestureRecognizer = new TapGestureRecognizer();
+        imageTapGestureRecognizer.Tapped += DeleteRoutine; // assuming this is a method in your code
         imageTapGestureRecognizer.CommandParameter = commandParameter; // or whatever parameter you want to pass
         image.GestureRecognizers.Add(imageTapGestureRecognizer);
 
