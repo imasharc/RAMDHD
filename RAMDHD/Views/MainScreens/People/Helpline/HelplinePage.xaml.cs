@@ -13,7 +13,7 @@ public partial class HelplinePage : ContentPage
     private int activePage;
     public HelplinePage()
 	{
-        ActivePage = 0;
+        ActivePage = 2;
         InitializeComponent();
         BindingContext = this;
     }

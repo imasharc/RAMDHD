@@ -10,13 +10,13 @@ namespace RAMDHD.Views.MainScreens.Mindfulness.Affirmations;
 
 public partial class AffirmationsPage : ContentPage
 {
-    private int activePage;;
+    private int activePage;
     private List<Flashcard> flashcards;
     private Random random = new Random();
 
     public AffirmationsPage()
     {
-        ActivePage = 0;
+        ActivePage = 3;
         InitializeComponent();
         BindingContext = this;
         LoadFlashcards();

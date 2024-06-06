@@ -12,7 +12,7 @@ public partial class ForumPage : ContentPage
     private int activePage;
     public ForumPage()
 	{
-        ActivePage = 0;
+        ActivePage = 2;
         InitializeComponent();
         BindingContext = this;
     }
