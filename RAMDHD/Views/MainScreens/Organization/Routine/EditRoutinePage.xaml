@@ -13,7 +13,7 @@
             <Entry x:Name="HeadlineEntry"
                Placeholder="Enter routine name"
                FontSize="16"
-               TextColor="{StaticResource Tertiary}"
+               TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunBold"
                MaxLength="160" />
 
@@ -28,38 +28,36 @@
             <Entry x:Name="DescriptionEntry"
                Placeholder="Enter note description"
                FontSize="16"
-               TextColor="{StaticResource Tertiary}"
+               TextColor="{StaticResource SharcBlack}"
                FontFamily="ReemKufiFunBold"
                MaxLength="160" />
 
-            <Entry x:Name="Step1Entry"
-               Placeholder="Enter step 1 of the routine"
-               FontSize="16"
-               TextColor="{StaticResource Tertiary}"
-               FontFamily="ReemKufiFunBold"
-               MaxLength="160" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Entry x:Name="Step2Entry"
-               Placeholder="Enter step 2 of the routine"
-               FontSize="16"
-               TextColor="{StaticResource Tertiary}"
-               FontFamily="ReemKufiFunBold"
-               MaxLength="160" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <Entry x:Name="Step3Entry"
-               Placeholder="Enter step 3 of the routine"
-               FontSize="16"
-               TextColor="{StaticResource Tertiary}"
-               FontFamily="ReemKufiFunBold"
-               MaxLength="160" />
+                <Label Grid.Row="0" Grid.Column="0" Text="1." TextColor="{StaticResource Tertiary}" FontFamily="ReemKufiFunBold" FontSize="16" VerticalTextAlignment="Center" />
+                <Entry x:Name="Step1Entry" Grid.Row="0" Grid.Column="1" Placeholder="Enter step 1 of the routine" FontSize="16" TextColor="{StaticResource SharcBlack}" FontFamily="ReemKufiFunBold" MaxLength="160" />
 
-            <Entry x:Name="Step4Entry"
-               Placeholder="Enter step 4 of the routine"
-               FontSize="16"
-               TextColor="{StaticResource Tertiary}"
-               FontFamily="ReemKufiFunBold"
-               MaxLength="160" />
-            
+                <Label Grid.Row="1" Grid.Column="0" Text="2." TextColor="{StaticResource Tertiary}" FontFamily="ReemKufiFunBold" FontSize="16" VerticalTextAlignment="Center" />
+                <Entry x:Name="Step2Entry" Grid.Row="1" Grid.Column="1" Placeholder="Enter step 2 of the routine" FontSize="16" TextColor="{StaticResource SharcBlack}" FontFamily="ReemKufiFunBold" MaxLength="160" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="3." TextColor="{StaticResource Tertiary}" FontFamily="ReemKufiFunBold" FontSize="16" VerticalTextAlignment="Center" />
+                <Entry x:Name="Step3Entry" Grid.Row="2" Grid.Column="1" Placeholder="Enter step 3 of the routine" FontSize="16" TextColor="{StaticResource SharcBlack}" FontFamily="ReemKufiFunBold" MaxLength="160" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="4." TextColor="{StaticResource Tertiary}" FontFamily="ReemKufiFunBold" FontSize="16" VerticalTextAlignment="Center" />
+                <Entry x:Name="Step4Entry" Grid.Row="3" Grid.Column="1" Placeholder="Enter step 4 of the routine" FontSize="16" TextColor="{StaticResource SharcBlack}" FontFamily="ReemKufiFunBold" MaxLength="160" />
+            </Grid>
+
         </VerticalStackLayout>
 
         <!-- Save Button -->

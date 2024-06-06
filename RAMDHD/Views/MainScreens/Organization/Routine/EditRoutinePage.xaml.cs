@@ -14,10 +14,21 @@ public partial class EditRoutinePage : ContentPage
     private int placeholderId;
     private static string dbPath = Path.Combine(FileSystem.AppDataDirectory, "Database\\ramdhd.db");
     private DatabaseDataAccess _databaseAccess = new DatabaseDataAccess(new DatabaseConnection(dbPath));
-    public EditRoutinePage()
-	{
-		InitializeComponent();
-	}
+    public EditRoutinePage(string placeholderIdString)
+    {
+        ActivePage = 1;
+        InitializeComponent();
+        BindingContext = this;
+        if (int.TryParse(placeholderIdString, out placeholderId))
+        {
+            // Fetch and load the graph task data
+            LoadRoutineDataAsync(placeholderId);
+        }
+        else
+        {
+            // Handle the case where the ID is not valid
+        }
+    }
     public int ActivePage
     {
         get => activePage;
@@ -51,18 +62,18 @@ public partial class EditRoutinePage : ContentPage
                 break;
         }
     });
-    public EditRoutinePage(string placeholderIdString)
+    private async Task LoadRoutineDataAsync(int id)
     {
-        InitializeComponent();
-        if (int.TryParse(placeholderIdString, out placeholderId))
+        var routine = await _databaseAccess.GetRoutineByIdAsync(id);
+        if (routine != null)
         {
-            ActivePage = 0;
-            InitializeComponent();
-            BindingContext = this;
-        }
-        else
-        {
-            // Handle the case where the ID is not valid
+            HeadlineEntry.Text = routine.Title;
+            DescriptionEntry.Text = routine.Description;
+            Step1Entry.Text = routine.Step1;
+            Step2Entry.Text = routine.Step2;
+            Step3Entry.Text = routine.Step3;
+            Step4Entry.Text = routine.Step4;
+
         }
     }
     private async void OnSaveButtonClickedAsync(object sender, EventArgs e)
