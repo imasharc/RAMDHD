@@ -12,7 +12,8 @@ namespace RAMDHD.ViewModels.Routine
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string _title = "Add new routine";
-        private string _imageSource = "icons8_edit_96.png";
+        private string _editIcon;
+        private string _deleteIcon;
 
         public string Title
         {
@@ -26,15 +27,27 @@ namespace RAMDHD.ViewModels.Routine
                 }
             }
         }
-        public string ImageSource
+        public string EditIcon
         {
-            get => _imageSource;
+            get => _editIcon;
             set
             {
-                if (_imageSource != value)
+                if (_editIcon != value)
                 {
-                    _imageSource = value;
-                    OnPropertyChanged(nameof(ImageSource));
+                    _editIcon = value;
+                    OnPropertyChanged(nameof(EditIcon));
+                }
+            }
+        }
+        public string DeleteIcon
+        {
+            get => _deleteIcon;
+            set
+            {
+                if (_deleteIcon != value)
+                {
+                    _deleteIcon = value;
+                    OnPropertyChanged(nameof(DeleteIcon));
                 }
             }
         }
