@@ -49,7 +49,7 @@
             <HorizontalStackLayout>
                 <Label
                     x:Name="placeholderLabel1"
-                    Text="{Binding Title, FallbackValue='RANDOM'}"
+                    Text="RANDOM"
                     FontFamily = "ReemKufiFunRegular"
                     FontSize="13"
                     TextColor="{StaticResource SharcBlack}"
